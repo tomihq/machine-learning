@@ -38,7 +38,6 @@
     \end{tikzpicture}
 \end{figure}
 
-\newpage
 \section*{Dilatación}
 Sean $a, n \in \float $ decimos que estamos dilatando al número a sí y solo sí $ a \ = \ a \ * \ n$ con $n >= 1$
 \section*{Contracción}
@@ -199,6 +198,7 @@ Entonces, el cálculo que hay que hacer es: ((b * f) - (c * e), \textcolor{red}{
 \end{itemize}
 \section*{Planos en $\float^{3}$}
 Dado un \textbf{vector normal N} y un \textbf{punto de paso P} construimos la ecuación del plano $\pi$ que es perpendicular al \textbf{vector normal} y contiene al punto P (es decir, P verifica la ecuación del plano).
+Véase \textbf{\hyperref[subsec:ejercicios_planos]{\underline{anexo}}} para ejercicios de Planos.
 \subsection*{Hallar vector normal N de un Plano}
 El vector normal N de un Plano lo podemos hallar comúmnente de las siguientres maneras 
 \begin{itemize}
@@ -216,10 +216,21 @@ Debe verificar la ecuación implícita.
 \section*{Rectas Paramétricas}
 En $\float^{2} = L:(x,y) = \alpha (v_{1}, v_{2}) + (P_{1}, P_{2}), \alpha \in \float$ \\
 En $\float^{3} = L:(x,y,z) = \alpha (v_{1}, v_{2}, v_{3}) + (P_{1}, P_{2}, P_{3}), \alpha \in \float$
+Véase \hyperref[subsec:ejercicios_rectas_planos]{\underline{anexo}} para ver ejercicios con rectas y planos.
+\subsection*{Rectas Paralelas}
+Dos rectas son paralelas sí sus vectores son uno múltiplo del otro.
+\subsection*{Rectas Perpendiculares}
+Dos rectas son perpendiculares si el producto escalar entre ambos vectores directores da 0.
+\subsection*{Rectas Alabeadas}
+Dos rectas son alabeadas si no existe intersección entre ellas, y además son paralelas.
 \subsection*{Intersección entre dos rectas}
 Sean $L_{1}, L_{2}$ dos rectas.
 La intersección entre dos rectas se da en un punto específico. Por lo tanto, se espera que la intersección sea un número y además, este número pertenece a $L_{1}$ Y $L_{2}$
-
+\subsection*{Casos de Rectas y Planos}
+\begin{itemize}
+    \item Si tengo plano + 2 rectas: Si se cruzan o son paralelas, entonces existe un único plano.
+    \item Si tengo plano + 1 recta: Existen infinitos planos que la contenga.
+\end{itemize}
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -240,4 +251,92 @@ Complete y lleve a una fórmula conocida: $x^{2} + y^{2} + z^{2} + 8x - 6y + 16$
     \item El resultado entonces, es una Esfera en $\float^{3}$ con centro = (-4, 3, 0) y radio = 3
     \item Si se quisiera verificar si está bien, podemos desarrollar todos los cuadrados y deberíamos volver a la expresión original.
 \end{itemize}
+\subsection*{Planos}
+\label{subsec:ejercicios_planos}
+\textbf{1}. Hallar la ecuación implícita del plano $\pi$ cuya normal sea $N=(-3, 0, 4)$ y que pasa por el punto $P=(2, 1, 1)$ \\
+Recordemos como podemos armar un plano. Para poder armar un plano necesitamos un vector normal y un punto de paso. \\
+Por lo tanto, este ejercicio es bastante simple, podemos simplemente aplicar la fórmula de $\pi:ax+by+cz = d$ \\
+Entonces, nos quedaría algo así: $ \pi:-3x + 0y + 4z = d$ \\
+Ahora ¿como calculo d?, podemos calcular d evalúando el punto $P$ en el plano. \\
+Por lo tanto $d=-3(2) + 4(1) \equiv d = -2$ \\
+Entonces, el plano $\pi:-3x+4z=-2$ \\
+
+\textbf{2}. Dados los puntos $A=(1, 2, 3), B=(1,0,1) \ y \ C=(4, -1, 2)$ encuentre el plano. \\
+Recordemos como podemos armar un plano. Para poder armar un plano necesitamos un vector normal y un punto de paso. \\
+¿Tenemos la normal? No. ¿Como podemos calcularla? La manera de calcular un vector normal sería hacer el producto cruz entre dos vectores directores. \\
+Por lo tanto, calculemos nuestros dos vectores directores $ \bar{AB} = (0, -2, -2)$ luego $\bar{BC} = (3, -1, 1)$ \\
+\textbf{Nota}: Sería lo mismo calcular AB y BC que AB Y AC.
+Ahora lo que podemos hacer es una vez que tenemos las dos direcciones podemos buscar con el producto cruz, un vector perpendicular que hará de nuestra normal. \\
+PD: Recordemos que $A x B = - (B x A)$. Por lo tanto da igual que orden pongamos los vectores.
+\[
+\begin{pmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+0 & -2 & -2\\
+3 & -1 & 1
+\end{pmatrix}
+\]
+Nuestro vector normal N termina siendo N = $(-4, 6, 6)$ \\
+¿Ahora qué nos falta? Un punto. Entonces podemos elegir cualquiera de los puntos A, B, C (xq las rectas estarían contenidas en el plano) \\
+Si quisieramos verificar si efectivamente la normal nos dió bien, podemos calcular el producto escalar de $N * AB$ y $N * BC$ y ambos deberían dar 0. \\
+Entonces, ahora por último hacemos lo mismo que en ejercicio anterior. $\pi:-4x+6y+6z=d \implies d=-4(1)+6(0)+6(1) \implies d = 2$ \\
+Finalizamos, juntando la ecuación $\pi:-4x+6y+6z=2 \equiv \pi:-2x+3y+3z=1$ 
+\subsection*{Rectas $\&$ Rectas y Planos}
+\label{subsec:ejercicios_rectas_planos}
+\textbf{1}. Dadas la recta $L:t(1, 1, 1) + (3, 0, 4)$ y el plano $\pi:2x-y+5z=10$ halle $L \cap \pi$. \\
+Recordemos qué significa que una recta pueda intersecarse con un plano: que una recta pueda intersecarse con un plano o al revés significa que existe al menos un punto que tienen en común. \\
+Con esto quiero decir que el punto que encontremos debe verificar tanto el plano como la recta. \\
+Como tenemos que encontrar UN PUNTO necesitamos encontrar la fórmula generadora de puntos de la recta o el plano. \\
+En este caso, como tenemos la recta en parámetrica y el plano en implícita nos conviene más fácil pasar la parámetrica y ver qué pinta tienen los puntos. \\
+Entonces, si pasamos L a parámetrica nos queda: $(t+3, t, t+4)$ entonces $x=(t+3), y=t, z=t+4$ \\
+Ahora, coloquemos lo que acabamos de encontrar en el plano, esto nos dará la variable $t$ para la recta. Como este t nos lo da después de meterlo el punto de la recta en el plano, cuando reemplacemos en el punto genérico con el t que encontramos, entonces ese punto será el de la intersección del plano y la recta.  \\
+$\pi:2(t+3)-(t)+5(t+4)=10 \equiv \pi:2t+6-t+5t+20=20 \equiv \pi:t=\frac{-8}{3}$ \\
+Ahora, este t lo colocamos en la fórmula genérica de los puntos de la recta: $((\frac{-8}{3}+3), \frac{-8}{3}, \frac{-8}{3}+4)$. \\
+Entonces, la intersección es el punto $P=(\frac{1}{3}, \frac{-8}{3}, \frac{4}{3})$ \\
+Por lo tanto, verifiquemos ahora, si este punto verifica el plano. \\
+$\pi:2(\frac{1}{3}) - (\frac{-8}{3}) + 5(\frac{4}{3}) = 10 \equiv 10 = 10$
+
+Luego, como el punto lo arrojó la recta, y verifica el plano, entonces la intersección $ L \cap \pi = (\frac{1}{3}, \frac{-8}{3}, \frac{4}{3})$ \\
+
+\textbf{2}. Dar la ecuación implícita del plano $\pi$ que contiene a la recta. \\
+$L:\alpha(2, 1, 3) + (2, 1, 0)$ y al punto $P=(0, 1, -1)$
+Recordemos que si un plano contiene a una recta, todos los puntos de la recta están en el plano. \\
+(preguntar qué pasaba si el punto estaba en la recta, qué cambiaba el ejercicio, en este caso no está)
+Lo primero que tenemos que ver es si el punto $P \in L$. Si el punto está en la recta, entonces hay infinitos planos. Si el punto NO está en la recta, entonces hay un único plano. \\
+Como necesito sí o sí dos vectores directores para mi plano, puedo hacer un vector director de la resta de $QP=(0, 1, -1) - (2, 1, 0) = (-2, 0, -1)$ \\
+Entonces ahora hago el producto cruz entre $(2, 1, 3)$ y $(-2, 0, 1)$
+\[
+\begin{pmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+-2 & 0 & -1\\
+2 & 1 & 3
+\end{pmatrix}
+\]
+Nuestro vector normal N termina siendo N = $(1, 4, -2)$  \\
+Entonces ahora, finalizamos el ejercicio evaluando en la normal el punto P $\pi:x+4y-2z=d$ \\
+$d = (0) + 4(1) - 2(-1) \equiv d = 6$ \\
+Entonces finalizamos con $\pi:x+4y-2z=6$ \\
+
+\textbf{3}. Dadas las rectas $L_{1}:\alpha(-1, 0, 1) + (4, 3, 2)$ y $L_{2}:\gamma(2, 0, -2) + (0, 0, 1)$. Halle la ecuación implícita del plano $\pi$ que las contiene. \\
+Lo primero que vemos es que tenemos dos rectas. Necesitamos de alguna manera un vector normal para el plano. \\
+Primero vemos qué relación hay entre las rectas, podemos ver que son paralelas porque si hacemos $(-1, 0, 1) * -2$ nos da $(2, 0, -2)$. \\
+Como son paralelas, necesitamos de alguna manera, llegar desde una recta a la otra, para luego, cuando tenemos un punto que llega y combina las rectas, ahí si podemos calcular con el producto cruz el vector normal. \\
+\begin{center}
+    \begin{minipage}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth]{assets/rectas_paralelas_plano.jpg}
+        \centering
+        \label{fig:rectas_paralelas_plano}
+    \end{minipage}
+\end{center}
+Entonces, restemos los dos puntos $\bar{PQ}=Q-P=(0, 0,1)-(4,3,2) = (-4, -3, 1)$. \\
+Por lo tanto, ahora sí que tenemos dos vectores directores (no paralelos) podemos hacer el producto cruz para calcular la normal del plano.
+\[
+\begin{pmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+-1 & 0 & 1\\
+-4 & -3 & -1
+\end{pmatrix}
+\]
+Nuestro vector normal N termina siendo N = $(3, -5, 3)$ \\
+Por lo tanto ahora que tenemos el plano $\pi:3x-5y+3z=d$, buscamos el valor de D evaluando cualquier punto de las rectas $d=3(0)-5(0)+3(1)=3$ \\
+Luego, el plano resultante $\pi:3x-5y+3z=3$
 \end{document} 
