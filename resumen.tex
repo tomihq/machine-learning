@@ -11,7 +11,6 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{listings}
-
 \lstset{
     inputencoding=utf8,
     extendedchars=true,
@@ -242,11 +241,121 @@ x = x(t) \\
 y = y(t)
 \end{cases}
 \]
-\textbf{Nota}: Una recta es una especie de Curva. \\
-Definimos la Curva Paramétrica C como $ C=\{(x(t), y(t)) / t \in I\}$. Le decimos paramétrica porque espera un parámetro. \\
-\textbf{Importante}: (x(t), y(t)) es conocido como la parametrización de la curva. Existen infinitas parametrizaciones para una curva.
-\subsection*{Trayectoria de la partícula}
-Toda curva tiene una trayectoria dada. La ídea es que la partícula se va moviendo a lo largo del tiempo. Es útil e importante, ver como progresa la curva a lo largo del tiempo e indicar hacía donde se dirige la partícula en cada momento.
+\textbf{Nota}: Una recta es un tipo de curva. Donde un punto puede hacer una trayectoria de manera ascendente o descendente.
+\subsection*{Paramétrización de la Curva}
+Existen infinitas parametrizaciones para una misma curva. Esto quiere decir, que una misma partícula puede realizar una trayectoria de mil maneras diferentes. \\
+Denotamos la parametrización de una curva como: $C = \{(x(t), y(t)) \ / \ t \in \float \}$ y decimos que es paramétrica porque espera un parámetro.
+\subsection*{¿Qué no nos dice la ecuación implícita de una curva?}
+Las ecuaciones en x y y describe \textbf{donde} ha estado la partícula pero no nos dice \textbf{cuándo} ha estado la partícula en un punto en particular. 
+\subsection*{¿Qué nos dice la ecuación paramétrica de una curva?}
+La ventaja es que nos dicen \textbf{cuándo (t)} estuvo la partícula en un punto (x, y) y la dirección en su trayectoria.
+\subsection*{Ejemplo de Curvas}
+Recordemos que básicamente una curva se arma gracias a la trayectoria de una partícula que hace cierto movimiento a lo largo del tiempo. \\
+Este tiempo se llama t, y podemos ir viendo el movimiento de la partícula gracias a la ecuación paramétrica. A medida que t aumenta, esa es la dirección que toma la partícula. \\
+\[
+f(t) =
+\begin{cases} 
+x = t^{2} - 2t \\
+y = t - 1
+\end{cases}
+\]
+Si nos ponemos a darle valores a t, vamos a ir obteniendo valores de x e y, que básicamente los podemos graficar en un plano.
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/curva.png}
+\end{minipage}\]
+Parece entonces en este ejemplo, que la partícula hizo la trayectoria de una parábola. Busquemos entonces la ecuación implícita para ver qué curva representan las ecuaciones paramétricas.
+\[
+f(t) =
+\begin{cases} 
+x = t^{2} - 2t \\
+y = t - 1 \equiv y+1 = t
+\end{cases}
+\]
+Entonces, $ x = (y+1)^{2} - 2(y+1) \equiv x = y^{2} -4y +3$ \\
+Efectivamente podemos notar que la partícula, gracias a esas ecuaciones parámetricas y dando el tiempo t fuimos formando la curva paramétrica (parábola) $ x = y^{2} -4y +3$. \\
+Entonces ¿cuál es la diferencia entre tener la ecuación paramétrica con un parámetro t o tener la que depende de x e y? La diferencia es que con la parámetrica podemos saber en qué lugar estaba la partícula en un tiempo t. \\
+\subsection*{Restringiendo los posibles valores t de la Curva}
+Se utilizan intervalos. Es decir, nosotros podemos decir qué trayectoria recorre la partícula, desde qué t hasta qué t. \\
+Esto se define como $ x = f(t) \ y \ y = g(t) \ a \le t \le b$ donde el \textbf{punto inicial} es (f(a), g(a)) y el \textbf{punto final} es (f(b), g(b)). \\
+Ejemplo: $ x = (t^{2} - 2t) \ y = (t+1) \ 0 \le t \le 4$
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/curva_delimitada.png}
+\end{minipage}\]
+\subsection*{Circunferencias Paramétricas}
+Se suelen representar con coseno y seno.
+\[x = cos(t), y = sen(t), 0\le t \le 2\pi\]
+Si damos unos valores t y dibujamos en el plano, veremos que está realizando una circunferencia de radio 1.
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/cost_sent.png}
+\end{minipage}\]
+Observamos que $x^{2} + y^{2} = cos^{2}\ t + sen^{2}\ t = 1$. En este caso la circunferencia se va completando gracias a la trayectoria del punto que va en sentido antihorario. \\
+\[x = sen(2t), y = cos(2t), 0\le t \le 2\pi\]
+Este es parecido al anterior, la diferencia es que ahora vamos al \textbf{doble de velocidad}. Antes con cos(t) y sen(t) ibamos de 0 a 2pi \textbf{una vez}. Acá, al estar multiplicado el t por 2, lo que va a hacer es que vamos a recorrer en 2pi \textbf{dos veces} la circunferencia (cada $\pi$ recorrimos la circunferencia entera). Pero ojo, esta es sen(2t) y cos(2t) entonces, está invertido el recorrido. Acá se hace en sentido horario.
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/sen2t_cos2t.png}
+\end{minipage}\]
+Nótese que llegamos a 3.14 y ya recorrió toda la circunferencia gracias al 2t (antes recorría la mitad). Sin embargo, el deslizador indica que le falta todavía una vuelta para dar. \\
+\textbf{Conclusión}: Podemos ver que dos parametrizaciones diferentes, representan la misma curva (circunferencia), pero recorrida a diferente velocidad.
+\subsection*{Deslizadores en GeoGebra}
+Nos permiten simular como una partícula se mueve realizando la curva. \\
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/geogebra.png}
+\end{minipage}\]
+Por si requiere orientación, observe este \href{https://www.youtube.com/watch?v=Sb1W73Vb_98&list=PLvwXmp0qN7l2Fg-D4eWt57Fri_fYN-Sw5&index=2&t=671s}{vídeo}.
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/resultado_geogebra_curva.png}
+\end{minipage}\]
+\section*{Coordenadas Cartesianas y Polares}
+\subsection*{Coordenada Cartesiana}
+Permite representar un punto en el plano mediante un par ordenado de números llamados coordenadas. \\
+Ej.: $P = (1, 2)$ está dado de forma cartesiana.
+\subsection*{Coordenada Polar}
+Permite representar un punto P mediante el par ordenado $(r, \theta)$ y r, $\theta$ se llaman coordenadas polares de P. \\
+\textbf{Recordatorio}: r: largo, $\theta$: ángulo desde el (0, 0)
+\[\begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_polares.png}
+\end{minipage}\]
+\textbf{Nota}: Si $r>0$ el punto $(r, \theta)$ está en el mismo cuadrante que $\theta$. Si $r<0$ está en el cuadrante opuesto del polo $(-r, \theta) \equiv (r, \theta + \pi)$
+\[\begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_polares_2.png}
+\end{minipage}\]
+\subsection*{Coordenadas Polares a Cartesianas}
+La fórmula se deduce a partir de lo siguiente $ cos \ (\theta) \ = \ \frac{x}{r} \ , \ sen(\theta) = \frac{y}{r}$
+\[\begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_polares_a_cartesiana.png}
+\end{minipage}\]
+Masajeando un poco, nos queda
+\[x = r * cos(\theta), \ y = r * sen(\theta)\]
+\subsection*{Coordenadas Cartesianas a Polares}
+Podemos calcularlo a partir del pasaje o la figura anterior. Por lo tanto nos quedaría 
+\[r^{2} = x^{2} + y^{2},\ tan(\theta) = \frac{y}{x} \]
+Véase \hyperref[subsec:pasaje_coord_polares_cartesianas]{anexo} para ejercicios acerca de los pasajes en este tema. 
+\section*{Curvas Polares}
+La gráfica de una ecuación polar $r = f(\theta)$ o de manera más general $F(r, \theta) = 0$ consiste de todos los puntos P que tienen al menos una representación polar $(r, \theta)$. \\
+\textbf{Ej.}: $ r = 2 $ representa a $F(2, \theta)$ y esto sería básicamente una circunferencia con centro 0 y de radio 2. ¿Por qué una circunferencia? Porque $\theta$ es un ángulo, y los ángulos van desde $0\le \theta \le 2\pi$
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/curvas_polares_graficos.png}
+\end{minipage}\]
+En la imagen anterior podemos ver varias curvas polares que representan circunferencias con centro 0. \\
+\newpage
+\textbf{Ej.}: $ \theta = 1$ representa a una curva que posee siempre el ángulo $\theta = 1 \ (medido \ en \ radianes)$ sin ninguna restricción acerca de p. 
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/curva_polar_solo_angulo.png}
+\end{minipage}\]
+\subsection*{Pasaje de Curva dada en forma Polar a Curva dada en Ecuación Cartesiana}
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/curva_polar_a_coord_cartesianas.jpg}
+\end{minipage}\]
+\textbf{Importante}: Véase que despejamos $x = r * cos(\theta)$ para ver qué vale $cos(\theta)$ porque nuestro ejercicio tenia un $2 * cos(\theta)$. Nos queda más fácil para aplicar $r^{2} \equiv x^{2} + y^{2}$
+\subsection*{Cardioide}
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/cardioide.png}
+\end{minipage}\]
+\subsection*{Rosa de 4 Pétalos}
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/rosa_4_petalos.png}
+\end{minipage}\]
+\textbf{Preguntar}: ¿Por qué $ r = 2 * cos(\theta)$ es fácil pasarlo a ecuación cartesiana y no pasa lo mismo con $ r = 1 + sen(\theta) $ o $ r = cos(2 \theta)$?
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -355,4 +464,9 @@ Por lo tanto, ahora sí que tenemos dos vectores directores (no paralelos) podem
 Nuestro vector normal N termina siendo N = $(3, -5, 3)$ \\
 Por lo tanto ahora que tenemos el plano $\pi:3x-5y+3z=d$, buscamos el valor de D evaluando cualquier punto de las rectas $d=3(0)-5(0)+3(1)=3$ \\
 Luego, el plano resultante $\pi:3x-5y+3z=3$
+\subsection*{Pasaje de Coordenadas Cartesianas a Polares y viceversa}
+\label{subsec:pasaje_coord_polares_cartesianas}
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/pasaje_coord_polares_cartesianas.jpg}
+\end{minipage}\]
 \end{document} 
