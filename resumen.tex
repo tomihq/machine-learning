@@ -415,14 +415,14 @@ $\frac{x^{2}}{b^{2}} + \frac{y^{2}}{a^{2}} = 1 \ con \ a \ge b > 0$: tiene focos
 \textbf{Tips}: Siempre recordar que si me dan un foco ya puedo determinar el eje mayor; mismo con si me dan un vértice. Recordar también que el vértice depende de \textbf{a} esto quiere decir es que si me dan el vértice me dieron el eje mayor. \\
 En la teoría no hay más que eso, véase \hyperref[subsec:elipses_ejercicios]{anexo} para ver ejercicios de elipses. \\
 \subsection*{Hipérbolas}
-Una Hipérbola es el conjunto de todos los puntos en un plano cuya diferencia de sus distancias a dos puntos fijos $F_{1}$ y $F_{2}$ (los focos) es una constante. \\
+Una Hipérbola es el conjunto de todos los puntos en un plano cuya diferencia de sus distancias a dos puntos fijos $F_{1}$ y $F_{2}$ (los focos) es una constante. 
 \subsection*{Cálculo de los focos}
 La fórmula es: $c^{2} = a^{2} + b^{2}$
 \subsection*{Formas de armar una Hipérbola}
 Existe un concepto que es eje mayor y eje menor. Encontrando el eje mayor ya sabemos donde están posicionados los focos y los vértices. \\
-$\frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = 1 \ con \ a \ge b > 0$: tiene focos $(\pm c, 0)$ donde $c^{2} = a^{2} + b^{2}$, vértices $(\pm a, 0)$ y asíntotas $y = \pm \frac{b}{a}x$ \\
-$\frac{x^{2}}{b^{2}} - \frac{y^{2}}{a^{2}} = 1 \ con \ a \ge b > 0$: tiene focos $(0,  \pm c)$ donde $c^{2} = a^{2} + b^{2}$, vértices $(0, \pm a)$ y asíntotas $y = \pm \frac{a}{b}x$ \\
-En la teoría no hay más que eso, véase \hyperref[subsec:hiperbolas_ejercicios]{anexo} para ver ejercicios de elipses. \\
+$\frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = 1$: tiene focos $(\pm c, 0)$ donde $c^{2} = a^{2} + b^{2}$, vértices $(\pm a, 0)$ y asíntotas $y = \pm \frac{b}{a}x$ \\
+$\frac{y^{2}}{a^{2}} - \frac{x^{2}}{b^{2}} = 1$: tiene focos $(0,  \pm c)$ donde $c^{2} = a^{2} + b^{2}$, vértices $(0, \pm a)$ y asíntotas $y = \pm \frac{a}{b}x$ \\
+En la teoría no hay más que eso, véase \hyperref[subsec:hiperbolas_ejercicios]{anexo} para ver ejercicios de elipses. 
 \section*{Cónicas Desplazadas}
 Son exactamente las mismas maneras, solo que acá en vez de x e y es (x-k) y (y-k).
 Entonces, ej hipérbola con eje mayor x
@@ -431,7 +431,44 @@ Entonces, ej hipérbola con eje mayor x
     \item $focos = (centroX \pm c, centroY)$
     \item $hiperbolas = -\frac{b}{a}(x - centroX) \ y \ \frac{b}{a}(x - centroX) $
 \end{itemize}
-
+\section*{Superficies Cuadráticas ($\float^{3}$)}
+$ax^{b} + by^{2} + cz^{2} + dxy + eyz + fxz + gx + hy + iz + j = 0$ \\
+No es necesario recordar la fórmula, lo que si está bueno saber que mediante rotaciones y traslaciones esta ecuación podemos reescribirlo de diferentes maneras. 
+\begin{itemize}
+    \item Tipo 1: $ax^{2} + by^{2} + cz^{2} + j = 0$
+    \item Tipo 2: $ax^{2} + by^{2} + iz = 0$
+\end{itemize}
+Estas diferentes maneras de verlo nos genera todas las cuadricas que necesitamos. \\
+Ej.: $x^{2} + \frac{y^{2}}{4} + z^{2} = 1$. Este es un caso particular del primer tipo que escribimos arriba. \\
+Para ver la resolución, véase \hyperref[subsec:trazas_superficies]{\underline{anexo}} \\
+Si quiere observar la tabla de cúadricas, véase \hyperref[subsec:tabla_cuadricas]{\underline{anexo}}
+\subsection*{Trazas}
+En un conjunto tridimensional es muy dificil de observar. \\
+Las trazas nos ayudan a través de planos paralelos a los ejes coordenados cortar una superficie.
+\begin{itemize}
+    \item z = k es un plano paralelo al plano xy
+    \item y = k es un plano paralelo al plano xz
+    \item x = k es un plano paralelo al plano yz
+\end{itemize}
+Cuando yo hago un corte a una superficie con una traza, me queda una curva. Si miro como van siendo esas curvas a medida que las corto con distintas trazas esto me da una idea de como va a ser esa superficie.
+\subsection*{Recta Generatriz}
+Es una recta que tomo en $\float^{3}$ que normalmente es para tomar paralelas y generar cortes.
+\subsection*{Cilindro}
+Es el conjunto de puntos que atraviesan la curva plana $x^{2} + y^{2} = 1$ y que son paralelas a la recta generatriz. \\
+Cuando hago un corte, asignando un valor de z nos genera un cilindro.
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/cilindro.png}
+\end{minipage}\]
+\subsection*{Cilindro Parabólico (generado por una parábola)}
+Tomo una recta generatriz en el eje y $x=z=0$.
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/cilindro_parabolico.png}
+\end{minipage}\]
+\subsection*{Cilindro Hiperbólico (generado por una hipérbola)}
+Toma una recta generatriz (eje?)
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/cilindro_hiperbolico.png}
+\end{minipage}\]
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -569,5 +606,19 @@ Con cónicas desplazadas y completar cuadrados
 \[\begin{minipage}[b]{0.7\textwidth}
     \includegraphics[width=\linewidth]{assets/hiperbola_2.jpg}
 \end{minipage}\]
-
+\subsection*{Aplicando Trazas en Superficies}
+\label{subsec:trazas_superficies}
+Para resolver este ejercicio podemos tomar $z=0$ para empezar y vemos que nos queda la ecuación de una elipse. La dibujamos en el plano de $\float^{3}$. Luego, tomamos $z=k$ y notamos que la constante a lo sumo debe ser 1 porque sino la definición sería erronea, como todos son positivos si $z=2$ falla. Entonces, los k pueden ir desde $-1 \le k \le 1$. Notamos que cortando con un $z=k$ en rango nos da una elipse que cada vez es mas chiquita. \\
+Luego, probamos con $y=0$ y esto nos da una circunferencia. \\
+Por último, probamos $x=0$ y nos da una elipse. \\
+Luego de hacer todas las trazas aproximadas, nos quedaría la figura. \\
+Este ejemplo es llamado \textbf{elipsoide}.
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/elipsoide.png}
+\end{minipage}\]
+\subsection*{Tabla de Cuadrícas}
+\label{subsec:tabla_cuadricas}
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/cuadricas.png}
+\end{minipage}\]
 \end{document} 
