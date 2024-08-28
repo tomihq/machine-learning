@@ -241,10 +241,25 @@ x = x(t) \\
 y = y(t)
 \end{cases}
 \]
-\textbf{Nota}: Una recta es un tipo de curva. Donde un punto puede hacer una trayectoria de manera ascendente o descendente.
+\textbf{Nota}: En general, una curva en $\float^{n}$ es la imagen de una función $ \alpha(t)$ continua de $\float$ en $\float^{n}$. Es decir, $Im \ \alpha = C$ \\
+\textbf{Ej.}: Una recta en $\float^{2}$ es la imagen de una curva paramétrica. \\
+Véase \hyperref[subsec:curvas_ejemplo]{anexo} para ver como parametrizar.
+\subsection*{Criterio de la Recta Vertical}
+No todas las curvas representan funciones. Para poder ver esto de una forma fácil, recordemos qué es una función. Una función es una máquina que espera un valor y da otro. \\
+Ahora, es importante que para diferentes valores tienen que dar diferentes resultados. \\
+Si existen valores que dan el mismo resultado, entonces no es una función. 
+\begin{center}
+    \begin{minipage}[b]{0.3\textwidth}
+        \includegraphics[width=\linewidth]{assets/criterio_recta_vertical.jpg}
+        \centering
+        \label{fig:criterio_recta_vertical}
+    \end{minipage}
+\end{center}
+\textbf{Importante}: Todos los gráficos son curvas pero no toda curva es gráfico de función.
 \subsection*{Paramétrización de la Curva}
 Existen infinitas parametrizaciones para una misma curva. Esto quiere decir, que una misma partícula puede realizar una trayectoria de mil maneras diferentes. \\
-Denotamos la parametrización de una curva como: $C = \{(x(t), y(t)) \ / \ t \in \float \}$ y decimos que es paramétrica porque espera un parámetro.
+Denotamos la parametrización de una curva como: $C = \{(x(t), y(t)) \ / \ t \in \float \}$ y decimos que es paramétrica porque espera un parámetro. \\
+Las parametrizaciones nos dan descripciones dinámicas mientras que las que no tienen un parámetro t son estáticas.
 \subsection*{¿Qué no nos dice la ecuación implícita de una curva?}
 Las ecuaciones en x y y describe \textbf{donde} ha estado la partícula pero no nos dice \textbf{cuándo} ha estado la partícula en un punto en particular. 
 \subsection*{¿Qué nos dice la ecuación paramétrica de una curva?}
@@ -283,13 +298,13 @@ Ejemplo: $ x = (t^{2} - 2t) \ y = (t+1) \ 0 \le t \le 4$
 \end{minipage}\]
 \subsection*{Circunferencias Paramétricas}
 Se suelen representar con coseno y seno.
-\[x = cos(t), y = sen(t), 0\le t \le 2\pi\]
+\[x = cos(t), y = sen(t), 0\le t < 2\pi\]
 Si damos unos valores t y dibujamos en el plano, veremos que está realizando una circunferencia de radio 1.
 \[\begin{minipage}[b]{0.5\textwidth}
     \includegraphics[width=\linewidth]{assets/cost_sent.png}
 \end{minipage}\]
 Observamos que $x^{2} + y^{2} = cos^{2}\ t + sen^{2}\ t = 1$. En este caso la circunferencia se va completando gracias a la trayectoria del punto que va en sentido antihorario. \\
-\[x = sen(2t), y = cos(2t), 0\le t \le 2\pi\]
+\[x = sen(2t), y = cos(2t), 0\le t < 2\pi\]
 Este es parecido al anterior, la diferencia es que ahora vamos al \textbf{doble de velocidad}. Antes con cos(t) y sen(t) ibamos de 0 a 2pi \textbf{una vez}. Acá, al estar multiplicado el t por 2, lo que va a hacer es que vamos a recorrer en 2pi \textbf{dos veces} la circunferencia (cada $\pi$ recorrimos la circunferencia entera). Pero ojo, esta es sen(2t) y cos(2t) entonces, está invertido el recorrido. Acá se hace en sentido horario.
 \[\begin{minipage}[b]{0.7\textwidth}
     \includegraphics[width=\linewidth]{assets/sen2t_cos2t.png}
@@ -319,6 +334,7 @@ Permite representar un punto P mediante el par ordenado $(r, \theta)$ y r, $\the
 \[\begin{minipage}[b]{0.3\textwidth}
     \includegraphics[width=\linewidth]{assets/coordenadas_polares_2.png}
 \end{minipage}\]
+\textbf{Importante}: $\theta$ se mide en radianes y normalmente el rango es $0 \le \theta < 2\pi$ pues el 0 es lo mismo que incluir el $2\pi$
 \subsection*{Coordenadas Polares a Cartesianas}
 La fórmula se deduce a partir de lo siguiente $ cos \ (\theta) \ = \ \frac{x}{r} \ , \ sen(\theta) = \frac{y}{r}$
 \[\begin{minipage}[b]{0.3\textwidth}
@@ -332,12 +348,12 @@ Podemos calcularlo a partir del pasaje o la figura anterior. Por lo tanto nos qu
 Véase \hyperref[subsec:pasaje_coord_polares_cartesianas]{anexo} para ejercicios acerca de los pasajes en este tema. 
 \section*{Curvas Polares}
 La gráfica de una ecuación polar $r = f(\theta)$ o de manera más general $F(r, \theta) = 0$ consiste de todos los puntos P que tienen al menos una representación polar $(r, \theta)$. \\
-\textbf{Ej.}: $ r = 2 $ representa a $F(2, \theta)$ y esto sería básicamente una circunferencia con centro 0 y de radio 2. ¿Por qué una circunferencia? Porque $\theta$ es un ángulo, y los ángulos van desde $0\le \theta \le 2\pi$
+\textbf{Ej.}: $ r = 2 $ representa a $F(2, \theta)$ y esto sería básicamente una circunferencia con centro 0 y de radio 2. ¿Por qué una circunferencia? Porque $\theta$ es un ángulo, y los ángulos van desde $0\le \theta < 2\pi$
 \[\begin{minipage}[b]{0.9\textwidth}
     \includegraphics[width=\linewidth]{assets/curvas_polares_graficos.png}
 \end{minipage}\]
 En la imagen anterior podemos ver varias curvas polares que representan circunferencias con centro 0. \\
-\newpage
+
 \textbf{Ej.}: $ \theta = 1$ representa a una curva que posee siempre el ángulo $\theta = 1 \ (medido \ en \ radianes)$ sin ninguna restricción acerca de p. 
 \[\begin{minipage}[b]{0.6\textwidth}
     \includegraphics[width=\linewidth]{assets/curva_polar_solo_angulo.png}
@@ -589,6 +605,77 @@ Luego, el plano resultante $\pi:3x-5y+3z=3$
 \[\begin{minipage}[b]{0.9\textwidth}
     \includegraphics[width=\linewidth]{assets/pasaje_coord_polares_cartesianas.jpg}
 \end{minipage}\]
+\subsection*{Parametrización}
+\label{subsec:curvas_ejemplo}
+1. $L: \ (x,y) \ = \ \lambda(2,1) \ + \ (0,1)$ \\
+\[
+f(t) =
+\begin{cases} 
+x = 2 \lambda \\
+y = \lambda \ + \ 1
+\end{cases}
+\]
+2. ¿Es C gráfico de una fución $y = f(x)$?  \\
+\[
+f(t) =
+\begin{cases} 
+x = t^{3} - 4t \\
+y = t + 1 
+\end{cases}
+\]
+Recordemos que para que una función sea $y = f(x)$ tiene que suceder que para todos los $y$ debe existir un único $x$. \\
+Vemos unos casos 
+\begin{lstlisting}
+    t = 2, x = 0, y = 3
+    t = 1, x = -3, y = 2
+    t = 0, x = 0, y = 1
+    t = -1, x = 3, y = 0
+    t = -2, x = 0, y = -1
+\end{lstlisting}
+No. No es $ y = f(x) $ pues para $x = 0$ existen diferentes valores de y. Si desarrollamos y despejamos nos queda $x = y^{3} - 3y^{2} - y +3$ con $ y \in \float $ \\
+3. Grafique la curva C
+\[
+f(t) =
+\begin{cases} 
+x = t + 1 \\
+y = t^{2}
+\end{cases}
+\]
+Si primero empezamos a darle valores a t vemos que es el gráfico de una parábola y la dirección es de izquierda a derecha
+\begin{lstlisting}
+    t = -2 x = -1 y = 4
+    t = -1, x = 0, y = 1
+    t = 0, x = 1, y = 0,
+    t = 1, x = 2, y = 1
+    t = 2, x = 3, y = 4 
+\end{lstlisting}
+$y = (x-1)^{2} $. Es una parábola corrida una unidad hacia la derecha.
+\[\begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\linewidth]{assets/parabola.jpg}
+\end{minipage}\]
+4. Hallar una ecuación cartesiana y bosqueje la curva indicando la dirección en que se traza la curva cuando crece el parámetro t. \\
+4. 1: $x = \sqrt[]{t} \ y = 1 - t$ \\
+4. 2: $x = e^{t} -1 \ y = e^{2t}$ \\
+Comenzamos resolviendo $4.1$. Lo que podemos ver es que t > 0 pues de lo contrario x se indefine. \\
+Si le damos ciertos valores a t nos queda que la curva va hacia la derecha.
+\begin{lstlisting}
+    t = 0, x = 0, y = 1
+    t = 1, x = 1, y = 0
+\end{lstlisting}
+Ahora hagamos $4.2$. Lo que podemos ver es que $y = e^{2t}$ es lo mismo que $y = (e^{t})^{2}$. \\
+Por lo tanto, como $x + 1 = e^{t}$ entonces $ y = (x+1)^{2}$ \\
+En este caso es súper importante entender la función $e$. La función e posee una asíntota en el eje x. En este caso la asíntota está en $y = -1$ pues la función $e^{t} - 1$ tiene la asíntota y corrida una unidad. Si fuese $e^{t} + 4$ la asíntota estaría en y = 4  \\
+Por lo tanto, el valor mínimo que puede tener x es -1.
+\subsection*{Coordenadas Polares}
+Dada la curva $x^{2} + y^{2} = 16$ halle una parametrización. Como es una circunferencia, entonces sabemos que el radio es $4$. Además, las circunferencias se arman con cos / sen. 
+\[
+f(t) =
+\begin{cases} 
+x = 4 \ cos(\theta) \\
+y = 4 \ sen(\theta) \ con \ 0\le \theta < 2\pi
+\end{cases}
+\]
+Entonces $\alpha(\theta) = \{4 \ cos(\theta), 4 \ sen(\theta)\}$
 \subsection*{Elipses}
 \label{subsec:elipses_ejercicios}
 \[\begin{minipage}[b]{0.7\textwidth}
@@ -596,6 +683,10 @@ Luego, el plano resultante $\pi:3x-5y+3z=3$
 \end{minipage}\]
 \[\begin{minipage}[b]{0.7\textwidth}
     \includegraphics[width=\linewidth]{assets/elipse_2.jpg}
+\end{minipage}\]
+\textbf{Nota}: Si tengo que pasar una elipse, hipérbola o cualquier otra cosa a una parametrización lo que normalmente se hace es hacer un reemplazo sintáctico. Plantear la parametrización y al final poner el valor real de la variable.
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/parametrizacion_elipse.jpg}
 \end{minipage}\]
 \subsection*{Hipérbolas}
 \label{subsec:hiperbolas_ejercicios}
