@@ -448,6 +448,7 @@ Entonces, ej hipérbola con eje mayor x
     \item $hiperbolas = -\frac{b}{a}(x - centroX) \ y \ \frac{b}{a}(x - centroX) $
 \end{itemize}
 \section*{Superficies Cuadráticas ($\float^{3}$)}
+En cualquier lado tenemos 2 direcciones para movernos libres. Podemos movernos dentro de la curva, o por las rectas. \\
 $ax^{b} + by^{2} + cz^{2} + dxy + eyz + fxz + gx + hy + iz + j = 0$ \\
 No es necesario recordar la fórmula, lo que si está bueno saber que mediante rotaciones y traslaciones esta ecuación podemos reescribirlo de diferentes maneras. 
 \begin{itemize}
@@ -457,7 +458,11 @@ No es necesario recordar la fórmula, lo que si está bueno saber que mediante r
 Estas diferentes maneras de verlo nos genera todas las cuadricas que necesitamos. \\
 Ej.: $x^{2} + \frac{y^{2}}{4} + z^{2} = 1$. Este es un caso particular del primer tipo que escribimos arriba. \\
 Para ver la resolución, véase \hyperref[subsec:trazas_superficies]{\underline{anexo}} \\
+\textbf{Importante}: Lo más importante de todas estas cosas es saber reconocer las cuádricas a ojo y saber cortarlas con distintos planos. No es necesario saber graficarlas pero sí tener una idea de como son. \\
 Si quiere observar la tabla de cúadricas, véase \hyperref[subsec:tabla_cuadricas]{\underline{anexo}}
+\subsection*{Variables Dependientes $\&$ Variables Independientes}
+En contextos de $\float^{3}$ decimos que una variable es independiente si tiene un grado mayor que la otra. \\
+Ej. $y = z^{2}$ nos indica que $z^{2}$ es la variable independiente mientras que \textbf{y} es la variable dependiente. Esta relación claramente nos indica que $y \ge 0 $ siempre.
 \subsection*{Trazas}
 En un conjunto tridimensional es muy dificil de observar. \\
 Las trazas nos ayudan a través de planos paralelos a los ejes coordenados cortar una superficie.
@@ -466,7 +471,48 @@ Las trazas nos ayudan a través de planos paralelos a los ejes coordenados corta
     \item y = k es un plano paralelo al plano xz
     \item x = k es un plano paralelo al plano yz
 \end{itemize}
-Cuando yo hago un corte a una superficie con una traza, me queda una curva. Si miro como van siendo esas curvas a medida que las corto con distintas trazas esto me da una idea de como va a ser esa superficie.
+Cuando yo hago un corte a una superficie con una traza, me queda una curva. Si miro como van siendo esas curvas a medida que las corto con distintas trazas esto me da una idea de como va a ser esa superficie. \\
+\textbf{Importante}: Muchas veces algunas superficies pueden ser parecidas si hacemos pocas trazas. Por lo tanto la idea \textbf{siempre} es hacer trazas que marquen la diferencia. \\
+Para ver ejemplos sobre lo que acabo de marcar como importante, véase \hyperref[subsec:dibujando_cuadricas_con_trazas]{\textbf{\underline{anexo ejemplos 1 y 3}}} 
+\subsection*{Dibujando Cuádricas con Trazas}
+\label{subsec:dibujando_cuadricas_con_trazas}
+1. $z^{2} = x^{2} + y^{2}$ \\
+\textbf{Nota}: Recuerde observar siempre bien los enunciados. En este caso podemos darnos cuenta que siempre z será positivo.
+\begin{itemize}
+    \item Interseco / Corto con traza z = cte.
+    \begin{itemize}
+        \item $ z = 0 \implies x^{2} + y^{2} = 0 \iff x = y = 0$
+        \item $ z = 1 \implies x^{2} + y^{2} = 1$
+        \item $ z = -1 \implies x^{2} + y^{2} = 1$
+        \item $ z = 2 \implies x^{2} + y^{2} = 4$
+        \item $ z = -2 \implies x^{2} + y^{2} = 4$
+    \end{itemize}
+    \item Interseco / Corto con traza x = cte
+    \begin{itemize}
+        \item $x = 0, \ z^{2} = y^{2} \iff \longitud{z} = \longitud{y} \implies z = \longitud{y} \ y \ z = -\longitud{y}$
+    \end{itemize}
+\end{itemize}
+Esta cuádrica es el cono. \\
+2. $z = \sqrt[]{x^{2} + y^{2}}$ \\
+Lo primero que notamos es que $z$ es una variable dependiente y está ligada a lo que valga $x^{2} + y^{2}$. Por lo tanto, como ambos términos son positivos, entonces $z \ge 0 $. \\
+De esta observación descartamos trazas con $ z = -k $ \\
+3. $z = x^{2} + y^{2}$ \\
+Mismo que el ejemplo anterior, notamos que $z \ge 0$ y está ligada. \\
+\begin{itemize}
+    \item Interseco / Corto con traza z = cte.
+    \begin{itemize}
+        \item $z=0 \implies x^{2} + y^{2} = 0$
+        \item $z=1 \implies x^{2} + y^{2} = 1$
+    \end{itemize}
+\end{itemize}
+En este ejemplo particular podemos ver que las \textbf{trazas} nos dieron exactamente igual que en el ejemplo 1. Esto indica que claramente tienen un parecido, pero como son diferentes ecuaciones, algo nos falta. Tomemos más trazas. \\
+\begin{itemize}
+    \item Interseco / Corto con traza x = cte.
+    \begin{itemize}
+        \item $x=0, \ z=y^{2}$. Es una parábola.
+    \end{itemize}
+\end{itemize}
+Esto es un Paraboloide.
 \subsection*{Recta Generatriz}
 Es una recta que tomo en $\float^{3}$ que normalmente es para tomar paralelas y generar cortes.
 \subsection*{Cilindro}
@@ -485,6 +531,53 @@ Toma una recta generatriz (eje?)
 \[\begin{minipage}[b]{0.5\textwidth}
     \includegraphics[width=\linewidth]{assets/cilindro_hiperbolico.png}
 \end{minipage}\]
+\section*{Parametrización para Curva dada por intersección de dos superficies}
+1. $z = 3x^{2} \ x^{2} + 4y = 1$ 
+\begin{itemize}
+    \item 1. Recordar es que cuando hablamos de superficies estamos en $\float^{3}$. 
+    \item 2. Recordar que como estamos hablando de una curva que se forma en base a una intersección, entonces la curva estará en $\float^{3}$ y requerirá solo de un parámetro.
+    \item 3. Hay dos formas de encarar este tipo de ejercicios 
+    \begin{itemize}
+        \item 1. Si tienen una variable en común, con mismo grado y todo, despejamos todo en base a una variable.
+        \item 2. Si no tienen una variable en común, lo que podemos hacer es básicamente hacer reemplazos.
+    \end{itemize}
+\end{itemize}
+En este ejercicio particular, como $z = 3x^{2}$ y $x^{2} + 4y = 1$ tienen en común al $x^{2}$ podemos hacer $z = 3x^{2} \ y = \frac{x^{2} + 1}{4}$
+Entonces, para armar la parametrización basta con decir que $ \alpha(x) = (x^{2}, \frac{x^{2} + 1}{4}, 3x^{2})$ con $x \in \float $ \\
+2. $x^{2} + y^{2} = 4 \ z = 3$
+\begin{itemize}
+    \item 1. Recordar que como hablamos de superficies estamos en $\float^{3}$.
+    \item 2. Recordar que como estamos hablando de una curva que se forma en base a una intersección, entonces la curva estará en $\float^{3}$ y requerirá solo de un parámetro.
+    \item 3. Si observamos detenidamente ambas ecuaciones vemos que no tienen los mismos términos en común.
+    \begin{itemize}
+        \item Lo que podemos hacer primero es notar que $x^{2} + y^{2} = 4$ es una esfera centrada en el origen con radio 2. 
+        \item Como sabemos parametrizar las circunferencias, entonces sabemos que por ahora nuestra parametrización consta de $\alpha(t) = (2 \ cos(t), 2 \ sen(t))$ pero nos falta el último término.
+        \item Como z es constante, entonces lo que nos quiere decir es que la circunferencia estará en $z = 3$.
+    \end{itemize}
+\end{itemize} 
+Por lo tanto, la respuesta es $\alpha(t) = (2 \ cos(t), 2 \ sen(t), 3)$ con $t \in [0, 2\pi]$. \\
+Esta parametrización indica que es básicamente una esfera que vive en $z=3$ \\
+\textbf{Nota}: Da exactamente igual si colocamos $\pi$ incluido o no. Si lo incluimos entonces no será inyectiva, pero en nuestras aplicaciones prácticas no afecta en nada. \\
+\textbf{Importante}: ¿Qué hubiese pasado si intentabamos despejar la ecuación de $x^{2} + y^{2} = 4$? Nos queda lo siguiente $ y = \pm \sqrt[]{4-x^{2}}$. Al separarse en dos caminos, no podría ser parte de una parametrización válida. \\
+3. $x^{2} + y^{2} = 1 \ x + y + z = 1$
+\begin{itemize}
+    \item 1. Recordar que como hablamos de superficies estamos en $\float^{3}$.
+    \item 2. Recordar que como estamos hablando de una curva que se forma en base a una intersección, entonces la curva estará en $\float^{3}$ y requerirá solo de un parámetro.
+    \item 3. Si observamos detenidamente no tienen términos en común. Pero, la primera ecuación no habla de $z$ por lo tanto está libre. 
+    \item 4. Lo que podemos hacer en este caso es, como en el ejemplo anterior, como conocemos qué es $x^{2} + y^{2} = 1$. Podemos decir que $\alpha(t) = (cos(t), sen(t), ???)$.
+    \item 5. Nos falta calcular z porque estamos en $\float^{3}$ pero sabemos que $z = 1-x-y$. 
+    \item 6. Por lo tanto $\alpha(t) = (cos(t), sen(t), 1-x-y) \equiv \alpha(t) = (cos(t), sen(t), 1-cos(t)-sen(t)) $.
+\end{itemize}
+Por lo tanto, la respuesta es $\alpha(t) = (cos(t), sen(t), 1-cos(t)-sen(t))$ con $t \in [0, 2\pi]$. \\
+\textbf{Importante}: Si se quisiera verificar si las parametrizaciones que encontramos son correctas, debería validar ambas ecuaciones.
+4. $(x-y)^{2} + z^{2} = 4 \ z = x+y$
+\begin{itemize}
+    \item 1. Recordar que como hablamos de superficies estamos en $\float^{3}$.
+    \item 2. Recordar que como estamos hablando de una curva que se forma en base a una intersección, entonces la curva estará en $\float^{3}$ y requerirá solo de un parámetro.
+    \item 3. En este caso podemos observar que los términos de ambas ecuaciones se parecen, podemos comenzar reemplazando a $z^{2}$ por $z=x+y$.
+    \item 4. Haciendo esto nos queda $x^{2} + y^{2} = 2$. Entonces nos queda algo que ya súper conocemos. 
+\end{itemize}
+Por lo tanto, $\alpha(t) = (\sqrt[]{2} \ cos(t), \ \sqrt[]{2} \ sen(t), \sqrt[]{2} \ cos(t) \ + \ \sqrt[]{2} \ sen(t)) $ con $t \in [0, 2\pi]$
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
