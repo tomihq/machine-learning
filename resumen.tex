@@ -463,6 +463,9 @@ Si quiere observar la tabla de cúadricas, véase \hyperref[subsec:tabla_cuadric
 \subsection*{Variables Dependientes $\&$ Variables Independientes}
 En contextos de $\float^{3}$ decimos que una variable es independiente si tiene un grado mayor que la otra. \\
 Ej. $y = z^{2}$ nos indica que $z^{2}$ es la variable independiente mientras que \textbf{y} es la variable dependiente. Esta relación claramente nos indica que $y \ge 0 $ siempre.
+\subsection*{Curvas de Nivel}
+Una curva de nivel $f(x,y) = k$ es el conjunto de todos los puntos en el dominio de $f$ en el cual $f$ toma un valor dado k. En palabras más simples, señala donde tiene una altura k la gráfica de f. \\
+
 \subsection*{Trazas}
 En un conjunto tridimensional es muy dificil de observar. \\
 Las trazas nos ayudan a través de planos paralelos a los ejes coordenados cortar una superficie.
@@ -578,6 +581,75 @@ Por lo tanto, la respuesta es $\alpha(t) = (cos(t), sen(t), 1-cos(t)-sen(t))$ co
     \item 4. Haciendo esto nos queda $x^{2} + y^{2} = 2$. Entonces nos queda algo que ya súper conocemos. 
 \end{itemize}
 Por lo tanto, $\alpha(t) = (\sqrt[]{2} \ cos(t), \ \sqrt[]{2} \ sen(t), \sqrt[]{2} \ cos(t) \ + \ \sqrt[]{2} \ sen(t)) $ con $t \in [0, 2\pi]$
+\section*{Funciones de $\float^{2}$ en $\float$ y Gráficos}
+Si $f:\float \rightarrow \float $ tomando $y=f(x)$ tenemos una representación gráfica. \\
+\[graf(f) = \{(x,y) \in \float^{2} : (x, f(x)), \ x \in Dom(f)\} \subset \float^{2} \]
+\textbf{Importante}: El gráfico de una función siempre está en la dimensión suma de las dimensiones. Ej. $\float^{2} \rightarrow \float$ el gráfico está en $\float^{3}$ \\
+\textbf{Importante2}: El gráfico es literalmente darle valores y graficar.
+
+\section*{Dominio de una Función}
+Recordemos que el Dominio de una función son todos los valores que podemos inyectar a una función dada para esperar un valor. \\
+Los casos más particulares de cálculo del dominio son 
+\begin{itemize}
+    \item División entre Cero.
+    \item Logaritmo Natural. 
+    \item Raíz Cuadrada, o raíces en general.
+\end{itemize}
+Veamos un ejemplo sencillo: $f:\float^{2} \rightarrow \float:f(x,y) = 1 + \sqrt[]{4-y^{2}}$ \\
+Primero lo primero, esto sería algo de esta pinta: $z = 1 + \sqrt[]{4-y^{2}}$ \\
+¿Qué podemos deducir de z? Que por lo menos, mínimamente va a ser $z \ge 1$ pues el valor mínimo que puede dar la raíz es 0 y $z = 1 + 0 = 1$. \\
+¿Qué es lo que sucede o qué restricción nos da $\sqrt[]{4-y^{2}}$? Que no puede ser menor a 0. Entonces, veamos qué valores hacen 0 a esto. \\
+$\sqrt[]{4-y^{2}} <= 0 \iff 4-y^{2} <= 0 \iff 4 \le y^{2} \iff \sqrt[]{4} = y \equiv y = \pm \longitud{2}$. \\
+Del cálculo anterior podemos darnos cuenta que para que la raíz sea válida y debe estar en el siguiente rango $-2 \le y \le 2$ \\
+Entonces, $Dom(f) = \{(a, b) \in \float^{2} \ : \ -2 \le y \le 2\}, x \in \float$ \\
+Véase \hyperref[subsec:dominio_funciones]{\underline{\textbf{anexo}}} para más ejemplos con cálculo del dominio.
+\section*{Límites}
+Dada $f(a, \ b) \rightarrow \float \ x_{0} \in (a,\ b)$ decimos que l es el límite de f cuando x tiende a $x_{0}$ si para cualquier $\epsilon \ > \ 0 \ \exists \delta = \delta(\epsilon) > 0$ tal que si $ 0 < \longitud{x-x_{0}} < \delta \rightarrow \longitud{f(x) - l} < \epsilon$ \\
+Si el límite creemos que existe, se prueba por definición. \\
+Si el límite creemos que no existe, se da un contraejemplo, por ejemplo buscando iterados. \\
+Si el grado del numerador es menor al grado del denominador, rara vez exista el límite. \\
+\subsection*{Álgebra de Límites}
+Sea $f, \ g \ : \ (a, \ b) \rightarrow \float \ x_{0} \in (a, \ b)$ y $\exists \lim_{x\to x_{0}} f(x), \ \lim_{x\to x_{0}} g(x), \ \alpha, \ \beta \in \float  $
+\begin{itemize}
+    \item Linealidad: $\lim_{x\to x_{0}} \alpha f(x) + \beta g(x) = \alpha \lim_{x\to x_{0}} f(x) + \beta \lim_{x\to x_{0}} g(x) $
+    \begin{itemize}
+        \item En criollo: Una suma en un límite donde ambas evaluan hacia el mismo punto es lo mismo que evaluar el límite por separado. 
+    \end{itemize}
+    \item Multiplicación: $\lim_{x\to x_{0}} f(x) * g(x) = [\lim_{x\to x_{0}} f(x)] * [\lim_{x\to x_{0}} g(x)] $
+    \item División: $\exists \lim_{x\to x_{0}} g(x) \neq 0 \implies \exists \lim_{x\to x_{0}} \frac{f(x)}{g(x)} = \frac{\lim_{x\to x_{0}} f(x)}{\lim_{x\to x_{0}} g(x)}  $
+    \item Cero por acotado: Si $\lim_{x\to x_{0}} f(x) = 0$ ent $\lim_{x\to x_{0}} f(x) * g(x) = 0$
+
+\end{itemize}
+\subsection*{L'Hopital}
+Sean $f, \ g \ : \ (a, b) \rightarrow \float $ derivables. (esto quiere decir que L'Hopital vale en funciones de $\float$). \\
+Solo podemos aplicarlo si estamos en un caso de $\frac{0}{0}$ o $\frac{\infty}{\infty}$. \\
+Si ambas condiciones se cumplen entonces podemos aplicar
+$\lim_{x\to x_{0}} \frac{f'(x)}{g'(x)} = \lim_{x\to x_{0}} \frac{f(x)}{g(x)} $
+\subsection*{Continuidad}
+Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es continua en $x_{0}$ sí y solo sí 
+\begin{itemize}
+    \item $\exists \lim_{x\to x_{0}} f(x) $
+    \item $f(x_{0}) = \exists \lim_{x\to x_{0}} f(x) $
+\end{itemize}
+\subsection*{Propiedades para acotar Límites}
+\begin{enumerate}
+    \item \label{item:triangular} Desigualdad Triangular: Básicamente que si tengo algo de la forma $\longitud{(x-x_{0})}$ es menor que la norma con las coordenadas de $x, y$ 
+    \begin{itemize}
+        \item $ \longitud{x - x_{0}} \le \longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}} $
+        \item $ \longitud{y - y_{0}} \le \longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}} $
+    \end{itemize}
+    \item \label{item:suma_norma} $\longitud{a+b} \le \longitud{a} + \longitud{b} $
+    \item  $\longitud{a-b} \le \longitud{a} + \longitud{b} $
+    \item \label{item:multiplicacion_norma}$\longitud{c*a}$ = $\longitud{c} * \longitud{a}$
+    \item $sen(\alpha) \le \alpha$
+    \item $\longitud{\frac{a}{b}} = \frac{\longitud{a}}{\longitud{b}}$
+    \item \label{item:cuadratica_menor_que_norma} $a^{2} \le a^{2} + b^{2}$ con $a \neq 0$ y $b \neq 0$ entonces $\frac{a^{2}}{a^{2} + b^{2}} \le 1$ y esto quiere decir que
+    \begin{itemize}
+        \item $ 0 \le \frac{\longitud{x - x_{0}}}{\longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}}} \le 1$
+        \item $ 0 \le \frac{\longitud{y - y_{0}}}{\longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}}} \le 1$
+    \end{itemize}
+\end{enumerate}
+Véase \hyperref[subsec:limites_definicion]{\underline{\textbf{anexo}}} para ver ejemplos de límites por definición acotando.
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -708,7 +780,7 @@ x = 2 \lambda \\
 y = \lambda \ + \ 1
 \end{cases}
 \]
-2. ¿Es C gráfico de una fución $y = f(x)$?  \\
+2. ¿Es C gráfico de una función $y = f(x)$?  \\
 \[
 f(t) =
 \begin{cases} 
@@ -800,9 +872,52 @@ Este ejemplo es llamado \textbf{elipsoide}.
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/elipsoide.png}
 \end{minipage}\]
+\subsection*{Dominio de Funciones}
+\label{subsec:dominio_funciones}
+1. Calcule el dominio de $ f(x,y) = \sqrt[]{1-2x^{2}-3y^{2}}$ \\
+Lo primero que vamos a hacer es reescribir la expresión de la siguiente manera: $ z = \sqrt[]{1-2x^{2}-3y^{2}} $ \\
+¿Qué restricciones vemos? ¿Qué valores tomará z? Lo primero que podemos notar es que $z$ siempre será mayor o igual que 0 pues está totalmente atado al cálculo de la raíz. \\
+Como necesitamos que el cálculo de la raíz sea mayor o igual a cero para valer, planteemos la desigualdad $\sqrt[]{1-2x^{2}-3y^{2}} \ge 0 \iff 1-2x^{2}-3y^{2} \ge 0 \iff 1 \ge 2x^{2}+3y^{2}  $ ahora como tenemos dos variables, no podemos hacer mucho más. \\
+Por lo tanto, $Dom(f) = \{(x, y) \in \float^{2} : 2x^{2} + 3y^{2} \le 1\}$ \\
+Entonces, si tuviesemos que graficar, tendríamos que colorear los $2x^{2} + 3y^{2} \le 1$ que estén en $z=0$ o $z=1$ \\
+¿Qué curva es? Es una elipse, reescribamos la expresión $ \frac{x^{2}}{\frac{1}{2}} + \frac{y^{2}}{\frac{1}{3}} \le 1 \iff \frac{x^{2}}{(\sqrt[]{\frac{1}{2}})^{2}} + \frac{y^{2}}{(\sqrt[]{\frac{1}{3}})^{2}} \le 1$ \\
+2. Calcule el dominio de $f(x,y) = x^{2} + y^{2}$. \\
+A simple vista no hay ninguna restricción, pues la expresión es $z = x^{2} + y^{2}$. Entonces, $Dom(f) = \float^{2}$ pues $x \in \float$ y $y \in \float$. \\
+¿Qué curva es? Si hacemos un par de cortes, vemos que si siempre hacemos un valor constante $ z = k$ se hacen elipses, pero si damos $y = 0$ o $x=0$ vemos que son parábolas. \\
+Esto sería un paraboloide.
 \subsection*{Tabla de Cuadrícas}
 \label{subsec:tabla_cuadricas}
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/cuadricas.png}
 \end{minipage}\]
+\subsection*{Límites por Definición}
+1. Calcular, si existe $\lim_{(x,y) \rightarrow (1, 2)} x+2y = 5$ \\
+Primero revisamos que el límite cuando se acerca al punto no se indefine. En este caso da 5. Por lo tanto, el límite parece existir. \\
+Probemos por definición: Sea $\epsilon > 0 qvq \exists \delta > 0 \ tq \ 0 < \longitud{\longitud{(x,y) - (1, 2)}} < \delta \implies \longitud{x+2y-5} < \epsilon$ \\
+En este momento lo que necesitamos hacer es llevar desde $\longitud{x+2y-5}$ a algo parecido a $\longitud{\longitud{(x,y) - (1, 2)}}$ \\
+Lo que yo tengo es $x+2y-5$, necesito de alguna manera un -1. Por lo tanto lo que puedo hacer es sumar 1 y restar uno: $\longitud{x+2y-5\textbf{+1}\textbf{-1}}$. De esta manera nos queda $\longitud{(x-1)+2y-4}$. \\
+Ahora necesitamos de alguna forma, conseguir un $y-2$ pero veo que $2y-4$ puedo sacar factor común, por lo tanto $\longitud{(x-1)+2(y-2)}$. \\
+En este momento vemos que nos quedó algo de la forma $\longitud{(x-1) + 2(y-2)}$ entonces como tenemos una suma aplicamos (\ref{item:triangular}) la desigualdad triangular $\longitud{(x-1) + 2(y-2)} \le \longitud{(x-1)} + \longitud{2 (y-2)}$ \\
+Luego, observamos que podemos aplicar (\ref{item:multiplicacion_norma})$ \longitud{2 (y-2)} =  \longitud{2} * \longitud{(y-2)}$ por lo tanto nos queda $\longitud{(x-1)} + \longitud{2} * \longitud{(y-2)} $ \\
+Ahora vemos que podemos aplicar (\ref{item:triangular}) que $\longitud{(x-1)} \le \longitud{\longitud{(x, y) - (1, 2)}}$ y $\longitud{(y-2)} \le \longitud{\longitud{(x, y) - (1, 2)}}$ y por lo tanto $3 \ \longitud{\longitud{(x, y) - (1, 2)}}$
+\label{subsec:limites_definicion} \\
+Por último, necesitamos pedir que $< 3 \ \delta < \epsilon$. Luego $\delta < \frac{\epsilon}{3}$ \\
+2. Calcular, si existe el siguiente límite $\lim_{(x,y) \rightarrow (0, 0)} \frac{x^{3}}{x^{2} + y^{2}}$. \\
+Vemos a qué tienden aplicando el punto $(0,0)$. Nos queda una indeterminación del tipo $\frac{0}{0}$. OJO: Acá no podemos usar L'Hopital primero porque no sabemos si es derivable, pero peor aún, no estamos en $\float$, estamos en $\float^{2}$. \\
+Como el grado del numerador es más grande que el grado del denominador nos jugamos y proponemos $L=0$ ¿por qué? \\
+Aplicamos la definición: Sea $\epsilon > 0 \ qvq \ \exists \delta > 0 \ tq \ 0 < \longitud{\longitud{(x, y) - (0, 0)}} \implies \longitud{\longitud{\frac{x^{3}}{x^{2} + y^{2}}-0}} < \epsilon$ \\
+Entonces nosotros empezamos como $\longitud{\longitud{\frac{x^{3}}{x^{2} + y^{2}}}}$ y queremos llegar a $\longitud{\longitud{(x, y) - (0, 0)}}$. \\
+Lo primero que podemos notar es que si sacamos factor común en el numerador nos queda $\longitud{\longitud{\frac{x^{2} * x}{x^{2} + y^{2}}}}$ y esto nos suena de una propiedad conocida \ref{item:cuadratica_menor_que_norma} pero antes de alguna manera necesitamos sacar el $*x$. \\
+Por lo tanto $\longitud{\longitud{\frac{x^{2}}{x^{2} + y^{2}}}} * \longitud{x}$ \\
+Ahora podemos aplicar \ref{item:cuadratica_menor_que_norma} y nos queda $1 * \longitud{x}$ \\
+Por último $\longitud{x} \equiv \longitud{x-0}$ y por la propiedad de \ref{item:triangular} sabemos que $\longitud{\longitud{(x, y) - (x_{0}, y_{0})}}$ que en este caso $\longitud{x} \le \longitud{(x, y) - (0, 0)} \equiv \longitud{(x, y)} $ \\
+Concluimos entonces que $\longitud{(x, y)} < \delta  < \epsilon $. Luego $\delta < \epsilon$
+\subsection*{Demostrando que Límites no existen}
+Una técnica para ver que un límite no existe es usando rectas, parábolas o una familia de funciones. \\
+1. Calcular, si existe $\lim_{(x,y) \rightarrow (0, 0)} \frac{x^{2} - y^{2}}{x^{2} + y^{2}}$. \\
+Si evalúamos a que tiende este límite con el punto (0, 0) nos queda una indeterminación de 0 sobre 0. \\
+Me acerco al límite por rectas que pasen por el punto. En este caso considero rectas del tipo $y = mx$ pues si hubiese b no pasaría por el punto (0,0). \\
+Trabajamos entonces con $f(x, mx) = \frac{x^{2} - (mx)^{2}}{x^{2} + (mx)^{2}}$ \\
+Entonces, $\lim_{(x,y) \rightarrow (0, 0)} \frac{x^{2} - (mx)^{2}}{x^{2} + (mx)^{2}} \equiv \frac{1-m^{2}}{1+m^{2}}$ entonces como el límite depende de un valor de m, el límite no existe. \\
+Expongamos un contraejemplo: Si $m=0$ sucede que $L=1$ pero si $m=2$ sucede que $L=\frac{-3}{5}$ y esto demuestra que el límite no existe.
 \end{document} 
