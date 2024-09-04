@@ -18,6 +18,7 @@
 }
 \input{AEDmacros}
 \newcommand{\notimplies}{\;\not\!\!\!\implies}
+\newcommand{\limitDef}{f(x) = l \ si \ \forall \epsilon > 0, \exists \delta > 0 : x_{0} < x < x_{0} + \delta \implies \longitud{f(x)-l}<\epsilon}
 \title{Análisis II}
 \author{Tomás Agustín Hernández}
 \date{}
@@ -604,10 +605,25 @@ Del cálculo anterior podemos darnos cuenta que para que la raíz sea válida y 
 Entonces, $Dom(f) = \{(a, b) \in \float^{2} \ : \ -2 \le y \le 2\}, x \in \float$ \\
 Véase \hyperref[subsec:dominio_funciones]{\underline{\textbf{anexo}}} para más ejemplos con cálculo del dominio.
 \section*{Límites}
-Dada $f(a, \ b) \rightarrow \float \ x_{0} \in (a,\ b)$ decimos que l es el límite de f cuando x tiende a $x_{0}$ si para cualquier $\epsilon \ > \ 0 \ \exists \delta = \delta(\epsilon) > 0$ tal que si $ 0 < \longitud{x-x_{0}} < \delta \rightarrow \longitud{f(x) - l} < \epsilon$ \\
+\subsection*{Límites en $\float^{2}$}
+El límite de una función en el punto $x_{0}$ es el valor al que se acercan las imágenes (las y) cuando los valores (las x) se acercan al valor $x_{0}$. 
+
+Notamos como \textbf{p} $\in \float$ al punto al cual nos acercamos en el eje x y l $\in \float$ la altura de la función cuando nos acercamos a p. Entonces decimos que \textbf{l} $\in \float$ es el límite de $f: \float \rightarrow \float$ cuando x tiende al punto $p \in \float$. 
+
+\textbf{Notación}: $\lim_{x\to p} f(x) = l$ 
+\[\lim_{x\to c} f(x) = L \iff \forall \epsilon > 0, \exists \delta > 0 : \longitud{f(x)-L} < \epsilon \implies 0 < \longitud{x-p} < \delta \] 
+\textbf{Epsilon $\epsilon$}: Representa la cercanía deseada entre f(x) y el valor límite l. \\
+\textbf{Delta $\delta$}: Representa cuán aproximados deben estar los valores de x a p para asegurar que la función esté dentro de la distancia $\epsilon$ del valor límite. 
+\begin{center}
+    \begin{minipage}[b]{0.5\textwidth}
+        \includegraphics[width=\linewidth]{assets/limite.png}
+        \centering
+        \label{fig:limite_nocion}
+    \end{minipage}
+\end{center}
 Si el límite creemos que existe, se prueba por definición. \\
 Si el límite creemos que no existe, se da un contraejemplo, por ejemplo buscando iterados. \\
-Si el grado del numerador es menor al grado del denominador, rara vez exista el límite. \\
+Si el grado del numerador es menor al grado del denominador, rara vez exista el límite. 
 \subsection*{Álgebra de Límites}
 Sea $f, \ g \ : \ (a, \ b) \rightarrow \float \ x_{0} \in (a, \ b)$ y $\exists \lim_{x\to x_{0}} f(x), \ \lim_{x\to x_{0}} g(x), \ \alpha, \ \beta \in \float  $
 \begin{itemize}
@@ -631,7 +647,27 @@ Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es con
     \item $\exists \lim_{x\to x_{0}} f(x) $
     \item $f(x_{0}) = \exists \lim_{x\to x_{0}} f(x) $
 \end{itemize}
+\subsection*{Límites Laterales}
+Llamamos límite lateral cuando nos aproximamos a $x_{0}$ por un solo lado. \\
+Acercarnos por izquierda: $\lim_{x\to x_{0}^{-}} \limitDef$  \\
+Acercarnos por derecha: $\lim_{x\to x_{0}^{+}} \limitDef$ \\
+En $\float^{2}$ existen ambos límites laterales si existen $x's \in A = Dom(f)$ en ambos lados de $x_{0}$. Si ambos límites laterales son iguales, entonces decimos que existe el límite en $x_{0}$.
+
+\subsection*{Límites en Varias Variables}
+Dada $f(a, \ b) \rightarrow \float \ x_{0} \in (a,\ b)$ decimos que l es el límite de f cuando x tiende a $x_{0}$ si para cualquier $\epsilon \ > \ 0 \ \exists \delta = \delta(\epsilon) > 0$ tal que si $ 0 < \longitud{x-x_{0}} < \delta \rightarrow \longitud{f(x) - l} < \epsilon$  \\
+Cuando trabajamos en $\float^{n}$ el límite en $P$ existe si todos los caminos con el cual nos acercamos a P siempre dan el mismo límite. Esto quiere decir que si encontramos \textbf{dos maneras distintas} de acercarnos que den límites distintos es porque el límite en $P$ no existe. \\
+\textbf{Nota}: En $\float$ solo nos podíamos acercar desde una sola dirección, en $\float^{n}$ hay infinitas formas de acercarnos a un punto $p \in \float^{n}$. \\
+\textbf{Good To Know}: Para acercarnos a P en $\float^{n}$ una buena forma es con rectas al principio y luego las curvas de grado 2, 3, 4, etc. 
+\subsection*{Formas de calcular Límites}
+En $\float^{2}$ es sencillo pues analizamos los límites laterales. En $\float^{n}$ existen varios caminos por los cuales nos podemos acercar a P.
+\begin{itemize}
+    \item Límite Iterado: Consiste en acercarse por una recta paralela a un eje y luego por otra. El resultado que nos da es un posible candidato l al límite.
+    \begin{itemize}
+        \item $\lim_{x\to x_{0}^{\lim_{y\to y_{0}}{f(x, y)}}} = L$
+    \end{itemize}
+\end{itemize}
 \subsection*{Propiedades para acotar Límites}
+\textbf{Importante}: Estas y más están en el \hyperref[subsec:acotador_frecuente]{\underline{\textbf{manual del acotador frecuente}}} presentado en el anexo. Por lo tanto, es imprescindible leerlo.
 \begin{enumerate}
     \item \label{item:triangular} Desigualdad Triangular: Básicamente que si tengo algo de la forma $\longitud{(x-x_{0})}$ es menor que la norma con las coordenadas de $x, y$ 
     \begin{itemize}
@@ -649,7 +685,7 @@ Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es con
         \item $ 0 \le \frac{\longitud{y - y_{0}}}{\longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}}} \le 1$
     \end{itemize}
 \end{enumerate}
-Véase \hyperref[subsec:limites_definicion]{\underline{\textbf{anexo}}} para ver ejemplos de límites por definición acotando.
+Véase \hyperref[subsec:limites_definicion]{\underline{\textbf{anexo}}} para ver ejemplos de límites por definición acotando y el \hyperref[subsec:acotador_frecuente]{\underline{\textbf{manual del acotador frecuente}}}.
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -890,7 +926,16 @@ Esto sería un paraboloide.
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/cuadricas.png}
 \end{minipage}\]
+\subsection*{Manual del Acotador Frecuente}
+\label{subsec:acotador_frecuente}
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/acotador_1.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/acotador_2.png}
+\end{minipage}\]
 \subsection*{Límites por Definición}
+\label{subsec:limites_definicion} 
 1. Calcular, si existe $\lim_{(x,y) \rightarrow (1, 2)} x+2y = 5$ \\
 Primero revisamos que el límite cuando se acerca al punto no se indefine. En este caso da 5. Por lo tanto, el límite parece existir. \\
 Probemos por definición: Sea $\epsilon > 0 qvq \exists \delta > 0 \ tq \ 0 < \longitud{\longitud{(x,y) - (1, 2)}} < \delta \implies \longitud{x+2y-5} < \epsilon$ \\
@@ -900,7 +945,6 @@ Ahora necesitamos de alguna forma, conseguir un $y-2$ pero veo que $2y-4$ puedo 
 En este momento vemos que nos quedó algo de la forma $\longitud{(x-1) + 2(y-2)}$ entonces como tenemos una suma aplicamos (\ref{item:triangular}) la desigualdad triangular $\longitud{(x-1) + 2(y-2)} \le \longitud{(x-1)} + \longitud{2 (y-2)}$ \\
 Luego, observamos que podemos aplicar (\ref{item:multiplicacion_norma})$ \longitud{2 (y-2)} =  \longitud{2} * \longitud{(y-2)}$ por lo tanto nos queda $\longitud{(x-1)} + \longitud{2} * \longitud{(y-2)} $ \\
 Ahora vemos que podemos aplicar (\ref{item:triangular}) que $\longitud{(x-1)} \le \longitud{\longitud{(x, y) - (1, 2)}}$ y $\longitud{(y-2)} \le \longitud{\longitud{(x, y) - (1, 2)}}$ y por lo tanto $3 \ \longitud{\longitud{(x, y) - (1, 2)}}$
-\label{subsec:limites_definicion} \\
 Por último, necesitamos pedir que $< 3 \ \delta < \epsilon$. Luego $\delta < \frac{\epsilon}{3}$ \\
 2. Calcular, si existe el siguiente límite $\lim_{(x,y) \rightarrow (0, 0)} \frac{x^{3}}{x^{2} + y^{2}}$. \\
 Vemos a qué tienden aplicando el punto $(0,0)$. Nos queda una indeterminación del tipo $\frac{0}{0}$. OJO: Acá no podemos usar L'Hopital primero porque no sabemos si es derivable, pero peor aún, no estamos en $\float$, estamos en $\float^{2}$. \\
