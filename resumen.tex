@@ -641,12 +641,6 @@ Sean $f, \ g \ : \ (a, b) \rightarrow \float $ derivables. (esto quiere decir qu
 Solo podemos aplicarlo si estamos en un caso de $\frac{0}{0}$ o $\frac{\infty}{\infty}$. \\
 Si ambas condiciones se cumplen entonces podemos aplicar
 $\lim_{x\to x_{0}} \frac{f'(x)}{g'(x)} = \lim_{x\to x_{0}} \frac{f(x)}{g(x)} $
-\subsection*{Continuidad}
-Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es continua en $x_{0}$ sí y solo sí 
-\begin{itemize}
-    \item $\exists \lim_{x\to x_{0}} f(x) $
-    \item $f(x_{0}) = \exists \lim_{x\to x_{0}} f(x) $
-\end{itemize}
 \subsection*{Límites Laterales}
 Llamamos límite lateral cuando nos aproximamos a $x_{0}$ por un solo lado. \\
 Acercarnos por izquierda: $\lim_{x\to x_{0}^{-}} \limitDef$  \\
@@ -663,8 +657,15 @@ En $\float^{2}$ es sencillo pues analizamos los límites laterales. En $\float^{
 \begin{itemize}
     \item Límite Iterado: Consiste en acercarse por una recta paralela a un eje y luego por otra. El resultado que nos da es un posible candidato l al límite.
     \begin{itemize}
-        \item $\lim_{x\to x_{0}^{\lim_{y\to y_{0}}{f(x, y)}}} = L$
+        \item $\lim_{x \to x_0} \left( \lim_{y \to y_0} f(x, y) \right) = L$
+        \item $\lim_{y \to y_0} \left( \lim_{x \to x_0} f(x, y) \right) = L$
+        \item Este método es súper útil para hallar una forma sencilla de quien es un posible candidato a ser límite o para refutar que exista un límite.
     \end{itemize}
+    \item Límite por rectas: Consiste en calcular el límite de otros tipos de rectas. 
+    \begin{itemize}
+        \item $\lim_{x \to x_0} f(x, m(x-x_{0}) + y_{0})$
+    \end{itemize}
+
 \end{itemize}
 \subsection*{Propiedades para acotar Límites}
 \textbf{Importante}: Estas y más están en el \hyperref[subsec:acotador_frecuente]{\underline{\textbf{manual del acotador frecuente}}} presentado en el anexo. Por lo tanto, es imprescindible leerlo.
@@ -684,8 +685,29 @@ En $\float^{2}$ es sencillo pues analizamos los límites laterales. En $\float^{
         \item $ 0 \le \frac{\longitud{x - x_{0}}}{\longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}}} \le 1$
         \item $ 0 \le \frac{\longitud{y - y_{0}}}{\longitud{\longitud{(x,\ y) - (x_{0}, y_{0})}}} \le 1$
     \end{itemize}
+    \item $\lim_{x \to 0} \frac{sen \ x}{x} = 1$
 \end{enumerate}
 Véase \hyperref[subsec:limites_definicion]{\underline{\textbf{anexo}}} para ver ejemplos de límites por definición acotando y el \hyperref[subsec:acotador_frecuente]{\underline{\textbf{manual del acotador frecuente}}}.
+\subsection*{Recomendaciones: Cómo analizar Límites}
+\begin{itemize}
+    \item Mirar iterados
+    \item Mirar las rectas que pasen por el punto límite $y = mx + b$
+    \begin{itemize}
+        \item $\lim_{x \to (0, 3)}$ sería ver con las rectas del estilo $y=mx+3$
+    \end{itemize}
+    \item Miro las parábolas que pasan por el punto límite $y=ax^{2} + b$
+    \begin{itemize}
+        \item Importante: Hay veces que conviene ver otros caminos como $x=y^{2}$ pero eso depende del ejercicio y si estamos seguros de que este camino tiene otro candidato a límite. 
+    \end{itemize}
+\end{itemize}
+Si mediante todos los caminos realizados el límite es el mismo, probablemente ese límite sea verdad. Para probar esto usamos la definición: $\forall \epsilon > 0, \exists \delta > 0 : \longitud{\longitud{(x,y) - (x_{0}, y_{0})}} < \delta \implies \longitud{f(x, y) - f(x_{0}, y_{0})} < \epsilon $ \\
+\textbf{Importante}: Cuando analizamos los caminos por polares debemos modificar la ecuación tal que $x = r cos \theta$ e $ y = r sin \theta$ y el límite debe ser $r \rightarrow 0$
+\section*{Continuidad}
+Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es continua en $x_{0}$ sí y solo sí 
+\begin{itemize}
+    \item $\exists \lim_{x\to x_{0}} f(x) $
+    \item $f(x_{0}) = \exists \lim_{x\to x_{0}} f(x) $
+\end{itemize}
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
