@@ -701,13 +701,57 @@ Véase \hyperref[subsec:limites_definicion]{\underline{\textbf{anexo}}} para ver
     \end{itemize}
 \end{itemize}
 Si mediante todos los caminos realizados el límite es el mismo, probablemente ese límite sea verdad. Para probar esto usamos la definición: $\forall \epsilon > 0, \exists \delta > 0 : \longitud{\longitud{(x,y) - (x_{0}, y_{0})}} < \delta \implies \longitud{f(x, y) - f(x_{0}, y_{0})} < \epsilon $ \\
-\textbf{Importante}: Cuando analizamos los caminos por polares debemos modificar la ecuación tal que $x = r cos \theta$ e $ y = r sin \theta$ y el límite debe ser $r \rightarrow 0$
+\textbf{Importante}: Cuando analizamos los caminos por polares debemos modificar la ecuación tal que $x = r cos \theta$ e $ y = r sin \theta$ y el límite debe ser $r \rightarrow 0$ \\
+\subsection*{Ver iterados y rectas no siempre es suficiente}
+Veamos un breve ejemplo de que \textbf{no es suficiente} ver iterados y rectas: $\lim_{(x,y) \to (0,0)} \frac{x \ y^2}{x^2+y^4}$ \\
+Si hacemos iterados: 
+\begin{itemize}
+\item $\lim_{x \to 0} \left( \lim_{y \to 0} \frac{x \ y^2}{x^2+y^4} \right) = \lim_{x \to 0} (\frac{0}{x^{2}}) = 0$
+\item $\lim_{y \to 0} \left( \lim_{x \to 0} \frac{x \ y^2}{x^2+y^4} \right) = \lim_{y \to 0}(\frac{0}{y^{4}}) = 0$
+\end{itemize}
+Si hacemos por rectas: $y=mx$ nos queda 0 también. \\
+Ahora, hay algo interesante: el grado del denominador es mucho más grande que el del numerador. Probemos por curvas \\
+Probamos con una curva $x = y^{2}$: $\lim_{x \to 0} \left(\frac{x \ y^2}{x^2+y^4} \right) = \frac{y^{2} \ y^2}{(y^{2})^2+y^4} = \frac{y^{4}}{2y^{4}} = \frac{1}{2}  $ \\
+Acabamos de demostrar que el límite no existe. 
 \section*{Continuidad}
 Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es continua en $x_{0}$ sí y solo sí 
 \begin{itemize}
     \item $\exists \lim_{x\to x_{0}} f(x) $
     \item $f(x_{0}) = \exists \lim_{x\to x_{0}} f(x) $
 \end{itemize}
+En funciones partidas, del tipo
+\[
+f(x, y) =
+\begin{cases}
+\frac{x^2-y^2}{x^2+y^2} & \text{si } (x, y) \neq (0, 0) \\
+1 & \text{si } (x, y) = (0, 0)
+\end{cases}
+\]
+Tenemos que evaluar qué sucede en el punto conflictivo. En este caso, el punto conflictivo es el $(0,0)$ para $\frac{x^2-y^2}{x^2+y^2}$ entonces lo que tenemos que verificar es que el $\lim_{(x,y) \to (0,0)} \frac{x^2-y^2}{x^2+y^2} = 1 $ \\
+Si el límite llegase a existir pero es \textbf{diferente} a 1 decimos que es una discontinuidad evitable mientras que si el límite \textbf{no existe} entonces es una discontinuidad inevitable/esencial.
+\subsection*{Algunas funciones continuas}
+Hay una lista larga de funciones continuas, pero algunas son estas 
+\begin{itemize}
+    \item Polinomios (suma de monomios)
+    \begin{itemize}
+        \item $f(x,y) = 2xy-5x^{3}+4x^{2}y^{5}$
+    \end{itemize}
+    \item Funciones Racionales (cociente de polinomios): Que no se anule el denominador.
+    \begin{itemize}
+        \item $f(x, y) = \frac{x^{4}y}{(x-1)^{2}}$ es continua en $\float^{2} - \{(1,0)\}$
+    \end{itemize}
+    \item Composiciones de una función continua en una variable con un polinomio 
+    \begin{itemize}
+        \item $ln(x^{2}+y^{2}+1)$: Como el ln debe ser mayor que 0 pero el argumento de dentro \textbf{siempre} es mayor que 0 entonces es continua en \textbf{todo} $\float^{2}$
+    \end{itemize}
+\end{itemize}
+\subsection*{Discontinuidad}
+Existen dos tipos de discontinuidades 
+\begin{itemize}
+    \item Discontinuidad Evitable: Eso quiere decir que el límite existe cuando tendemos al punto pero no da el valor que queremos.
+    \item Discontinuidad Inevitable: El límite cuando tendemos al punto no existe.
+\end{itemize}
+
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
