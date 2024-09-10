@@ -751,6 +751,35 @@ Existen dos tipos de discontinuidades
     \item Discontinuidad Evitable: Eso quiere decir que el límite existe cuando tendemos al punto pero no da el valor que queremos.
     \item Discontinuidad Inevitable: El límite cuando tendemos al punto no existe.
 \end{itemize}
+\subsection*{Continuidad en Curvas}
+Decimos que una curva es continua si todas sus parametrizaciones lo son. \\
+Una curva $\alpha: I \rightarrow \float^{n}$ dada por $\alpha(t)=(x_{1}(t), x_{2}(t), ..., x_{n}(t))$ es continua si todas las funciones $x_{i}: I \rightarrow \float $ son continuas.
+\section*{Recta Secante}
+La recta secante es la recta que une dos puntos, es decir, \textbf{que corta en dos puntos a una curva.} \\
+Esta ecuación me da la pendiente de la recta secante $ \frac{dy}{dx} = \frac{f(x)-f(x_{0})}{x-x_{0}}$
+\section*{Derivada}
+La derivada es una nueva función que indica la pendiente de la recta tangente para todos los puntos de una función. Además, es una medida de rapidez con la que cambia un valor. \\
+Notamos a la derivada de $f(x)$ como $f'(x)$ \\
+La Derivada por Definición se puede representar como $f'(x) = \lim_{(h) \to 0} \frac{f(x+h)-f(x)}{h}$
+\section*{Recta Tangente}
+La Recta Tangente de una función es aquella que mejor aproxima a la función cerca de $x_{0}$. \\
+La ecuación es la siguiente: $ y = f'(x_{0})(x-x_{0})+f(x_{0})$
+\section*{Diferenciabilidad (Derivabilidad en Curvas)}
+Considere la curva $r(t) = (x(t), y(t), z(t))$. Recordemos que esta parametrización de la curva nos pide un tiempo t y nos dice la posición. \\
+Ahora lo que queremos saber es \textbf{con qué velocidad} se mueve la partícula. \\
+Esta velocidad, al igual que en la física es una magnitud vectorial. No solo me importa que tan rápido va yendo sino también en que dirección y sentido.
+\subsection*{Velocidad Promedio}
+Tomo fotografía en dos instantes de tiempo: como estaba la partícula en un momento dado, luego dejo pasar un tiempo y saco otra foto. \\
+Esto lo podemos denotar como $t_{0}$ y $\triangle t$ entonces ahora veo $r(t_{0})$ y $r(t_{0} + \triangle t)$
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/velocidad_promedio.png}
+\end{minipage}\]
+En naranja, tenemos el \textbf{vector desplazamiento}. \\
+Luego $V_{prom} = \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t}$ \\
+Por lo tanto, podemos calcular la velocidad instantánea como $V(t_{0}) =  \lim_{(\triangle t) \to 0} \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t} $ si el límite existe.
+\subsection*{Curvas Diferenciables}
+Sea $r: I \subset \float \rightarrow \float^{2} \ o \ \float^{3}$ y $t_{0} \in I$ \\
+Decimos que r es diferenciable en $t_{0}$ si el límite $r'(t_{0}) = \lim_{(\triangle t) \to 0} \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t}$
 
 \section*{Anexo}
 \subsection*{Esferas}
