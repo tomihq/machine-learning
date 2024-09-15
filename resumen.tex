@@ -501,7 +501,7 @@ Esta cuádrica es el cono. \\
 Lo primero que notamos es que $z$ es una variable dependiente y está ligada a lo que valga $x^{2} + y^{2}$. Por lo tanto, como ambos términos son positivos, entonces $z \ge 0 $. \\
 De esta observación descartamos trazas con $ z = -k $ \\
 3. $z = x^{2} + y^{2}$ \\
-Mismo que el ejemplo anterior, notamos que $z \ge 0$ y está ligada. \\
+Mismo que el ejemplo anterior, notamos que $z \ge 0$ y está ligada. 
 \begin{itemize}
     \item Interseco / Corto con traza z = cte.
     \begin{itemize}
@@ -509,7 +509,7 @@ Mismo que el ejemplo anterior, notamos que $z \ge 0$ y está ligada. \\
         \item $z=1 \implies x^{2} + y^{2} = 1$
     \end{itemize}
 \end{itemize}
-En este ejemplo particular podemos ver que las \textbf{trazas} nos dieron exactamente igual que en el ejemplo 1. Esto indica que claramente tienen un parecido, pero como son diferentes ecuaciones, algo nos falta. Tomemos más trazas. \\
+En este ejemplo particular podemos ver que las \textbf{trazas} nos dieron exactamente igual que en el ejemplo 1. Esto indica que claramente tienen un parecido, pero como son diferentes ecuaciones, algo nos falta. Tomemos más trazas. 
 \begin{itemize}
     \item Interseco / Corto con traza x = cte.
     \begin{itemize}
@@ -779,8 +779,21 @@ Luego $V_{prom} = \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t}$ \\
 Por lo tanto, podemos calcular la velocidad instantánea como $V(t_{0}) =  \lim_{(\triangle t) \to 0} \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t} $ si el límite existe.
 \subsection*{Curvas Diferenciables}
 Sea $r: I \subset \float \rightarrow \float^{2} \ o \ \float^{3}$ y $t_{0} \in I$ \\
-Decimos que r es diferenciable en $t_{0}$ si el límite $r'(t_{0}) = \lim_{(\triangle t) \to 0} \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t}$
-
+Decimos que r es diferenciable en $t_{0}$ si el límite $r'(t_{0}) = \lim_{(\triangle t) \to 0} \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t}$ 
+\subsection*{Recta Tangente en Curva Diferenciable en Punto}
+Si $r:I \subset \float \implies \float^{2} \ o \ \float^{3}$ es diferenciable en $t_{0}$, entonces posee una recta tangente en $r(t_{0})$ y la misma viene dada por $ \lambda r'(t_{0}) + r(t_{0})$
+\subsection*{Diferenciabilidad en Curva dada por forma vectorial}
+Dada una curva $r(t) = (x(t), y(t), z(t))$ es diferenciable en $t_{0} \iff r'(t_{0}) = (x'(t), y'(t), z'(t))$  \\
+\textbf{Importante}: Los versores indican qué posición de parámetro toman en la ecuación vectorial. \\
+Es decir, $r(t) = (1+t^{3}) \ \hat{i} + te^{-t} \ \hat{j} + sen(2t) \ \hat{k} \equiv r(t) = (1+t^{3}, te^{-t}, sen(2t))$ \\
+Veamos un ejemplo: Dada $r(t) = (1+t^{3}, te^{-t}, sen(2t))$ encuentre el vector derivado de r y halle la ecuación de la recta tangente a la curva en $\hat{i} = (1, 0, 0)$. \\
+\textbf{Importante}: Si $\hat{i} = (1, 0, 0)$ entonces esto nos quiere decir que existe algún momento $t_{0}$ tal que $ \hat{i} = (1, 0, 0) = r(t_{0})$ 
+\begin{itemize}
+    \item Comenzamos derivando coordenada a coordenada, por lo tanto nos queda $r'(t) = (3t^{2}, e^{-t} + t (-e^{-t}), cos(2t) * 2)$. 
+    \item Ahora tenemos que hallar el $t_{0}$ para que $ \hat{i} = (1, 0, 0)$, por la primera coordenada vemos que para que de 1, entonces $t=0$. También vemos que este mismo t = 0 verifica la segunda y la tercera coordenada.
+    \item Entonces como verificamos que efectivamente la curva pasa por el punto $ \hat{i} = (1, 0, 0) $ en el momento $t_{0} = 0$ tomamos este valor y calculamos la recta tangente (y = f'($x_{0}$) + f($x_{0}$)). 
+    \item $\lambda * r'(0) + r(0) = \lambda(0, 1, 2) + (1, 0, 0)$
+\end{itemize}
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
