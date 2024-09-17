@@ -781,12 +781,15 @@ Por lo tanto, podemos calcular la velocidad instantánea como $V(t_{0}) =  \lim_
 Sea $r: I \subset \float \rightarrow \float^{2} \ o \ \float^{3}$ y $t_{0} \in I$ \\
 Decimos que r es diferenciable en $t_{0}$ si el límite $r'(t_{0}) = \lim_{(\triangle t) \to 0} \frac{r(t_{0} + \triangle t) - r(t_{0})}{\triangle t}$ 
 \subsection*{Recta Tangente en Curva Diferenciable en Punto}
-Si $r:I \subset \float \implies \float^{2} \ o \ \float^{3}$ es diferenciable en $t_{0}$, entonces posee una recta tangente en $r(t_{0})$ y la misma viene dada por $ \lambda r'(t_{0}) + r(t_{0})$
-\subsection*{Diferenciabilidad en Curva dada por forma vectorial}
+Si $r:I \subset \float \implies \float^{2} \ o \ \float^{3}$ es diferenciable en $t_{0}$, entonces posee una recta tangente en $r(t_{0})$ y la misma viene dada por $ \lambda r'(t_{0}) + r(t_{0})$ \\
+\subsection*{Diferenciabilidad en Curva / Funciones Vectoriales}
 Dada una curva $r(t) = (x(t), y(t), z(t))$ es diferenciable en $t_{0} \iff r'(t_{0}) = (x'(t), y'(t), z'(t))$  \\
+
 \textbf{Importante}: Los versores indican qué posición de parámetro toman en la ecuación vectorial. \\
+
 Es decir, $r(t) = (1+t^{3}) \ \hat{i} + te^{-t} \ \hat{j} + sen(2t) \ \hat{k} \equiv r(t) = (1+t^{3}, te^{-t}, sen(2t))$ \\
 Veamos un ejemplo: Dada $r(t) = (1+t^{3}, te^{-t}, sen(2t))$ encuentre el vector derivado de r y halle la ecuación de la recta tangente a la curva en $\hat{i} = (1, 0, 0)$. \\
+
 \textbf{Importante}: Si $\hat{i} = (1, 0, 0)$ entonces esto nos quiere decir que existe algún momento $t_{0}$ tal que $ \hat{i} = (1, 0, 0) = r(t_{0})$ 
 \begin{itemize}
     \item Comenzamos derivando coordenada a coordenada, por lo tanto nos queda $r'(t) = (3t^{2}, e^{-t} + t (-e^{-t}), cos(2t) * 2)$. 
@@ -811,6 +814,10 @@ Sean u(t) y v(t) dos curvas entonces
 \end{itemize}
 \section*{Derivadas Parciales}
 No es otra cosa que fijar una de las dos coordenadas y pensar la función como si fuese de una variable. 
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/derivadas_parciales.jpg}
+\end{minipage}\]
+\textbf{Importante}: El h \textbf{siempre} tiende a 0.
 \subsection*{Derivada parcial de f respecto a x}
 Sea f $f(x,y)$, la derivada parcial de f respecto a x es:
 \[f_{x}(x_{0}, y_{0}) = \lim_{h \to 0} \left(\frac{f(x_{0} + h, y_{0}) - f(x_{0}, y_{0})}{h} \right)\]
@@ -828,8 +835,11 @@ Véase \hyperref[subsec:derivadas_parciales]{\underline{\textbf{anexo}}} para ve
 Es un vector que posee las dos derivadas parciales y se denota de la siguiente manera
 \[\triangledown f(x,y) = (f_{x}(x,y), f_{y}(x,y))\]
 Considerando el primer ejemplo que resolvimos en la sección anterior que se encuentra en el anexo podemos ver que el vector gradiente para todo x, y es el siguiente: $\triangledown f(x, y) = (\frac{1}{x}, \frac{-1}{1+y})$
-\section*{Derivada parcial de una función definida implícitamente}
-Sea f $Z=Z(x,y)$
+\section*{Derivada Direccional}
+Sea $ v \in \float^{2}, v \neq 0 \ \frac{\partial f}{\partial v}(x_{0}, y_{0})$ \\
+Observemos que, existe una recta que pasa por $(x_{0}, y_{0})$ y con vector director $v$ tal que $\delta(t) = tv + (x_{0}, y_{0})$ \\
+Si $\exists \lim_{h \to 0} \left(\frac{f((x_{0}, y_{0}) + hv) - f(x_{0}, y_{0})}{h} \right) = \frac{\partial f}{\partial v}(x_{0}, y_{0})$ \\
+(Preguntar esto el jueves)
 \section*{Derivadas de Orden Superior}
 Ejemplo: Sea $f(x,y) = x^{3}y^{2} + 2x - y^{4}$ calculemos sus derivadas parciales. 
 \begin{itemize}
@@ -843,10 +853,25 @@ Entonces ahora ¿cuántas derivadas parciales podemos calcular de ambas funcione
     \item $(f_{y})_{x}(x, y) = \frac{\partial}{\partial x}(\frac{\partial f}{\partial y})(x,y) = 6x^{2}y$
     \item $(f_{y})_{y}(x, y) = \frac{\partial}{\partial y}(\frac{\partial f}{\partial y})(x,y) = 2x^{3}-12y^{2}$
 \end{itemize}
+Decimos que $f:D\subseteq \float^{2} \rightarrow \float$ es de clase $C^{1}(D)$ si $\exists f_{x}(x,y), f_{y}(x,y) \backslash (\forall (x, y) \in D)(f_{x}, f_{y}: D \subseteq \float^{2} \rightarrow \float)$ continua. \\
+Decimos que f es de clase $C^{2}(D)$ si $f_{x x}$, $f_{xy}$, $f_{yx}$, $f_{yy}$ con $D \subseteq \float^{2} \rightarrow \float$ continua.
 \section*{Teorema de Clairaut}
-Si $f:D \subseteq \float^{2} \rightarrow \float$ y existen $f_{xy}, \ f_{yx}$ y son continuas en D. Entonces $f_{xy}=(x_{0}, y_{0}) = f_{yx}(x_{0}, y_{0})$ para todo $(x_{0}, y_{0}) \in D$ \\
+Si $f:D \subseteq \float^{2} \rightarrow \float$ y existen $f_{xy}, \ f_{yx}$ y son continuas en D. Entonces $f_{xy}=(x_{0}, y_{0}) = f_{yx}(x_{0}, y_{0})$ $\forall(x_{0}, y_{0}) \in D$ \\
 En el ejemplo que vimos en Derivadas de Orden Superior esto sucede porque $(f_{x})_{y} = (f_{y})_{x}$, es decir, las derivadas cruzadas dan igual.
-\section*{Diferenciación}
+\section*{Función Lineal en $\float^{3}$}
+$L(x,y) = a(x-x_{0}) + b(y-y_{0})+f(x_{0}, y_{0})$ \\
+$L:\float^{2} \rightarrow \float \ f:D\subseteq \float^{2} (x_{0}, y_{0}) \in D$ \\
+\textbf{Importante}: a y b son las dos pendientes de la función lineal.
+\section*{Diferenciabilidad}
+Sea $f:D \subseteq \float^{2} \rightarrow \float \ (x_{0}, y_{0}) \in D$ es diferenciable en $(x_{0}, y_{0})$ si $\exists a,\ b \in \float$ tal que 
+\[\lim_{(x,y) \to (x_{0}, y_{0})} \left(\frac{f(x, y) - f(x_{0}, y_{0}) - a(x - x_{0}) - b(x - y_{0})}{\longitud{\longitud{(x, y) - (x_{0}, y_{0})}}} \right) = 0\]
+\subsection*{Teorema de la Diferenciabilidad}
+Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
+\begin{itemize}
+    \item $a = f_{x}(x_{0}, y_{0}), b = f_{y}(x_{0}, y_{0})$
+    \item $\forall v \in \float^{2} \exists \frac{\partial f}{\partial v}(x,y) = <\triangledown f (x_{0}, y_{0}), v>$
+\end{itemize} 
+\textbf{Importante}: $<>$ es sinónimo del producto escalar.
 
 \section*{Anexo}
 \subsection*{Esferas}
