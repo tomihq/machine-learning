@@ -857,10 +857,29 @@ Es un vector que posee las dos derivadas parciales y se denota de la siguiente m
 \[\triangledown f(x,y) = (f_{x}(x,y), f_{y}(x,y))\]
 Considerando el primer ejemplo que resolvimos en la sección anterior que se encuentra en el anexo podemos ver que el vector gradiente para todo x, y es el siguiente: $\triangledown f(x, y) = (\frac{1}{x}, \frac{-1}{1+y})$
 \section*{Derivadas Direccionales}
-Sea $ v \in \float^{2}, v \neq 0 \ \frac{\partial f}{\partial v}(x_{0}, y_{0})$ \\
-Observemos que, existe una recta que pasa por $(x_{0}, y_{0})$ y con vector director $v$ tal que $\delta(t) = tv + (x_{0}, y_{0})$ \\
-Si $\exists \lim_{h \to 0} \left(\frac{f((x_{0}, y_{0}) + hv) - f(x_{0}, y_{0})}{h} \right) = \frac{\partial f}{\partial v}(x_{0}, y_{0})$ \\
-Nos sirve para pasar por un punto dado con alguna recta que tenga dirección.
+Sea $v \in \float^{2}, \longitud{v} = 1, v \neq 0$ definimos la derivada direccional f en $(x_{0}, y_{0})$ \\ 
+$\frac{\partial f}{\partial v}(x_{0}, y_{0}) = D_{v}(x_{0}, y_{0}) = \lim_{t \to 0} \left(\frac{f((x_{0}, y_{0}) + t(a, b)) - f(x_{0}, y_{0})}{t} \right) $ siempre que este límite exista. \\
+Esto siempre se hace por definición, pero si tenemos la información de que es \textbf{diferenciable} podemos usar el siguiente teorema
+\subsection*{Teorema de la Diferenciabilidad}
+Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
+\begin{itemize}
+    \item $a = f_{x}(x_{0}, y_{0}), b = f_{y}(x_{0}, y_{0})$
+    \item $ \frac{\partial f}{\partial v}(x_{0},y_{0}) = \triangledown f (x_{0}, y_{0}) * \frac{v}{\longitud{\longitud{v}}} = \frac{\partial f}{\partial x}(x_{0}, y_{0}) * a + \frac{\partial f}{\partial y}(x_{0}, y_{0})*b$
+\end{itemize} 
+\textbf{Nota}: $(x_{0}, y_{0}) + t(a,b)$ donde v=(a, b) 
+\subsection*{Relación entre las Derivadas Direccionales y Derivadas Parciales}
+Las Derivadas Parciales son literalmente Derivadas Direccionales pues cuando estamos derivando en base a x estamos usando el vector director de norma 1 (1,0) y cuando lo hacemos en base a y estamos usando el vector director de norma 1 (0, 1): 
+\begin{itemize}
+    \item $\frac{\partial f}{\partial x}(x_{0}, y_{0}) = D_{(1, 0)} f (x_{0}, y_{0})$
+    \begin{itemize}
+        \item $\frac{\partial f}{\partial(1,0)} (x_{0}, y_{0})$
+    \end{itemize}
+    \item $\frac{\partial f}{\partial y}(x_{0}, y_{0}) = D_{(0, 1)} f (x_{0}, y_{0})$
+    \begin{itemize}
+        \item $\frac{\partial f}{\partial(0, 1)} (x_{0}, y_{0})$
+    \end{itemize}
+\end{itemize}
+Véase \hyperref[subsec:derivadas_direccionales_ej]{\textbf{\underline{anexo}}} para ver ejemplos.
 \section*{Derivadas de Orden Superior}
 Ejemplo: Sea $f(x,y) = x^{3}y^{2} + 2x - y^{4}$ calculemos sus derivadas parciales. 
 \begin{itemize}
@@ -897,13 +916,6 @@ Sea $f:D \subseteq \float^{2} \rightarrow \float \ (x_{0}, y_{0}) \in D$ es dife
     \item f(x,y) se acerca al plano tangente.
     \item $\longitud{\longitud{(x,y) - (x_{0}, y_{0})}}$ tiende a cero. 
 \end{itemize}
-\subsection*{Teorema de la Diferenciabilidad}
-Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
-\begin{itemize}
-    \item $a = f_{x}(x_{0}, y_{0}), b = f_{y}(x_{0}, y_{0})$
-    \item $\forall v \in \float^{2} \ \exists \ \frac{\partial f}{\partial v}(x,y) = <\triangledown f (x_{0}, y_{0}), \frac{v}{\longitud{\longitud{v}}}>$
-\end{itemize} 
-\textbf{Importante}: $<>$ es sinónimo del producto escalar.
 \subsection*{Teorema de Diferenciabilidad $\&$ Continuidad}
 Sea $f:D\subseteq \float^{2} \rightarrow \float$ y $P_{0} = (x_{0}, y_{0}) \in D$ si sucede que f es diferenciable en $p_{0}$ entonces, f es continua en $p_{0}$.
 \subsection*{Álgebra de Diferenciabilidad}
@@ -1251,5 +1263,20 @@ $= 1 * 0 * 0 = 0$ \\
 Entonces, por sandwich probamos que el límite existe y es 0. \\
 Por último, la continuidad es todo $\float^{2}$ pues la rama A al ser producto de continuas, cociente de continuas es continua, y en el único punto conflictivo que hay, se encarga la rama B de resolver eso. \\
 \textbf{Ítem c}: Recordemos que para que sea diferenciable primero necesitamos considerar un punto que queramos evaluar, en este caso, vamos a probar con el (0,0). Entonces, por definición esto debería dar 0.
-
+\subsection*{Derivadas Direccionales}
+\label{subsec:derivadas_direccionales_ej}
+\textbf{Ejemplo 1.}: Vamos a hacerlo por definición
+Dada $f(x,y) = x+2y, (x_{0}, y_{0})=(1,2)$ y $v=(\frac{1}{2}, \frac{\sqrt{3}}{2})$. \\
+Lo primero que tenemos que ver es si efectivamente el vector v está normalizado, es decir, tiene norma 1 \\
+Por lo tanto $\longitud{v} = \sqrt{(\frac{1}{2})^{2}+ (\frac{\sqrt{3}}{2})^{2}} = 1$ \\
+Ahora planteamos el límite $\lim_{t \to 0} \left(\frac{f((1, 2) + t(\frac{1}{2}, \frac{\sqrt{3}}{2})) - f(1, 2)}{t} \right)$ = $\lim_{t \to 0} \left(\frac{1+\sqrt{3}}{2} \right)$ \\
+Luego, $\frac{\partial f}{\partial v}(x_{0}, y_{0}) = \frac{1+\sqrt{3}}{2}$ \\
+\textbf{Ejemplo 2.}: $f(x,y) = x^{2}y^{3}-4x+y, (x_{0}, y_{0})=(1,2)$ calcular la razón de cambio de f en la dirección dada por $v=(3,4)$ en $x_{0}, y_{0}$
+\begin{itemize}
+    \item Calculamos $\frac{\partial f}{\partial x}$ = $2xy^{3}-4$
+    \item Calculamos $\frac{\partial f}{\partial y}$ = $3y^{2}x^{2}+1$
+\end{itemize}
+Entonces tenemos $\triangledown f(1,2) = (12, 13)$ \\
+Luego, observamos que el vector director $(3,4)$ no es de módulo 1 por lo tanto lo normalizamos dividiendolo por su módulo $\longitud{v} = 5$, entonces $u=(\frac{3}{5}, \frac{4}{5})$ \\
+Luego, por el teorema de la diferenciabilidad $\frac{\partial f}{\partial v}(1, 2) = \triangledown f(1,2) = (12, 13) * (\frac{3}{5}, \frac{4}{5}) = \frac{166}{5} $
 \end{document} 
