@@ -860,6 +860,18 @@ Considerando el primer ejemplo que resolvimos en la sección anterior que se enc
 Sea $v \in \float^{2}, \longitud{v} = 1, v \neq 0$ definimos la derivada direccional f en $(x_{0}, y_{0})$ \\ 
 $\frac{\partial f}{\partial v}(x_{0}, y_{0}) = D_{v}(x_{0}, y_{0}) = \lim_{t \to 0} \left(\frac{f((x_{0}, y_{0}) + t(a, b)) - f(x_{0}, y_{0})}{t} \right) $ siempre que este límite exista. \\
 Esto siempre se hace por definición, pero si tenemos la información de que es \textbf{diferenciable} podemos usar el Teorema de la Diferenciabilidad. 
+\subsection*{Derivadas Direccionales con Ángulos}
+En este tipo de casos hay que pensar que cuando dibujamos un ángulo, indirectamente podría haber un vector que salga con esa inclinación. \\
+Por lo tanto, podemos recordar las definiciones de
+\[
+\begin{cases}
+x = r * cos(\Theta) \\
+y = r * sen(\Theta)
+\end{cases}
+\]
+Pero acá el rol de x lo toma \textbf{a} y el rol de y lo toma \textbf{b} donde $v=(a,b)$. \\
+¿Qué es r? Recordemos que r era el radio/largo. En este caso va a ser \textbf{siempre 1} si hablamos del vector normalizado. \\
+Lo demás es exactamente igual, una vez que encontramos el vector queda hacer las derivadas parciales, generar el gradiente, evaluar en el punto dado y hacer el producto escalar entre el gradiente evaluado en el punto y el vector. 
 \subsection*{Relación entre las Derivadas Direccionales y Derivadas Parciales}
 Las Derivadas Parciales son literalmente Derivadas Direccionales pues cuando estamos derivando en base a x estamos usando el vector director de norma 1 (1,0) y cuando lo hacemos en base a y estamos usando el vector director de norma 1 (0, 1): 
 \begin{itemize}
