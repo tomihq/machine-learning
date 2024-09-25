@@ -928,6 +928,18 @@ Sea $f, g: D \subseteq \float^{2} \implies \float$, $p_{0} \in D \ \backslash \ 
     \item Cociente: $g(p_{0}) \neq 0 \implies \triangledown(f/g)(p_{0}) = \frac{\triangledown f(p_{0}) * g(p_{0}) - f(p_{0}) * \triangledown g(p_{0})}{g(p_{0})^{2}}$
 \end{itemize}
 Véase \hyperref[subsec:diferenciabilidad_continuidad_mas]{\textbf{\underline{anexo}}} para ver ejercicios donde vemos continuidad, dominio, diferenciabilidad y más.
+\subsection*{Relación entre Gradiente, Diferenciabilidad, Continuidad y Clases}
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/relacion_continuidad_diferenciabilidad.jpg}
+\end{minipage}\]
+\begin{itemize}
+    \item Si existe el gradiente (o la derivada), la función es diferenciable.
+    \item Si la función es diferenciable, entonces es continua.
+    \item Una función continua no necesariamente es diferenciable.
+    \item Una función diferenciable no necesariamente es de clase C1 (su derivada puede no ser continua).
+    \item Si una función es de clase C1 entonces es diferenciable y su derivada es continua.
+    \item Si una función no es continua en un punto, entonces no es diferenciable en ese punto, es decir, no existen las derivadas parciales ni plano tangente, ni la diferenciabilidad.
+\end{itemize}
 \section*{Plano Tangente}
 Sea $f:D \subseteq \float^{2} \rightarrow \float$ \textbf{diferenciable} en $P_{0} \in D$ 
 \[f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x-x_{0})+f_{y}(x_{0}, y_{0})(y-y_{0}) = f(x_{0}, y_{0}) + \triangledown f(x_{0}, y_{0})(x-x_{0})(y-y_{0})\] 
@@ -955,7 +967,7 @@ Ej.: Si tengo $z=f(x,y)$ con $x=x(u, v), y=y(u,v)$ ¿cómo calculamos $Z_{u}$ y 
     \includegraphics[width=\linewidth]{assets/arbol_derivadas.jpg}
 \end{minipage}\]
 Otro ejemplo 
-\[\begin{minipage}[b]{0.9\textwidth}
+\[\begin{minipage}[b]{0.6\textwidth}
     \includegraphics[width=\linewidth]{assets/regla_cadena_arbol.png}
 \end{minipage}\]
 \section*{Anexo}
