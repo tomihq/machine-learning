@@ -859,14 +859,7 @@ Considerando el primer ejemplo que resolvimos en la sección anterior que se enc
 \section*{Derivadas Direccionales}
 Sea $v \in \float^{2}, \longitud{v} = 1, v \neq 0$ definimos la derivada direccional f en $(x_{0}, y_{0})$ \\ 
 $\frac{\partial f}{\partial v}(x_{0}, y_{0}) = D_{v}(x_{0}, y_{0}) = \lim_{t \to 0} \left(\frac{f((x_{0}, y_{0}) + t(a, b)) - f(x_{0}, y_{0})}{t} \right) $ siempre que este límite exista. \\
-Esto siempre se hace por definición, pero si tenemos la información de que es \textbf{diferenciable} podemos usar el siguiente teorema
-\subsection*{Teorema de la Diferenciabilidad}
-Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
-\begin{itemize}
-    \item $a = f_{x}(x_{0}, y_{0}), b = f_{y}(x_{0}, y_{0})$
-    \item $ \frac{\partial f}{\partial v}(x_{0},y_{0}) = \triangledown f (x_{0}, y_{0}) * \frac{v}{\longitud{\longitud{v}}} = \frac{\partial f}{\partial x}(x_{0}, y_{0}) * a + \frac{\partial f}{\partial y}(x_{0}, y_{0})*b$
-\end{itemize} 
-\textbf{Nota}: $(x_{0}, y_{0}) + t(a,b)$ donde v=(a, b) 
+Esto siempre se hace por definición, pero si tenemos la información de que es \textbf{diferenciable} podemos usar el Teorema de la Diferenciabilidad. 
 \subsection*{Relación entre las Derivadas Direccionales y Derivadas Parciales}
 Las Derivadas Parciales son literalmente Derivadas Direccionales pues cuando estamos derivando en base a x estamos usando el vector director de norma 1 (1,0) y cuando lo hacemos en base a y estamos usando el vector director de norma 1 (0, 1): 
 \begin{itemize}
@@ -917,6 +910,13 @@ Sea $f:D \subseteq \float^{2} \rightarrow \float \ (x_{0}, y_{0}) \in D$ es dife
     \item $\longitud{\longitud{(x,y) - (x_{0}, y_{0})}}$ tiende a cero. 
 \end{itemize}
 \textbf{Nota}: En una variable lo conocemos como derivada, y existe una recta tangente. Acá se lo conoce como Diferenciabilidad y existe un plano tangente.
+\subsection*{Teorema de la Diferenciabilidad}
+Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
+\begin{itemize}
+    \item $a = f_{x}(x_{0}, y_{0}), b = f_{y}(x_{0}, y_{0})$
+    \item $ \frac{\partial f}{\partial v}(x_{0},y_{0}) = \triangledown f (x_{0}, y_{0}) * \frac{v}{\longitud{\longitud{v}}} = \frac{\partial f}{\partial x}(x_{0}, y_{0}) * a + \frac{\partial f}{\partial y}(x_{0}, y_{0})*b$
+\end{itemize} 
+\textbf{Nota}: $(x_{0}, y_{0}) + t(a,b)$ donde v=(a, b) 
 \subsection*{Teorema de Diferenciabilidad $\&$ Continuidad}
 Sea $f:D\subseteq \float^{2} \rightarrow \float$ y $P_{0} = (x_{0}, y_{0}) \in D$ si sucede que f es diferenciable en $p_{0}$ entonces, f es continua en $p_{0}$.
 \subsection*{Álgebra de Diferenciabilidad}
