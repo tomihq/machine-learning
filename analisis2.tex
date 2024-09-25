@@ -933,6 +933,27 @@ Sea $f:D \subseteq \float^{2} \rightarrow \float$ \textbf{diferenciable} en $P_{
 \[f(x_{0}, y_{0}) + f_{x}(x_{0}, y_{0})(x-x_{0})+f_{y}(x_{0}, y_{0})(y-y_{0}) = f(x_{0}, y_{0}) + \triangledown f(x_{0}, y_{0})(x-x_{0})(y-y_{0})\] 
 El plano tangente existe solo si es Diferenciable. Esto quiere decir que si bien podemos plantear la ecuación de un hipotético plano, la forma de validar que efectivamente exista es que el límite de Diferenciabilidad de 0. \\
 Si es Diferenciable, y encontramos un plano, entonces ese plano es único. 
+\section*{Regla de la Cadena}
+\subsection*{Regla de la Cadena en 1 Variable}
+Cuando teníamos una sola variable, la regla de la cadena en derivadas tenía esta pinta $f'(x(t_{0})) * x'(t_{0})$ y en forma de derivadas parciales se ve de esta manera $y=f(x)$ y $x=x(t)$ 
+\[\frac{dy}{dt} = \frac{dy}{dx} * \frac{dx}{dt} \]
+donde $dx = f'(x)$ y $dt = x'(t)$ 
+\subsection*{Regla de la Cadena en 2 Variables}
+Tiene esta pinta $z = f(x,y)$ $x=x(t)$ $y=y(t)$ \\
+¿Cómo calculamos $\frac{dz}{dt}$?
+\[\frac{d}{dt}[f(x(t), y(t))] = f_{x}(x, y) * x' + f_{y}(x,y) * y' = \triangledown f(x,y) * (x', y')\]
+\textbf{Importante}: Si $r(t) = (x(t), y(t))$ entonces $\triangledown f(x,y) * (x', y') = \triangledown f (r) * r'$ donde $r'(t)$ es $(x', y')$ y r es $(x,y)$
+\subsection*{Diagrama del Árbol}
+Cuando queremos calcular la derivada de una función que depende de 2 variables o más y que a su vez esas variables dependan de más de una, solemos usar el diagrama del árbol. \\
+Ej.: Si tengo $z=f(x,y)$ con $x=x(u, v), y=y(u,v)$ ¿cómo calculamos $Z_{u}$ y $Z_{v}$? \\
+\begin{itemize}
+\item La raíz del árbol va a ser lo que queremos calcular, en este caso z.
+\item Las ramas de la raíz serán las variables que necesito enviar para calcular z. En este caso, x e y.
+\item Luego, las ramas de x e y son justamente las variables de las que dependen. En este caso, x depende de u y v y lo mismo sucede con y.
+\end{itemize}
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/arbol_derivadas.jpg}
+\end{minipage}\]
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
