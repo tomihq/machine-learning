@@ -944,6 +944,7 @@ La idea de estos ejercicios es tratar de \textbf{todas las maneras} posibles ver
 \[\begin{minipage}[b]{0.7\textwidth}
     \includegraphics[width=\linewidth]{assets/derivadas_direccionales_diferenciabilidad.png}
 \end{minipage}\]
+\textbf{Inciso a}: \\
 Cuando venis haciendo las guías la mayoría salen muy fácil, pero este particularmente asusta porque tenés varias cosas: 
 \begin{itemize}
     \item No podés aplicar el mejor caso, tener algo de la forma $\frac{a^{2}}{a^{2} + b^{2}}$
@@ -966,7 +967,19 @@ Si hacemos de ambos lados, llegamos prácticamente a lo mismo. Si se llegase a o
 Entonces hasta ahora, probamos que valen todas las derivadas direccionales en el (0,0) excepto el vector $(1,0)$ pero como nos lo piden aparte, veamos si esa derivada existe. \\
 $\lim_{h \to 0} \left(\frac{f(h + x_{0}, y_{0}) - f(x_{0}, y_{0})}{h} \right) = \lim_{h \to 0} \left(\frac{f(h, 0)}{h} \right) = \lim_{h \to 0} \left(\frac{\frac{2(h^{2} + 0^{2}) \longitud{h} y}{h^{6} + \longitud{0}^{3}}}{h} \right) = \lim_{h \to 0} \left(\frac{0}{h^{7}} \right) = 0  $ \\
 Luego, como el límite dió 0 sin ningun tipo de problema, la derivada parcial existe y es 0. \\
-Por lo tanto, existen todas las derivadas direccionales en el punto (0,0). 
+Por lo tanto, existen todas las derivadas direccionales en el punto (0,0). \\
+\textbf{Inciso b}: Analicemos la diferenciabilidad de f en (0,0). Recordemos que el concepto de diferenciabilidad es lo mismo que calcular derivabilidad en una variable. \\
+Entonces, que una función sea diferenciable implica que tenga un plano tangente, sus derivadas parciales y además de eso, también que es continua en ese punto. Una función \textbf{no puede ser diferenciable} en un punto si no es continua en ese punto. \\
+Sin embargo, es raro que tengamos que evaluar continuidad porque seria un poco más largo, así que si te dicen que analices la diferenciabilidad, considerá que es continua (preguntalo igual). \\
+Calculemos primero la derivada parcial que nos falta, es decir $\frac{\partial f}{\partial y}$ y tenemos suerte de que la de x ya la hayamos calculado. \\
+Por suerte, ambas dan 0, entonces, ya podemos armar el hipotético plano tangente. Sí, hipotético, porque no es el plano tangente hasta que probemos que es diferenciable. \\
+El plano tangente se arma con $f(0, 0) + f_{x}(x-x_{0}) + f_{y}(y-y_{0})$. En nuestro caso es $z = 0$. \\
+Entonces, el límite para probar diferenciabilidad es de la siguiente forma: $\lim_{(x, y) \to (0,0)} \left(\frac{f(x,y) - [f(0, 0) + f_{x}(x-x_{0}) + f_{y}(y-y_{0})]}{\longitud{\longitud{(x,y) - (x_{0}, y_{0})}}} \right)$ y debería dar 0. \\
+Luego, $\lim_{(x, y) \to (0,0)} \left(\frac{\frac{2(x^{2} + y^{2})\longitud{x} y}{x^{6} + \longitud{y}^{3}}}{\longitud{\longitud{(x,y)}}} \right) = \lim_{(x, y) \to (0,0)} \left(\frac{2(x^{2} + y^{2})\longitud{x} y}{\longitud{\longitud{(x,y)}} * x^{6} + \longitud{y}^{3}} \right)$ \\
+Misma estrategia que antes. Saquémosnos de encima los módulos, veamos los laterales con la recta y = x porque intuyo que no existe porque el grado del denominador es mucho más grande que el del numerador. \\
+$\lim_{x \to 0^{+}} \left(\frac{2(x^{2} + x^{2})x x}{\longitud{\longitud{(x,y)}} * x^{6} + \longitud{x}^{3}} \right) = \lim_{x \to 0^{+}} \left(\frac{2(x^{2} + x^{2})x^{2}}{\sqrt{2x^{2}} * (x^{6} + \longitud{x}^{3})} \right) = \lim_{x \to 0^{+}} \left(\frac{4x^{2} * x^{2}}{\sqrt{2} \longitud{x^{2}} * (x^{6} + x^{3})} \right) = \lim_{x \to 0^{+}} \left(\frac{4x^{4}}{\sqrt{2} x * (x^{6} + x^{3})} \right)    $ \\
+$\lim_{x \to 0^{+}} \left(\frac{4x^{3}}{\sqrt{2} * (x^{6} + x^{3})} \right) = \lim_{x \to 0^{+}} \left(\frac{4x^{3}}{\sqrt{2} * (x^{3}(x^{3} + 1))} \right) =  \lim_{x \to 0^{+}} \left(\frac{4}{\sqrt{2} * (x^{3} + 1)} \right) $ \\
+Si ahora evaluamos el límite nos queda $\lim_{x \to 0^{+}} \left(\frac{4}{\sqrt{2}} \right)$ y esto claramente no es 0. Por lo tanto, no es diferenciable en (0,0) 
 
 \subsection*{Derivadas Direccionales con Ángulos}
 En este tipo de casos hay que pensar que cuando dibujamos un ángulo, indirectamente podría haber un vector que salga con esa inclinación. \\
