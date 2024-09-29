@@ -643,6 +643,46 @@ Por lo tanto, la respuesta es $\alpha(t) = (cos(t), sen(t), 1-cos(t)-sen(t))$ co
     \item 4. Haciendo esto nos queda $x^{2} + y^{2} = 2$. Entonces nos queda algo que ya súper conocemos. 
 \end{itemize}
 Por lo tanto, $\alpha(t) = (\sqrt[]{2} \ cos(t), \ \sqrt[]{2} \ sen(t), \sqrt[]{2} \ cos(t) \ + \ \sqrt[]{2} \ sen(t)) $ con $t \in [0, 2\pi]$
+\subsection*{Intersección y Parametrización de Parcial}
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/curva_ejercicio_parcial.png}
+\end{minipage}\]
+Respiremos por un momento, y notemos que en dos lados al mismo tiempo tenemos z. \\
+La primera parece una parábola, mientras que la segunda no tenemos certeza porque no sabemos cuanto vale z. \\
+La idea, sería meter una ecuación dentro de la otra para empezar a laburar. \\
+Por lo tanto $x^{2}+4 = 2x^{2}+3y^{2}$, hasta ahora no sabemos que cónica se armó. \\
+Luego $4 = x^{2}+3y^{2}$ y esto es algo que claramente conocemos pero con una forma media rara. \\
+Si rearmamos un poco los términos nos queda $4 = x^{2} + \frac{y^{2}}{\frac{1}{3}}$, y luego si dividimos por 4 $\frac{x^{2}}{4} + \frac{y^{2}}{\frac{\frac{1}{3}}{4}} = 1$ y finalmente: $\frac{x^{2}}{4} + \frac{y^{2}}{\frac{4}{3}} = 1$ \\
+Por lo tanto, si recordamos la parametrización de la elipse nos quedaría algo así: 
+\[
+\begin{cases}
+    x = 2 * cos(t) \\
+    y = \sqrt{\frac{4}{3}} * sen(t) \ con \ t \ \in [0, 2\pi)
+\end{cases}
+\] 
+Ahora por último vemos cuanto vale z en base a los valores anteriormente conocidos $ z = 4 cos(t^{2}) + 4$ \\
+Por lo tanto, nuestra parametrización nos quedó de la siguiente forma: $r(t) = (2 * cos(t), \sqrt{\frac{4}{3}} * sen(t), 4 cos^{2}(t) + 4)$ con $t \in [0, 2\pi)$ \\
+Si tenemos duda acerca de nuestra parametrización podemos meter coordenada a coordenada en las definiciones y ver si verifica efectivamente ambas ecuaciones. \\
+El inciso b nos pide verificar que un punto P = (1, -1, 5) está en la curva C. Como nosotros estamos con una parametrización en base a t, necesitamos encontrar un t que nos dé efectivamente este punto. Por lo tanto, planteamos un sistema
+\[
+\begin{cases}
+    1 = 2 * cos(t) \\
+    -1 = \sqrt{\frac{4}{3}} * sen(t) \\
+    5 = 4 * cos^{2}(t) + 4
+\end{cases}
+\] 
+\textbf{Importante}: Cuando tenemos el coseno al cuadrado primero hacer el cos sin el cuadrado, y el resultado elevarlo al cuadrado. \\
+Lo primero que podemos hacer básicamente despejar una ecuación sencilla. Podemos empezar sabiendo que $\frac{1}{2} = cos(t)$ ahora lo que podemos hacer básicamente es hacer $t = cos'(\frac{1}{2})$ y esto nos arroja $\frac{\pi}{3}$ \\
+Entonces ahora, con este t evaluemos en todos los casos y veamos si efectivamente vale. Probando vemos que la segunda no se verifica. \\
+Despejando de la segunda, nos queda $\frac{5\pi}{3}$. \\
+Ahora sí, si evaluamos en cada una de las coordenadas de r nos queda (1, -1, 5). \\
+Por último nos piden hallar la ecuación de la recta tangente a C en el punto P. \\
+Lo que vamos a considerar ahora, es como importante el t0 que encontramos, es decir $\frac{5\pi}{3}$ porque hay que evaluar en ese lugar a la derivada. \\
+Si derivamos a r nos queda $r'(t) = (-sen(t), \sqrt{\frac{4}{3}} * cos(t), 4 * (2 cos(t) * -sen(x))) \equiv r'(t) = (-sen(t), \sqrt{\frac{4}{3}} * cos(t), -4 sin(2t)) $ \\
+Ahora evaluemos $r'(\frac{5\pi}{3}) = (\frac{3}{4}, \frac{1}{\sqrt{3}}, \sqrt{48})$ me quedo medio raro, pero bueno. \\
+Entonces ahora, la recta tangente es: $L : \lambda(\frac{3}{4}, \frac{1}{\sqrt{3}}, \sqrt{48}) + (1, -1, 5)$
+
+
 \section*{Funciones de $\float^{2}$ en $\float$ y Gráficos}
 Si $f:\float \rightarrow \float $ tomando $y=f(x)$ tenemos una representación gráfica. \\
 \[graf(f) = \{(x,y) \in \float^{2} : (x, f(x)), \ x \in Dom(f)\} \subset \float^{2} \]
@@ -979,8 +1019,8 @@ Luego, $\lim_{(x, y) \to (0,0)} \left(\frac{\frac{2(x^{2} + y^{2})\longitud{x} y
 Misma estrategia que antes. Saquémosnos de encima los módulos, veamos los laterales con la recta y = x porque intuyo que no existe porque el grado del denominador es mucho más grande que el del numerador. \\
 $\lim_{x \to 0^{+}} \left(\frac{2(x^{2} + x^{2})x x}{\longitud{\longitud{(x,y)}} * x^{6} + \longitud{x}^{3}} \right) = \lim_{x \to 0^{+}} \left(\frac{2(x^{2} + x^{2})x^{2}}{\sqrt{2x^{2}} * (x^{6} + \longitud{x}^{3})} \right) = \lim_{x \to 0^{+}} \left(\frac{4x^{2} * x^{2}}{\sqrt{2} \longitud{x^{2}} * (x^{6} + x^{3})} \right) = \lim_{x \to 0^{+}} \left(\frac{4x^{4}}{\sqrt{2} x * (x^{6} + x^{3})} \right)    $ \\
 $\lim_{x \to 0^{+}} \left(\frac{4x^{3}}{\sqrt{2} * (x^{6} + x^{3})} \right) = \lim_{x \to 0^{+}} \left(\frac{4x^{3}}{\sqrt{2} * (x^{3}(x^{3} + 1))} \right) =  \lim_{x \to 0^{+}} \left(\frac{4}{\sqrt{2} * (x^{3} + 1)} \right) $ \\
-Si ahora evaluamos el límite nos queda $\lim_{x \to 0^{+}} \left(\frac{4}{\sqrt{2}} \right)$ y esto claramente no es 0. Por lo tanto, no es diferenciable en (0,0) 
-
+Si ahora evaluamos el límite nos queda $\lim_{x \to 0^{+}} \left(\frac{4}{\sqrt{2}} \right)$ y esto claramente no es 0. Por lo tanto, no es diferenciable en (0,0) \\
+\textbf{Conclusión}: Es realmente útil utilizar límites laterales por un lado, y además probar por curvas/rectas. 
 \subsection*{Derivadas Direccionales con Ángulos}
 En este tipo de casos hay que pensar que cuando dibujamos un ángulo, indirectamente podría haber un vector que salga con esa inclinación. \\
 Por lo tanto, podemos recordar las definiciones de
