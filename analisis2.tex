@@ -448,6 +448,67 @@ Entonces, ej hipérbola con eje mayor x
     \item $focos = (centroX \pm c, centroY)$
     \item $hiperbolas = -\frac{b}{a}(x - centroX) \ y \ \frac{b}{a}(x - centroX) $
 \end{itemize}
+\section*{Parametrización de Cónicas}
+Un problema muy común es que nos den ciertas cónicas para parametrizar. Normalmente se nos pide una circunferencia pero está bueno tener en cuenta las demás. \\
+\textbf{Nota}: Cuando hablemos de partidas con cos y sen, a cual aplicar cos y a cual sen es según la regla de la mano derecha. 
+\subsection*{Parábola}
+Una de las mas sencillas, la idea es poner todo el cálculo en y. \\
+Ej.: $x = y^{2} + 4$
+\[
+\begin{cases} 
+x = t \\
+y = t^{2} + 4
+\end{cases}
+\]
+\subsection*{Circunferencia}
+\[
+\begin{cases} 
+x = r * cos(t) + cx \\
+y = r * sin(t) + cy
+\end{cases}
+\]
+donde: 
+\begin{itemize}
+    \item r: Radio
+    \item c: Centro, y por lo tanto, cx es la coordenada x del centro, análogamente con y.
+    \item t: Parámetro, normalmente va a ser entre $[0, 2\pi)$
+\end{itemize}
+\textbf{Ojo}: Recordar que el radio debe sacarse la raíz cuadrada, porque normalmente cuando tenemos la fórmula corresponde a $r^{2}$ \\
+Ej.: $x^{2} + (y-3)^{2} = 9$ corresponde a 
+\[
+\begin{cases} 
+x = 3 * cos(t) + 0 \\
+y = 3 * sin(t) + 3
+\end{cases}
+\]
+\subsection*{Elipse}
+\[
+\begin{cases} 
+x = a * cos(t) + cx \\
+y = b * sin(t) + cy
+\end{cases}
+\]
+donde: 
+\begin{itemize}
+    \item a: Semieje Mayor 
+    \item b: Semieje Menor 
+    \item c: Centro, y por lo tanto, cx es la coordenada x del centro, análogamente con y.
+    \item t: Parámetro, normalmente va a ser entre $[0, 2\pi)$
+\end{itemize}
+\textbf{Ojo}: Recordar que en las elipses, el denominador está elevado al cuadrado. Por lo tanto, considerarlo con la raíz cuadrado.
+\subsubsection{Truco}
+Muchas veces se nos dan las elipses/hipérbolas de esta forma $9z^{2} + x^{2} = 1$ \\
+¿Cual es el problema acá? que una elipse tiene denominador. \\
+¿Cómo pasamos el 9 al denominador? Fácil: $\frac{z^{2}}{\frac{1}{9}}$ \\
+Entonces ¿quién es a? en este caso, $\frac{1}{3}$. 
+\subsection*{Hipérbolas}
+Análogo a Elipse, pero la diferencia es que la variable que depende del cos está negada. 
+\[
+\begin{cases} 
+x = -a * cos(t) + cx \\
+y = b * sin(t) + cy
+\end{cases}
+\]
 \section*{Superficies Cuadráticas ($\float^{3}$)}
 En cualquier lado tenemos 2 direcciones para movernos libres. Podemos movernos dentro de la curva, o por las rectas. \\
 $ax^{b} + by^{2} + cz^{2} + dxy + eyz + fxz + gx + hy + iz + j = 0$ \\
