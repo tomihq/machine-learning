@@ -707,7 +707,7 @@ Llamamos límite lateral cuando nos aproximamos a $x_{0}$ por un solo lado. \\
 Acercarnos por izquierda: $\lim_{x\to x_{0}^{-}} \limitDef$  \\
 Acercarnos por derecha: $\lim_{x\to x_{0}^{+}} \limitDef$ \\
 En $\float^{2}$ existen ambos límites laterales si existen $x's \in A = Dom(f)$ en ambos lados de $x_{0}$. Si ambos límites laterales son iguales, entonces decimos que existe el límite en $x_{0}$.
-
+\textbf{Importante}: Va a ser tu mejor amigo cuando tengas que calcular diferenciabilidad o tengas que lidiar con módulos que no puedas acotar (porque no estás demostrando que existe y da un valor particular).
 \subsection*{Límites en Varias Variables}
 Dada $f(a, \ b) \rightarrow \float \ x_{0} \in (a,\ b)$ decimos que l es el límite de f cuando x tiende a $x_{0}$ si para cualquier $\epsilon \ > \ 0 \ \exists \delta = \delta(\epsilon) > 0$ tal que si $ 0 < \longitud{x-x_{0}} < \delta \rightarrow \longitud{f(x) - l} < \epsilon$  \\
 Cuando trabajamos en $\float^{n}$ el límite en $P$ existe si todos los caminos con el cual nos acercamos a P siempre dan el mismo límite. Esto quiere decir que si encontramos \textbf{dos maneras distintas} de acercarnos que den límites distintos es porque el límite en $P$ no existe. \\
@@ -763,6 +763,18 @@ Véase \hyperref[subsec:limites_definicion]{\underline{\textbf{anexo}}} para ver
 \end{itemize}
 Si mediante todos los caminos realizados el límite es el mismo, probablemente ese límite sea verdad. Para probar esto usamos la definición: $\forall \epsilon > 0, \exists \delta > 0 : \longitud{\longitud{(x,y) - (x_{0}, y_{0})}} < \delta \implies \longitud{f(x, y) - f(x_{0}, y_{0})} < \epsilon $ \\
 \textbf{Importante}: Cuando analizamos los caminos por polares debemos modificar la ecuación tal que $x = r cos \theta$ e $ y = r sin \theta$ y el límite debe ser $r \rightarrow 0$ \\
+\subsection*{Uso de L'Hopital}
+Es extremadamente importante acordarse que esta herramienta existe, veamos un ejemplo de un parcial donde es \textbf{prácticamente obligatorio} aplicarlo. 
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/limite_irrompible.png}
+\end{minipage}\]
+Este límite, por iterados da cero. \\
+Por algunas curvas, aparentemente da 0. \\
+Pero si probamos por $x+2 = y+1 \equiv y=x+1$ pasa algo interesante. \\
+$\left( \lim_{x \to -2} \frac{(x+2)(x+2)^{2}sen(x+2)}{(x+2)^{4}+(x+2)^{4}} \right)$ = $\left( \lim_{x \to -2} \frac{(x+2)(x+2)^{2}sen(x+2)}{(x+2)^{4}(1+1)} \right)$ = $\left( \lim_{x \to -2} \frac{\textcolor{red}{(x+2)^{3}}sen(x+2)}{\textcolor{red}{(x+2)^{4}}(1+1)} \right)$ = $\left( \lim_{x \to -2} \frac{sen(x+2)}{2 (x+2)} \right)$ \\
+Ahora la pregunta es ¿qué hacemos? porque se nos sigue indefiniendo. Como estamos en una variable, podemos usar L'hopital y nos salva pues derivamos el numerador y el denominador. \\
+$\left( \lim_{x \to -2} \frac{cos(x+2)}{2} \right)$ y ahora si evaluamos esto con x tendiendo a -2 nos queda  $\left( \lim_{x \to -2} \frac{cos(0)}{2} \right) = \frac{1}{2}$ \\
+Luego, como en iterados vimos que daba 0, pero acá llegamos a $\frac{1}{2}$ el límite no existe. 
 \subsection*{Ver iterados y rectas no siempre es suficiente}
 Veamos un breve ejemplo de que \textbf{no es suficiente} ver iterados y rectas: $\lim_{(x,y) \to (0,0)} \frac{x \ y^2}{x^2+y^4}$ \\
 Si hacemos iterados: 
@@ -774,6 +786,9 @@ Si hacemos por rectas: $y=mx$ nos queda 0 también. \\
 Ahora, hay algo interesante: el grado del denominador es mucho más grande que el del numerador. Probemos por curvas \\
 Probamos con una curva $x = y^{2}$: $\lim_{x \to 0} \left(\frac{x \ y^2}{x^2+y^4} \right) = \frac{y^{2} \ y^2}{(y^{2})^2+y^4} = \frac{y^{4}}{2y^{4}} = \frac{1}{2}  $ \\
 Acabamos de demostrar que el límite no existe. 
+\subsection*{Cómo lidiar con módulos en Límites}
+Normalmente lo que aplicamos cuando tenemos límites de este estilo es básicamente ver límites laterales para evaluar el límite cuando esa variable es positiva o cuando es negativa. \\
+\textbf{Nota Importante}: Cuando estamos analizando límites laterales positivos podemos utilizar propiedades como, ej.: $\sqrt{3x^{2}} = \sqrt{3} \sqrt{x^{2}} = \sqrt{3} \longitud{x^{2}} = \sqrt{3} x^{2}$
 \section*{Continuidad}
 Sea $f(a, \ b) \rightarrow \float \ y \ x_{0} \in (a, \ b)$ decimos que f es continua en $x_{0}$ sí y solo sí 
 \begin{itemize}
@@ -921,6 +936,38 @@ Considerando el primer ejemplo que resolvimos en la sección anterior que se enc
 Sea $v \in \float^{2}, \longitud{v} = 1, v \neq 0$ definimos la derivada direccional f en $(x_{0}, y_{0})$ \\ 
 $\frac{\partial f}{\partial v}(x_{0}, y_{0}) = D_{v}(x_{0}, y_{0}) = \lim_{t \to 0} \left(\frac{f((x_{0}, y_{0}) + t(a, b)) - f(x_{0}, y_{0})}{t} \right) $ siempre que este límite exista. \\
 Esto siempre se hace por definición, pero si tenemos la información de que es \textbf{diferenciable} podemos usar el Teorema de la Diferenciabilidad. 
+\subsection*{Aclaración acerca de analizar derivadas direccionales en \textbf{todos} los puntos}
+Cuando nos piden analizar todas las derivadas direccionales, y aplicamos la definición y nos quedó algun caso fuera, como por ejemplo, si $b = 0$ se rompe ese caso hay que verlo aparte. \\
+Curiosamente, como los vectores son de norma 1, si el caso que nos quedó fuera es $b=0$ el único caso de norma 1 que es sería $\frac{\partial f}{\partial x}$ pues, esta derivada tiene como dirección (1,0). \\
+La idea de estos ejercicios es tratar de \textbf{todas las maneras} posibles ver que el límite no se rompa. Normalmente en el denominador queda algún tipo de suma que evita que algo se rompa del todo, pero si solamente tenemos una variable en el denominador, a toda costa hay que evitar que sea 0, y si lo es, hay que analizarlo aparte. 
+\subsubsection{Calcular \textbf{todas las derivadas direccionales} y analizar diferenciabilidad}
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/derivadas_direccionales_diferenciabilidad.png}
+\end{minipage}\]
+Cuando venis haciendo las guías la mayoría salen muy fácil, pero este particularmente asusta porque tenés varias cosas: 
+\begin{itemize}
+    \item No podés aplicar el mejor caso, tener algo de la forma $\frac{a^{2}}{a^{2} + b^{2}}$
+    \item Tenés módulos.
+\end{itemize}
+Lo primero que hay que recordar es ¿qué son las derivadas direccionales? \\
+Recordemos que las derivadas direccionales son vectores de la forma $v = (a,b)$ y que tienen norma 1, es decir $\longitud{\longitud{v}} = 1$. \\
+Recordar que cuando hablamos en vectores, hablamos de norma, en números hablamos de módulo. \\
+Sabiendo estas cosas ¿qué es lo que podríamos esperar de este límite?, que como nos piden \textbf{probar que existen todas}, si llega un caso donde decimos que se indefine, entonces tenemos que analizarlo aparte. \\
+Si comenzamos aplicando el límite de Derivadas Direccionales nos queda algo que nos puede dar un poco de terror, pero acordarse que la idea para sacarnos los módulos de encima es hacer límites laterales \textbf{a una} de las variables, usar alguna que otra curva y ver que no se rompa. \\
+El objetivo entonces, es que nunca se indefina. Si se indefine, lo vemos aparte. \\
+$\lim_{t \to 0} \left(\frac{f((x_{0}, y_{0}) + t(a, b)) - f(x_{0}, y_{0})}{t} \right) = \lim_{t \to 0} \left(\frac{f(ta, tb) - f(0, 0)}{t} \right)  = \lim_{t \to 0} \left(\frac{\frac{2((ta)^{2} + (tb)^{2}) \longitud{ta} tb}{(ta)^{6} + \longitud{tb}^{3}}}{t} \right) $ \\
+A partir de este límite, nos queremos sacar de encima los módulos así que veamos los límites laterales y debemos esperar que claramente den lo mismo. Si dan diferente, no existe ninguna derivada direccional. \\
+$\lim_{t \to 0^{+}} \left(\frac{\frac{2((ta)^{2} + (ta)^{2}) ta tb}{(ta)^{6} + (tb)^{3}}}{t} \right) = \lim_{t \to 0^{+}} \left(\frac{2((ta)^{2} + (ta)^{2}) ta tb}{t((ta)^{6} + (tb)^{3})} \right) = \lim_{t \to 0^{+}} \left(\frac{(2t^{2}a^{2} + 2t^{2}b^{2}) \textcolor{red}{t^{2}}ab}{\textcolor{red}{t}((ta)^{6} + (tb)^{3})} \right) = \lim_{t \to 0^{+}} \left(\frac{(2t^{2}a^{2} + 2t^{2}b^{2}) tab}{(ta)^{6} + (tb)^{3}} \right) $ \\
+$= \lim_{t \to 0^{+}} \left(\frac{(2t^{2}a^{2} + 2t^{2}b^{2}) \textcolor{red}{t}ab}{\textcolor{red}{t^{3}}(t^{3}a^{6} + b^{3})} \right) = \lim_{t \to 0^{+}} \left(\frac{(2t^{2}a^{2} + 2t^{2}b^{2})ab}{t^{2}(t^{3}a^{6} + b^{3})} \right) = \lim_{t \to 0^{+}} \left(\frac{\textcolor{red}{t^{2}}(2a^{2} + 2b^{2})ab}{\textcolor{red}{t^{2}}(t^{2}a^{6} + b^{3})} \right) = \lim_{t \to 0^{+}} \left(\frac{2(a^{2} + b^{2})ab}{t^{2}a^{6} + b^{3}} \right)$  \\
+Ahora paremos la pelota y veamos el límite. Evaluemos el límite con $t \rightarrow 0^{+}$, nos queda $\lim_{t \to 0^{+}} \left(\frac{2(a^{2} + b^{2})ab}{b^{3}} \right)$ \\
+¿Qué es lo que tiene que pasar para que el límite se indefina? b debe ser = 0. \\
+Ahora, cualquier otro caso vale. Entonces, valen todas las derivadas direccionales por ahora \textbf{excepto} el vector norma 1 cuando $b=0$ que sería curiosamente, la derivada parcial $(1,0)$ osea $\frac{\partial f}{\partial x}$. 
+Si hacemos de ambos lados, llegamos prácticamente a lo mismo. Si se llegase a otra condición \textbf{el límite no existe}. \\
+Entonces hasta ahora, probamos que valen todas las derivadas direccionales en el (0,0) excepto el vector $(1,0)$ pero como nos lo piden aparte, veamos si esa derivada existe. \\
+$\lim_{h \to 0} \left(\frac{f(h + x_{0}, y_{0}) - f(x_{0}, y_{0})}{h} \right) = \lim_{h \to 0} \left(\frac{f(h, 0)}{h} \right) = \lim_{h \to 0} \left(\frac{\frac{2(h^{2} + 0^{2}) \longitud{h} y}{h^{6} + \longitud{0}^{3}}}{h} \right) = \lim_{h \to 0} \left(\frac{0}{h^{7}} \right) = 0  $ \\
+Luego, como el límite dió 0 sin ningun tipo de problema, la derivada parcial existe y es 0. \\
+Por lo tanto, existen todas las derivadas direccionales en el punto (0,0). 
+
 \subsection*{Derivadas Direccionales con Ángulos}
 En este tipo de casos hay que pensar que cuando dibujamos un ángulo, indirectamente podría haber un vector que salga con esa inclinación. \\
 Por lo tanto, podemos recordar las definiciones de
@@ -982,7 +1029,8 @@ Sea $f:D \subseteq \float^{2} \rightarrow \float \ (x_{0}, y_{0}) \in D$ es dife
     \item f(x,y) se acerca al plano tangente.
     \item $\longitud{\longitud{(x,y) - (x_{0}, y_{0})}}$ tiende a cero. 
 \end{itemize}
-\textbf{Nota}: En una variable lo conocemos como derivada, y existe una recta tangente. Acá se lo conoce como Diferenciabilidad y existe un plano tangente.
+\textbf{Nota}: En una variable lo conocemos como derivada, y existe una recta tangente. Acá se lo conoce como Diferenciabilidad y existe un plano tangente. \\
+\textbf{Nota}: Como en todo límite, acá podemos usar todo lo que conocemos de límites laterales, l'hopital (cuando sea posible) para chequear y efectivamente romper la diferenciabilidad. \\
 \subsection*{Teorema de la Diferenciabilidad}
 Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
 \begin{itemize}
