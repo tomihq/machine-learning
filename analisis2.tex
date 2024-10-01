@@ -972,6 +972,13 @@ Véase \hyperref[subsec:derivadas_parciales]{\underline{\textbf{anexo}}} para ve
 Es un vector que posee las dos derivadas parciales y se denota de la siguiente manera
 \[\triangledown f(x,y) = (f_{x}(x,y), f_{y}(x,y))\]
 Considerando el primer ejemplo que resolvimos en la sección anterior que se encuentra en el anexo podemos ver que el vector gradiente para todo x, y es el siguiente: $\triangledown f(x, y) = (\frac{1}{x}, \frac{-1}{1+y})$
+\subsection*{Importancia del Vector Gradiente}
+\begin{itemize}
+    \item $\triangledown f$: Máximo Crecimiento.
+    \item $- \triangledown f$: Mínimo Crecimiento.
+\end{itemize}
+Quizá inicialmente no tenga mucho sentido, pero en problemas de la vida real es realmente útil, véase \hyperref[subsec:direccion_maximo_crecimiento]{\underline{\textbf{dirección máximo crecimiento}}}
+
 \section*{Derivadas Direccionales}
 Sea $v \in \float^{2}, \longitud{v} = 1, v \neq 0$ definimos la derivada direccional f en $(x_{0}, y_{0})$ \\ 
 $\frac{\partial f}{\partial v}(x_{0}, y_{0}) = D_{v}(x_{0}, y_{0}) = \lim_{t \to 0} \left(\frac{f((x_{0}, y_{0}) + t(a, b)) - f(x_{0}, y_{0})}{t} \right) $ siempre que este límite exista. \\
@@ -1059,6 +1066,20 @@ Entonces ahora ¿cuántas derivadas parciales podemos calcular de ambas funcione
     \item $(f_{y})_{x}(x, y) = \frac{\partial}{\partial x}(\frac{\partial f}{\partial y})(x,y) = 6x^{2}y$
     \item $(f_{y})_{y}(x, y) = \frac{\partial}{\partial y}(\frac{\partial f}{\partial y})(x,y) = 2x^{3}-12y^{2}$
 \end{itemize}
+\subsection*{Teorema (Dirección de Máximo Crecimiento)}
+\label{subsec:direccion_maximo_crecimiento}
+Sea \textbf{f diferencial} en $P_{0}$ entonces $\triangledown f(P_{0})$ apunta en la dirección en que f crece más rápido. Es decir, $\triangledown f (P_{0})$ es la dirección de máximo crecimiento. \\
+\[\frac{\partial f}{\partial v}(P_{0}) = \triangledown f(P_{0}) * v, \longitud{\longitud{v}} = 1\]
+Esta definición, se puede probar que equivale a esta 
+\[\longitud{\longitud{\triangledown f (P_{0})}} * \longitud{\longitud{v}} * cos(\alpha) \le \longitud{\longitud{\triangledown f (P_{0})}} * \longitud{\longitud{v}} = \longitud{\longitud{\triangledown f (P_{0})}}\]
+¿Por qué es importante saber que existe un \textbf{cos($\alpha$)} con $\alpha \in [0, 2\pi)$? Porque esto nos indica lo siguiente
+\begin{itemize}
+    \item Si me piden calcular la dirección de máximo crecimiento, se da cuando $\alpha$ = 0.
+    \item Si me piden calcular la dirección de mínimo crecimiento, se da cuando $\alpha = \pi $
+\end{itemize}
+De igual forma, no vamos a hablar de $cos(\alpha)$ sino que nosotros aplicamos directamente la definición, pero es útil saber por qué hay una dirección escondida. \\
+Podemos concluir entonces, que si la dirección de crecimiento es $\triangledown(f)(x_{0})$, la dirección de decrecimiento es $-\triangledown(f)(x_{0})$ \\
+Véase \hyperref[subsec:maxima_minima_direccion]{\textbf{\underline{anexo}}} para ayudar a salvar a un insecto de una toxicidad desconocida.
 \section*{Funciones de clase $C^{k}$}
 Son un conjunto especial de funciones que se caracterizan por ser \textbf{continuas y tener derivadas continuas hasta el k-ésimo orden}.
 \subsection*{Teorema}
@@ -1083,7 +1104,7 @@ Sea $f:D \subseteq \float^{2} \rightarrow \float \ (x_{0}, y_{0}) \in D$ es dife
     \item $\longitud{\longitud{(x,y) - (x_{0}, y_{0})}}$ tiende a cero. 
 \end{itemize}
 \textbf{Nota}: En una variable lo conocemos como derivada, y existe una recta tangente. Acá se lo conoce como Diferenciabilidad y existe un plano tangente. \\
-\textbf{Nota}: Como en todo límite, acá podemos usar todo lo que conocemos de límites laterales, l'hopital (cuando sea posible) para chequear y efectivamente romper la diferenciabilidad. \\
+\textbf{Nota}: Como en todo límite, acá podemos usar todo lo que conocemos de límites laterales, l'hopital (cuando sea posible) para chequear y efectivamente romper la diferenciabilidad. Es decir, podemos empezar a acotar por sandwich si efectivamente creemos que existe y da 0. \\
 \subsection*{Teorema de la Diferenciabilidad}
 Sea $f:D \subseteq \float^{2} \rightarrow \float$ diferenciable en $(x_{0}, y_{0}) \in D$ entonces vale que 
 \begin{itemize}
@@ -1144,6 +1165,24 @@ Otro ejemplo
 \[\begin{minipage}[b]{0.6\textwidth}
     \includegraphics[width=\linewidth]{assets/regla_cadena_arbol.png}
 \end{minipage}\]
+\section*{Plano Tangente de Superficies}
+El plano tangente a representa \textbf{lo mejor que aproxima un punto en una superficie}, y lo denotamos de la siguiente forma 
+\[\{x \in \float^{n}:f(x) = a\}\]
+en $P_{0} \in S$, $f(p_{0})=a$ \\
+\textbf{Importante}: f es diferenciable en $P_{0}$ y $\triangledown f(P_{0}) \neq 0$ \\
+Ej.: Hallar la ecuación del plano tangente a la superficie $S: \frac{(x-1)^{2}}{4} + \frac{(y+2)^{2}}{9} + z^{2} = 1$ en el punto $P(x_{0}, y_{0}, z_{0}) \in S$ donde $P=(2, -2, \frac{\sqrt{3}}{2})$ \\
+Lo primero que notamos es que es una elipsoide porque estamos en $\float^{3}$, donde $ a = 2, b = 3, c = 1$ y el centro es $(1, -2, 0)$. \\
+Necesito calcular $\triangledown f$ pero no tengo f todavia. Entonces manipulemos esta superficie para llevarlo a una manera de función. \\
+1. Consideramos $F(x, y, z) = \frac{(x-1)^{2}}{4} + \frac{(y+2)^{2}}{9} + z^{2}$ y $S_{1} = \{(x,y,z) \in \float^{3} / f(x, y, z) = 1\}$ \\
+Para que \textbf{exista el plano tangente}, $\triangledown f (x, y, z) \neq (0, 0, 0)$. \\
+\textbf{Fórmula a la que queremos llegar}: $\triangledown f(x_{0}, y_{0}, z_{0})(x-x_{0}, y-y_{0}, z-z_{0}) = 0$ \\
+Primero hay que ver que P esté en la superficie, en este caso está así que todo ok. \\
+2. Calculemos ahora sí: $\triangledown f(2, -2, \frac{\sqrt{3}}{2}) = (\frac{1}{2}, 0, \sqrt{3})$ \\
+3. Por último, planteamos a lo que queríamos llegar $(\frac{1}{2}, 0, \sqrt{3})(x-2, y+2, z-\frac{\sqrt{3}}{2}) = 0$ \\
+4. Distribuimos y nos queda $\frac{1}{2}x + \sqrt{3}(z-\frac{\sqrt{3}}{2}) = 0$ \\
+\textbf{¿Acá no está raro? ¿No le faltó considerar el 1 en la fórmula de F? Si evalúo a lo que llegamos con x y z me da 1, no 0.} \\
+\textbf{¿Cuando considera F, no sería $z^{2}$ -1?}
+
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -1492,4 +1531,27 @@ Luego, $\frac{\partial f}{\partial v}(x_{0}, y_{0}) = \frac{1+\sqrt{3}}{2}$ \\
 Entonces tenemos $\triangledown f(1,2) = (12, 13)$ \\
 Luego, observamos que el vector director $(3,4)$ no es de módulo 1 por lo tanto lo normalizamos dividiendolo por su módulo $\longitud{v} = 5$, entonces $u=(\frac{3}{5}, \frac{4}{5})$ \\
 Luego, por el teorema de la diferenciabilidad $\frac{\partial f}{\partial v}(1, 2) = \triangledown f(1,2) = (12, 13) * (\frac{3}{5}, \frac{4}{5}) = \frac{166}{5} $
+\subsection*{Direcciones de Máximo y Mínimo Crecimiento}
+\label{subsec:maxima_minima_direccion}
+Un insecto se halla en un ambiente tóxico. El nivel de toxicidad está dado por $T(x,y) = 2x^{2} - 4y^{2}$. \\
+Si el insecto está en el punto $(x_{0}, y_{0}) = (-1, 1)$ \\
+¿En qué dirección se debe mover para disminuir la toxicidad? \\
+Calcule la dirección de máximo, y mínimo cambio. \\
+Como f es diferenciable, porque es un polinomio, y los polinomios son continuos entonces podemos aplicar el teorema que nos dice que: $\frac{\partial T}{\partial v}(-1, 1) = \triangledown T (-1, 1) * \frac{v}{\longitud{\longitud{v}}}$ \\
+Empecemos calculando las derivadas parciales de f: $\frac{\partial T}{\partial x} = 4x$ y $\frac{\partial f}{\partial y} = -8y$ \\
+Ahora evaluemos el gradiente, en el punto que nos piden (-1, 1): $\triangledown t(-1, 1) = (-4, -8)$ \\
+Si dejaramos esta dirección, estaríamos acercando al insecto a la toxicidad: (-4, -8) \textbf{representa la dirección de máximo cambio}. \\
+Por lo tanto, tenemos que hacer lo contrario. \\
+Luego, $v = \triangledown T(x,y) = - (-4, -8) = (4, 8)$: (4, 8) \textbf{representa la dirección de mínimo cambio (máxima disminución)} \\
+Ahora sí, entonces, notamos que antes de calcular lo que necesitamos es normalizar el vector, luego $ v = \frac{- \triangledown t(-1, 1)}{\longitud{\longitud{\triangledown(-1, 1)}}}= (\frac{4}{\sqrt{80}}, \frac{8}{\sqrt{80}})$ \\
+Este vector $v$ representa la dirección unitaria a la cual el insecto debe moverse para disminuir la toxicidad. \\
+Ahora, por último calculemos el \textbf{cambio máximo de disminución} en la toxicidad al moverse en la dirección del vector normalizado V. \\
+$\frac{\partial T}{\partial v} = \triangledown T(-1, 1) * V$ = $- \longitud{\longitud{\triangledown T(-1, 1)}} = - \sqrt{80}$  \\
+Luego,  
+\begin{itemize}
+    \item El gradiente positivo señala la dirección de mayor aumento de toxicidad. Si el insecto se mueve en esa dirección, experimentará el aumento más rápido de toxicidad.
+    \item El gradiente negativo es la dirección en la que la toxicidad disminuye más rápidamente, o sea, la mejor dirección si el insecto quiere escapar de la toxicidad.
+\end{itemize}
+
+
 \end{document} 
