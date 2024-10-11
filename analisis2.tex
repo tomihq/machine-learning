@@ -1208,6 +1208,10 @@ Se define el Polinomio de Taylor de grado 2 de f centrado en a como: $P_{2}(x) =
 Recordemos que para que la función sea de clase $C^{2}$ debe suceder que la función sea continua, sea derivable con derivada continua y tiene derivada segunda con derivada continua. \\
 Si esto sucede, entonces vale el siguiente Teorema: Si $f:I \subset \float \rightarrow \float$ es de clase $C^{2}$ entonces: $\lim_{x \to a} \left(\frac{f(x) - P_{2}(x)}{(x-a)^{2}}  \right) = 0$ \\
 \textbf{Importante}: La corrección es tan chica, que solamente se ve si coloco la mayoría de sus decimales.
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/geogebra_polinomio_taylor.png}
+\end{minipage}\]
+En la imagen se puede claramente ver como el Polinomio de Taylor de grado 2 aproxima mucho mejor que la recta tangente. Es decir, hay mucho menos error en todos los puntos.
 \subsection*{Teorema General de Taylor}
 Sea $f:I \subset \float \rightarrow \float, a \in I$ y supongamos que f es de clase $C^{k}$ \\
 Si llamamos $P_{k}(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2}(x-a)^{2} + ... + \frac{f^{(k)}(a)}{k!}(x-a)^{k}$ entonces $\lim_{x \to a} \left(\frac{f(x) - P_{k}(x)}{(x-a)^{k}}  \right) = 0$
