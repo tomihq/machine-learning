@@ -1203,6 +1203,14 @@ Si reemplazamos en el límite por lo que vale $R_{2}(x)$ nos queda un $\frac{0}{
     \includegraphics[width=\linewidth]{assets/polinomio_taylor_grado_2.png}
 \end{minipage}\]
 Para que el Polinomio de Grado 2 aproxime mejor que el Polinomio de Grado 1 debe suceder que $\alpha = \frac{f''(a)}{2}$ por lo tanto, definamos 
+\subsection*{Hallando el error para un Polinomio de Taylor}
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/error_polinomio_taylor.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/error_polinomio_taylor_2.png}
+\end{minipage}\]
+Como c está entre dos valores, debe aplicarse módulo tal que $\longitud{E_{n}(x)} = \longitud{\frac{f^{n}(c)(x-p)}{n}}$ y por lo general acotamos y llegamos a algo del estilo $\longitud{E_{n}(x)} < algo$
 \subsection*{Polinomio de Taylor de Grado 2}
 Se define el Polinomio de Taylor de grado 2 de f centrado en a como: $P_{2}(x) = f(a) + f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^{2}$, para que todo esto suceda, la función debe ser de clase $C^{2}$. \\
 Recordemos que para que la función sea de clase $C^{2}$ debe suceder que la función sea continua, sea derivable con derivada continua y tiene derivada segunda con derivada continua. \\
@@ -1215,6 +1223,37 @@ En la imagen se puede claramente ver como el Polinomio de Taylor de grado 2 apro
 \subsection*{Teorema General de Taylor}
 Sea $f:I \subset \float \rightarrow \float, a \in I$ y supongamos que f es de clase $C^{k}$ \\
 Si llamamos $P_{k}(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2}(x-a)^{2} + ... + \frac{f^{(k)}(a)}{k!}(x-a)^{k}$ entonces $\lim_{x \to a} \left(\frac{f(x) - P_{k}(x)}{(x-a)^{k}}  \right) = 0$
+\subsection*{Polinomio de Taylor en 2 variables}
+Buscamos una superficie que mejor se aproxime a nuestra función. Hasta ahora nuestra mejor aproximación era el plano tangente, que es la mejor aproximación de orden uno. Ahora debemos buscar una mejor aproximación con grado mayor. 
+\[P_{2}(x,y) = f(a, b) + f_{x}(a, b)(x-a) + f_{y}(a, b)(y-b) + \frac{1}{2}f_{xx}(a,b)(x-a)^{2} + f_{xy}(a,b)(x-a)(y-b)+\frac{1}{2}f_{yy}(a,b)(y-b)^{2}\]
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/polinomio_taylor_dos_variables.png}
+\end{minipage}\]
+
+Ej.: Calcular los Polinomios de Taylor de orden 1 (Plano Tangente) y orden 2 de $f(x,y) = e^{x+y}$ centrado (o alrededor de) en $(a,b) = (0,0)$
+\begin{itemize}
+    \item Calculamos las derivadas parciales de orden 1 y 2
+    \begin{itemize}
+        \item $\frac{\partial f}{\partial x}(x,y) = e^{x+y} = \frac{\partial f}{\partial y}(x,y) = \frac{\partial^{2}f}{\partial x^{2}}(x,y) = \frac{\partial^{2}f}{\partial x \partial y}(x,y) = \frac{\partial^{2}f}{\partial y^{2}}(x,y) $
+    \end{itemize}
+    \item Las evalúo en el punto que me piden y armo. En este caso, evaluadas en el (0,0) todas dan 1.
+\end{itemize}
+Orden 1: $P_{1}(x,y) = f(0,0) + f_{x}(0,0)x + f_{y}(0, 0)y = 1 + x + y$ \\
+Orden 2: $P_{2}(x,y) = 1 + x + y + \frac{1}{2}x^{2} + xy + \frac{1}{2}y^{2}$
+\subsection*{Propiedades del Polinomio de Taylor}
+\begin{itemize}
+    \item $P_{2}(x,y)$ polinomio de Taylor de orden 2 de f alrededor de $(a,b)$ es el único polinomio de grado menor o igual a 2, Q satisface $\lim_{(x,y) \to (a,b)} \left(\frac{f(x,y) - Q(x,y)}{\longitud{\longitud{(x,y) - (a,b)}}^{2}}  \right) = 0$
+    \item $P_{2}(x,y)$ el polinomio de Taylor de orden 2 de f alrededor de $(a,b)$ es el único polinomio Q de grado menor o igual a 2 que satisface: $p = (a,b)$
+    \begin{itemize}
+        \item $f(p) = Q(p)$
+        \item $f_{x}(p) = Q_{x}(p)$
+        \item $f_{y}(p) = Q_{y}(p)$
+        \item $f_{xx}(p) = Q_{xx}(p)$
+        \item $f_{xy}(p) = Q_{xy}(p)$
+        \item $f_{yy}(p) = Q_{yy}(p)$
+    \end{itemize}
+    OJO: Solo en el punto.
+\end{itemize}
 
 \section*{Anexo}
 \subsection*{Esferas}
