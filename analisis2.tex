@@ -1183,6 +1183,34 @@ Primero hay que ver que P esté en la superficie, en este caso está así que to
 \textbf{¿Acá no está raro? ¿No le faltó considerar el 1 en la fórmula de F?} \\
 \textbf{¿Cuando considera F, no sería $z^{2}$ -1?} \\
 Me parece que debería ser $F(x, y, z) = \frac{(x-1)^{2}}{4} + \frac{(y+2)^{2}}{9} + z^{2} -1$ y al distribuir debería quedar $\frac{1}{2}(x-2) + \sqrt{3}(z-\frac{\sqrt{3}}{2}) = 0$ y ahi sí da 0 cuando evalúo el punto P0.
+\section*{Polinomio de Taylor}
+El Polinomio de Taylor nos ayuda a encontrar funciones sofisticadas que aproximen a una función. \\
+El mejor ejemplo básico para una aproximación a una curva es la recta tangente pero hay un problema: al ser una recta, no persigue a la curva en todo punto. Es decir, tiene mucho error aproximando la función en todo punto. \\
+Definimos al error como $R_{1}(x) = f(x) - L(x) \implies \lim_{x \to a} \left(\frac{R(x)}{x-a}  \right) = 0 $ y lo denotamos con un 1 pues es el error de aproximar f por la recta tangente. \\
+La idea es justamente, encontrar algo que la aproxime lo mejor posible en todo punto habido y por haber. \\
+Entonces, la idea inicial es buscar siempre una aproximación lineal (recta tangente) y después sumarle una corrección cuadrática.
+\subsection*{Corrección Cuadrática}
+$P_{2}(x) = f(a) + f'(a)(x-a) + \alpha(x-a)^{2}$
+donde 
+\begin{itemize}
+    \item $f(a) + f'(a)(x-a)$: $P_{1}(x)$ es decir, el polinomio de grado 1 que mejor aproxima a la función.
+    \item $\alpha(x-a)^{2}$: Corrección cuadrática
+\end{itemize}
+¿Cómo encuentro el $\alpha$ que mejora la aproximación? \\
+La idea es encontrar un $R_{2}(x) = f(x) - P_{2}(x)$ que me de un error menor al de $R_{1}(x)$, entonces nuestro límite nos queda de la siguiente forma $\lim_{x \to a} \left(\frac{R_{2}(x)}{(x-a)^{2}}  \right) = 0$ y este claramente es menor pues acá el denominador está al cuadrado. \\
+Si reemplazamos en el límite por lo que vale $R_{2}(x)$ nos queda un $\frac{0}{0}$. Por L'Hopital derivamos el numerador y denominador. Luego, calculamos nuevamente el límite y vemos qué valor da. Si no nos da un valor fijo (que exista) entonces L'Hopital no nos dice nada. Recordar que puedo aplicar L'Hopital reiteradas veces, y cuando llegamos a un valor coincide con el límite original.
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/polinomio_taylor_grado_2.png}
+\end{minipage}\]
+Para que el Polinomio de Grado 2 aproxime mejor que el Polinomio de Grado 1 debe suceder que $\alpha = \frac{f''(a)}{2}$ por lo tanto, definamos 
+\subsection*{Polinomio de Taylor de Grado 2}
+Se define el Polinomio de Taylor de grado 2 de f centrado en a como: $P_{2}(x) = f(a) + f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^{2}$, para que todo esto suceda, la función debe ser de clase $C^{2}$. \\
+Recordemos que para que la función sea de clase $C^{2}$ debe suceder que la función sea continua, sea derivable con derivada continua y tiene derivada segunda con derivada continua. \\
+Si esto sucede, entonces vale el siguiente Teorema: Si $f:I \subset \float \rightarrow \float$ es de clase $C^{2}$ entonces: $\lim_{x \to a} \left(\frac{f(x) - P_{2}(x)}{(x-a)^{2}}  \right) = 0$ \\
+\textbf{Importante}: La corrección es tan chica, que solamente se ve si coloco la mayoría de sus decimales.
+\subsection*{Teorema General de Taylor}
+Sea $f:I \subset \float \rightarrow \float, a \in I$ y supongamos que f es de clase $C^{k}$ \\
+Si llamamos $P_{k}(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2}(x-a)^{2} + ... + \frac{f^{(k)}(a)}{k!}(x-a)^{k}$ entonces $\lim_{x \to a} \left(\frac{f(x) - P_{k}(x)}{(x-a)^{k}}  \right) = 0$
 
 \section*{Anexo}
 \subsection*{Esferas}
