@@ -1260,6 +1260,7 @@ Orden 2: $P_{2}(x,y) = 1 + x + y + \frac{1}{2}x^{2} + xy + \frac{1}{2}y^{2}$
 \end{itemize}
 
 \section*{Extremos Locales (1 variable)}
+Decimos que f tiene un extremo local en un punto del intervalo (a,b) si alcanza un máximo o mínimo local en ese punto. 
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/extremos.jpg}
 \end{minipage}\]
@@ -1267,31 +1268,31 @@ Nótese que los máximos locales los tenemos en lugares donde tenemos derivada (
 Nótese que las líneas punteadas representan el área cerrada que observamos en un intervalo dado para calcular un máximo local. \\
 Sea $f:(a,b) \rightarrow \float$ decimos que $p_{0} \in (a,b)$ es 
 \begin{itemize}
-    \item Máximo Local de f: Si $\exists r > 0 \ / \ si \ x \in (p_{0}-r, p_{0}+r) \implies f(x) \le f(p_{0})$
-      \item Mínimo Local de f: Si $\exists r > 0 \ / \ si \ x \in (p_{0}-r, p_{0}+r) \implies f(x) \ge f(p_{0})$
-      \item Máximo Global de f: Si $f(x_{0}) \le f(p_{0}) \ \forall x_{0} \in (a, b)$
-       \item Mínimo Global de f: Si $f(x_{0}) \ge f(p_{0}) \ \forall x_{0} \in (a, b)$
+    \item Máximo Local de f: Decimos que f alcanza un máximo local en $x_{0} \in (a,b)$ si existe $r>0$ tal que $f(x) \le f(x_{0}) \ \forall x \in(x_{0}-r, x_{0}+r)$
+    \item Mínimo Local de f: Decimos que f alcanza un mínimo local en $x_{0} \in (a,b)$ si existe $r>0$ tal que $f(x) \ge f(x_{0}) \ \forall x \in(x_{0}-r, x_{0}+r)$
+    \item Máximo Global de f: Si $f(x_{0}) \le f(p_{0}) \ \forall x_{0} \in (a, b)$
+    \item Mínimo Global de f: Si $f(x_{0}) \ge f(p_{0}) \ \forall x_{0} \in (a, b)$
 \end{itemize}
+Decimos que un punto de (a,b) es extremo global o absoluto si es máximo o mínimo local.
 \subsection*{Teorema de Fermat}
-Si $f:(a,b) \rightarrow \float$ tiene un extremo local en $p_{0}$ y $\exists f'(p_{0}) \\ \implies f'(p_{0}) = 0$ \\
-\textbf{Lema}: Si $f:(a,b) \rightarrow \float \ / \ f'(p_{0}) > 0 \implies \exists r > 0$ tq 
-\begin{itemize}
-    \item Si $x \in (p_{0}-r, p_{0}) \implies f(x) \le f(p_{0})$
-    \item Si $x \in (p_{0}, p_{0}+r) \implies f(x) \ge f(p_{0})$
-\end{itemize}
+Dada $f(a,b) \rightarrow \float$. Si $x_{0}$ es extremo local y f es derivable en $x_{0}$ entonces $f'(x_{0}) = 0$
 \section*{Extremos Locales (en $\float^{n}$)}
-Sea $f:D \subseteq \float^{n} \rightarrow \float$ decimos que $p_{0} \in D$
+Como estamos en $\float^{n}$ no nos acercamos por un número particular sino que tomamos como referencia un disco de cierto radio. \\
+Sea $f:D \subseteq \float^{n} \rightarrow \float$ decimos que $p_{0} = (x_{0},y_{0}) \in D$
 \begin{itemize}
     \item Máximo Local de f: Si $\exists r > 0 \ / \ si \ x \in \float_{r}(p_{0}) \implies f(x) \le f(p_{0})$
-    \item Mínimo Local de: Si $\exists r > 0 \ / \ si \ x \in \float_{r}(p_{0}) \implies f(x) \ge f(p_{0})$
+    \item Mínimo Local de f: Si $\exists r > 0 \ / \ si \ x \in \float_{r}(p_{0}) \implies f(x) \ge f(p_{0})$
     \item Máximo Global de f: Si $f(x) \le f(p_{0}) \ \forall x \in D$
     \item Mínimo Global de f: Si $f(x) \ge f(p_{0}) \ \forall x \in D$
 \end{itemize}
 \subsection*{Teorema de Fermat Generalizado}
-Si $f:D \subseteq \float^{n} \rightarrow \float$ tiene un extremo local en $p_{0}$ y $\exists \triangledown f(p_{0}) \implies \triangledown f(p_{0}) = (0, 0, ..., 0)$
+Dada $f:D \subseteq \float^{2} \rightarrow \float$ con $(x_{0}, y_{0}) \in D$ \\
+Si existen $\frac{\partial f}{\partial x}(x_{0}, y_{0}), \frac{\partial f}{\partial y}(x_{0}, y_{0})$ y $(x_{0}, y_{0})$ es extremo local, entonces $\frac{\partial f}{\partial x}(x_{0}, y_{0}) = 0$ y $\frac{\partial f}{\partial y}(x_{0}, y_{0}) = 0$ \\
+Es decir $\triangledown f(x_{0}, y_{0}) = (0,0)$ \\
+\textbf{En Criollo}: Si existen las dos derivadas parciales y $(x_{0}, y_{0})$ es extremo local, entonces las dos derivadas parciales evaluadas en el punto dan 0.
 \section*{Punto Crítico}
 Llamamos Punto Crítico a un punto donde la \textbf{derivada no existe} o \textbf{la derivada es 0}. \\
-Sea $f:D \subseteq \float^{n} \rightarrow \float$ y $p_{0} \in D$ es punto crítico de f si: 
+Sea $f:D \subseteq \float^{n} \rightarrow \float$ y $p_{0} \in D$ es punto crítico de f \textbf{si pasa alguna de estas dos condiciones}: 
 \begin{itemize}
     \item $\nexists \ \triangledown f(p_{0})$
     \item $\triangledown f(p_{0}) = (0, 0, ..., 0)$
@@ -1299,6 +1300,40 @@ Sea $f:D \subseteq \float^{n} \rightarrow \float$ y $p_{0} \in D$ es punto crít
 \textbf{OBS}: Si $p_{0}$ es un extremo local de f $\implies p_{0}$ es un punto crítico de f. Los puntos críticos son candidatos a extremos locales. \\
 \textbf{OBS 2}: Que un punto sea crítico NO asegura que sea extremo local. \\
 Véase \hyperref[subsec:calculo_puntos_criticos]{\underline{\textbf{anexo}}} para ejemplos relacionados a este tema. 
+\subsection*{Punto Silla}
+Si $(x_{0}, y_{0})$ es un punto crítico que no es \textbf{máximo local} ni \textbf{mínimo local}, entonces se dice que $(x_{0}, y_{0})$ es un punto de ensilladura o punto silla.
+\section*{Teorema para Puntos Críticos (1 variable)}
+Sea $f:(a,b) \rightarrow \float \ / \ p_{0} \ f'(p_{0})=0$
+\begin{itemize}
+    \item Si $\exists f''(p_{0})>0 \implies p_{0}$ es un mínimo local.
+    \item Si $\exists f''(p_{0})<0 \implies p_{0}$ es un máximo local.
+    \item Si $\exists f''(p_{0}) = 0$ el criterio no decide. 
+\end{itemize}
+\section*{Criterio de la Derivada Segunda}
+Dada $f:(a,b) \rightarrow \float$ de clase $C^{2}$ y un $x_{0} \in (a,b)$ punto crítico de f. 
+\begin{itemize}
+    \item Si $f''(x_{0}) > 0 \implies x_{0}$ es un mínimo local de f.
+    \item Si $f''(x_{0}) < 0 \implies x_{0}$ es un máximo local de f.
+    \item Si $f''(x_{0}) = 0 \implies $ no se puede determinar (Ej.: $f(x) = x^{4}, \ f(x) = x^{3}$).
+\end{itemize}
+\section*{Matriz Hessiana de f (Matriz de Derivadas Segundas)}
+Se denota como $Hf(x_{0}, y_{0})$ y es una matriz simétrica.
+\[
+\begin{pmatrix}
+f_{xx}(x_{0}, y_{0}) & f_{xy}(x_{0}, y_{0}) \\
+f_{yx}(x_{0}, y_{0}) & f_{yy}(x_{0}, y_{0})
+\end{pmatrix}
+\]
+\section*{Criterio de las Derivadas Segundas en dos variables (Criterio del Hessiano)}
+Sea $f:D \subseteq \float^{2} \rightarrow \float$ de clase $C^{2}, p_{0} = (x_{0}, y_{0}) \in D$ punto crítico de $f(\triangledown f(p_{0}) = (0,0))$. \\
+Entonces si llamamos $d = det \ H_{f}(p_{0})$
+\begin{itemize}
+    \item Si $d>0$ y $f_{xx}(p_{0}) > 0 \implies p_{0}$ es mínimo local de f.
+    \item Si $d>0$ y $f_{xx}(p_{0}) < 0 \implies p_{0}$ es máximo local de f.
+    \item Si $d<0 \implies p_{0}$ es punto silla de f.
+    \item Si $d=0 \implies$ no podemos determinar qué es $p_{0}$. Ej.: $f(x,y) = x^{4} + y^{4}, f(x,y) = x^{3}-y^{3}$
+\end{itemize}
+
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -1671,11 +1706,106 @@ Luego,
 \subsection*{Cálculo de Puntos Crítico $\&$ determinar si son Extremos Locales}
 \label{subsec:calculo_puntos_criticos}
 1. $f(x,y) = x^{2} + y^{2}$ \\
+$f:\float \rightarrow \float$, f es diferenciable en $\float^2$ \\
 Sabemos por el Teorema de Fermat generalizado, el gradiente evaluado en un punto $p_{0}$ debe ser el vector 0. \\
 Por lo tanto, calculemos el gradiente y veamos que valores de $(x,y)$ dan 0 $\implies$ $\triangledown f (x,y) = 2(x,y) = (0,0) \implies (x,y) = (0,0)$. En este caso el único punto crítico es (0,0). \\
-Finalmente, $(0,0)$ es un \textbf{Mínimo Local} porque no existe otra combinación tal que de exactamente igual a 0, y todas son mayores a esta. \\
+Como $f(0,0) = 0$ y sabemos que $f(x,y) = x^{2} + y^{2} \ge 0 = f(0,0)$ para todo $(x,y) \in \float^{2}$ entonces $(0,0)$ es mínimo global de f en todo $\float^{2}$. \\
+\textbf{Hagamos este ejercicio también pero con la Matriz Hessiana} \\
+\[
+\begin{pmatrix}
+2 & 0 \\
+0 & 2
+\end{pmatrix}
+\]
+Ahora evalúemos en el punto crítico. \\
+$H_{f}(0,0)$ = \(
+\begin{pmatrix}
+2 & 0 \\
+0 & 2
+\end{pmatrix}
+\) \\
+Ahora calculemos su determinante, esto nos queda $d = det \ Hf(0,0) = (2 * 2) - (0 * 0) = 4$. \\
+Volviendo al criterio de las derivadas segundas en dos variables, como $d > 0$ y $f_{xx}(p_{0}) > 0$ entonces $p_{0}$ es mínimo local de f. \\ \\
 2. $f(x,y) = x^{2} - y^{2}$ \\
+$f:\float \rightarrow \float$, f es diferenciable en $\float^2$ \\
 Sabemos por el Teorema de Fermat generalizado, el gradiente evaluado en un punto $p_{0}$ debe ser vector 0. \\
 Por lo tanto, calculemos el gradiente y veamos qué valores de $(x,y)$ dan 0 $\implies$ $\triangledown f (x,y) = (2x, -2y) = 0 \implies x, y = 0$. En este caso el único punto crítico es (0,0). \\
-
+Si o bien (0,0) es un máximo o bien un mínimo. \\
+Proponemos 
+\begin{itemize}
+    \item $f(x,0) = x^{2} \ge 0 = f(0,0)$
+    \begin{itemize}
+        \item Por la recta $y=0$ sucede que $(0,0)$ es un mínimo pues $f(x,0) \ge 0$ para cualquier x.
+    \end{itemize}
+    \item $f(0, y) = -y^{2} \le 0 = f(0,0)$
+    \begin{itemize}
+        \item Por la recta $x=0$ sucede que $(0,0)$ es un máximo pues $f(0, y) \le 0$ para cualquier y.
+    \end{itemize}
+\end{itemize}
+Como por un lado es un mínimo y por otro un máximo, entonces el $(0,0)$ no es máximo ni mínimo. \\
+\textbf{Hagamos este ejercicio también pero con la Matriz Hessiana} \\
+\[
+\begin{pmatrix}
+2 & 0 \\
+0 & -2
+\end{pmatrix}
+\]
+Ahora evalúemos en el punto crítico. \\
+$H_{f}(0,0)$ = \(
+\begin{pmatrix}
+2 & 0 \\
+0 & -2
+\end{pmatrix}
+\) \\
+Ahora calculemos su determinante, esto nos queda $d = det \ Hf(0,0) = (2 * -2) - (0 * 0) = -4 $. \\
+Volviendo al criterio de las derivadas segundas en dos variables, como $d < 0 $ entonces estamos en el caso donde $p_{0}$ es un punto silla de f. \\
+\textbf{Nota}: $\le$ o $\ge$ depende del signo del término. \\ \\ 
+3. Calcular los puntos críticos de $f(x,y) = \frac{1}{4}x^{4} + 2y^{2} - 4xy$ \\
+$f:\float^{2} \rightarrow \float$, diferenciable. \\
+Calculemos el gradiente $\triangledown f(x,y) = (x^{3}-4y, 4y-4x) = (0,0)$ \\
+Esto sucede si 
+\( \iff
+\begin{cases} 
+    x^{3} - 4y = 0 \\
+    4y - 4x = 0 \iff y = x
+\end{cases}
+\) \\
+Si y = x $0 = x^{3}-4y = x^{3}-4x = x(x^{2}-4) = 0$ y acá nos quedan tres casos \( \iff
+\begin{cases} 
+    x = 0 \\
+    x = 2  \\
+    x = -2  
+\end{cases}
+\) \\
+Entonces los puntos críticos son: $\{(0,0), (2, 2), (-2, -2)\}$ \\
+\textbf{Hagamos este ejercicio también pero con la Matriz Hessiana} \\
+$\triangledown f(x,y) = (x^{3}-4y, 4y-4x) = (0,0)$ sí y solo sí $(x,y) = (0,0), (2,2) \ o \ (-2, -2)$ \\
+$H_{f}$ = \(
+\begin{pmatrix}
+3x^{2} & -4 \\
+-4 & 4
+\end{pmatrix}
+\) \\
+Veamos ahora caso por caso: \\
+Caso $(0,0)$: 
+$H_{f}(0,0)$ = \(\begin{pmatrix}
+0 & -4 \\
+-4 & 4
+\end{pmatrix}
+\) \\
+Sea $d = det(H_{f}(0,0)) = (0 * 4) - (-4 * -4) = -16$ entonces como $d<0$ entonces el $(0,0)$ es un punto silla. \\
+Caso $(2, 2)$: 
+$H_{f}(2,2)$ = \(\begin{pmatrix}
+12 & -4 \\
+-4 & 4
+\end{pmatrix}
+\) \\
+Sea $d = det(H_{f}(0,0)) = (12 * 4) - (-4 * -4) = 32$ entonces como $d>0$ y $f_{xx}>0$ entonces el $(0,0)$ es un mínimo local de f. \\
+Caso $(-2, -2)$: 
+$H_{f}(2,2)$ = \(\begin{pmatrix}
+12 & -4 \\
+-4 & 4
+\end{pmatrix}
+\) \\
+Sea $d = det(H_{f}(0,0)) = (12 * 4) - (-4 * -4) = 32$ entonces como $d>0$ y $f_{xx}>0$ entonces el $(-2, -2)$ es un mínimo local de f. \\
 \end{document} 
