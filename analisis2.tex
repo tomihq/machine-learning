@@ -1222,7 +1222,8 @@ Para que el Polinomio de Grado 2 aproxime mejor que el Polinomio de Grado 1 debe
 El error para un Polinomio de grado n lo podemos calcular como 
 \[E_{n}(x) = R_{n}(x) = f(x) - P_{n}(x) = \frac{f^{n+1}(c)(x-x_{0})^{n+1}}{(n+1)!}\]
 \textbf{Importante}: $x \le c \le x_{0}$ \\
-Tranquilos, no es para nada trivial. Veremos ejemplos luego en 2 variables. 
+Tranquilos, no es para nada trivial. Veremos ejemplos luego en 2 variables. \\
+\textbf{Importante 2}: El Resto es el siguiente término/derivada al orden que nos piden calcular. Por lo tanto, si nos piden el resto pero estamos con un polinomio de taylor orden 2, entonces vamos a tener que calcular como extra el de orden 3.
 \subsection*{Polinomio de Taylor de Grado 2}
 Se define el Polinomio de Taylor de grado 2 de f centrado en a como: $P_{2}(x) = f(a) + f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^{2}$, para que todo esto suceda, la función debe ser de clase $C^{2}$. \\
 Recordemos que para que la función sea de clase $C^{2}$ debe suceder que la función sea continua, sea derivable con derivada continua y tiene derivada segunda con derivada continua. \\
@@ -1274,6 +1275,7 @@ La fórmula es exactamente igual a la de 1 variable pero lo que cambia es que ya
 \end{itemize}
 Entonces, definimos: 
 \[E_{n}(x, y) = R_{n}(x,y) = f(x,y) - P_{n}(x,y) = \frac{f^{n+1}(c_{1}, c_{2})(x-x_{0})^{n+1}(y-y_{0})^{n+1}}{(n+1)!}\]
+Véase \hyperref[subsec:error_polinomio_taylor_2]{\textbf{\underline{anexo}}} para un ejemplo 
 \section*{Extremos Locales (1 variable)}
 Decimos que f tiene un extremo local en un punto del intervalo (a,b) si alcanza un máximo o mínimo local en ese punto. 
 \[\begin{minipage}[b]{0.8\textwidth}
@@ -1718,6 +1720,41 @@ Luego,
     \item El gradiente positivo señala la dirección de mayor aumento de toxicidad. Si el insecto se mueve en esa dirección, experimentará el aumento más rápido de toxicidad.
     \item El gradiente negativo es la dirección en la que la toxicidad disminuye más rápidamente, o sea, la mejor dirección si el insecto quiere escapar de la toxicidad.
 \end{itemize}
+\subsection*{Halle la expresión del resto $\&$ estimar el error}
+\label{subsec:error_polinomio_taylor_2}
+1. Sea $f(x) = \sqrt{1+x}$, calcule el Polinomio de Maclaurin de orden 2, halle la expresión del resto y estime el error que se comete al aproximar f(0,2) por p(0,2) \\
+Calculemos primero todas las derivadas hasta orden 3 inclusive, porque como nos piden de orden 2, necesitamos la derivada extra para la expresión del resto. \\
+Como el Polinomio de Maclaurin está centrado en (0,0) calculemos entonces las derivadas y evaluemos cada función en ese punto.
+\begin{itemize}
+    \item $f'(x)$ = $\frac{1}{2}(1+x)^{-\frac{1}{2}}$
+    \item $f''(x)$ = $\frac{1}{2} \cdot \left(-\frac{1}{2}\right)(1+x)^{-\frac{3}{2}}$
+    \item $f'''(x)$ = $-\frac{1}{4} \cdot \left(-\frac{3}{2}\right)(1+x)^{-\frac{5}{2}} = \frac{3}{8}(1+x)^{-\frac{5}{2}}$ 
+\end{itemize}
+Evaluamos entonces 
+\begin{itemize}
+    \item $f(0) = 1$
+    \item $f'(0) = \frac{1}{2}$
+    \item $f''(0) = -\frac{1}{4}$
+\end{itemize}
+Por lo tanto, nuestro $P(x) = 1 + \frac{1}{2}x - \frac{1}{8}x^{2}$ \\
+Calculamos ahora la Expresión del Resto: $R_{2} = \frac{f'''(c)(x-0)^{3}}{3!} \equiv \frac{f'''(c)(x)^{3}}{6} \equiv  \frac{\frac{3}{8}*(1+c)^{-\frac{5}{2}}*x^{3}}{6} \equiv \frac{\frac{1}{8}*(1+c)^{-\frac{5}{2}}*x^{3}}{2} \equiv \frac{x^{3}}{16} * \frac{1}{(1+c)^{\frac{5}{2}}}$ \\
+Ahora sí, veamos cuanto nos da nuestro Polinomio de Taylor evaluado en (0,2): $P(0,2) = 1 + \frac{1}{2}(0,2) - \frac{1}{8}(0,2)^{2} = 1.095$ \\
+Ahora sí que tenemos nuestra expresión $R_{2}$ podemos ver qué cantidad en error tiene ese 1.095 (\textbf{importante}: Hacer el CÁLCULO sin CALCULADORA. Luego veremos por qué) \\
+Evaluamos la expresión del resto, $\frac{(0,2)^{3}}{16} * \frac{1}{(1+c)^{\frac{5}{2}}}$ y recordemos ahora, que nuestro c debe estar acotado por $x_{0}$ y $x$. Entonces, $0 < c < 0,2$  \\
+Ahora tenemos que acotar, es decir, debemos encontrar un rango, por lo tanto definimos $e_{2}(x) = \longitud{R_{2}(x)}$ \\
+Por lo tanto $e_{2}(0.2) = \left| \frac{(0.2)^3}{16} \cdot \frac{1}{(1+c)^{\frac{5}{2}}} \right|$ \\
+Ahora la idea es llevar el $0 < c < 0,2$ a algo parecido a $(1+c)^{\frac{5}{2}}$. Nótese que es lo único que nos importa pues depende de c. 
+\begin{itemize}
+    \item $1 < c+1 < 0,2 + 1$
+    \item $1^{\frac{5}{2}} < (c+1)^{\frac{5}{2}} < (1,2)^{\frac{5}{2}}$
+\end{itemize}
+Luego, como ya tenemos exactamente lo que queríamos, ahora queda simplemente elegir qué termino nos conviene conservar. En este caso nos conviene quedarnos con el más grande porque es el \textbf{peor caso}. \\
+Entonces, tenemos que $\frac{1}{1^{\frac{5}{2}}} > \frac{1}{(1+c)^{\frac{5}{2}}} > \frac{1}{(1,2)^{\frac{5}{2}}}$. \\
+Por lo tanto, ahora nuestra expresión nos queda $\left| \frac{(0.2)^3}{16} \cdot \frac{1}{1^{\frac{5}{2}}} \right| = \frac{1}{80}$ \\
+Entonces, $e_{2}(0,2) < \frac{1}{80}$. \\
+Ahora, evaluemos $f(0,2)$ con calculadora. Nos da 1.095445115 clavado, entonces, como a nosotros en el Polinomio nos dió $1.095$ los decimales que faltan, es justamente el error que calculamos, es decir, la diferencia entre ambos numeros es $< \frac{1}{80}$
+
+
 \subsection*{Cálculo de Puntos Crítico $\&$ determinar si son Extremos Locales}
 \label{subsec:calculo_puntos_criticos}
 1. $f(x,y) = x^{2} + y^{2}$ \\
