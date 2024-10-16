@@ -1722,7 +1722,7 @@ Luego,
 \end{itemize}
 \subsection*{Halle la expresión del resto $\&$ estimar el error}
 \label{subsec:error_polinomio_taylor_2}
-1. Sea $f(x) = \sqrt{1+x}$, calcule el Polinomio de Maclaurin de orden 2, halle la expresión del resto y estime el error que se comete al aproximar f(0,2) por p(0,2) \\
+\textbf{1.} Sea $f(x) = \sqrt{1+x}$, calcule el Polinomio de Maclaurin de orden 2, halle la expresión del resto y estime el error que se comete al aproximar f(0,2) por p(0,2) \\
 Calculemos primero todas las derivadas hasta orden 3 inclusive, porque como nos piden de orden 2, necesitamos la derivada extra para la expresión del resto. \\
 Como el Polinomio de Maclaurin está centrado en (0,0) calculemos entonces las derivadas y evaluemos cada función en ese punto.
 \begin{itemize}
@@ -1752,9 +1752,15 @@ Luego, como ya tenemos exactamente lo que queríamos, ahora queda simplemente el
 Entonces, tenemos que $\frac{1}{1^{\frac{5}{2}}} > \frac{1}{(1+c)^{\frac{5}{2}}} > \frac{1}{(1,2)^{\frac{5}{2}}}$. \\
 Por lo tanto, ahora nuestra expresión nos queda $\left| \frac{(0.2)^3}{16} \cdot \frac{1}{1^{\frac{5}{2}}} \right| = \frac{1}{80}$ \\
 Entonces, $e_{2}(0,2) < \frac{1}{80}$. \\
-Ahora, evaluemos $f(0,2)$ con calculadora. Nos da 1.095445115 clavado, entonces, como a nosotros en el Polinomio nos dió $1.095$ los decimales que faltan, es justamente el error que calculamos, es decir, la diferencia entre ambos numeros es $< \frac{1}{80}$
-
-
+Ahora, evaluemos $f(0,2)$ con calculadora. Nos da 1.095445115 clavado, entonces, como a nosotros en el Polinomio nos dió $1.095$ los decimales que faltan, es justamente el error que calculamos, es decir, la diferencia entre ambos numeros es $< \frac{1}{80}$ \\
+\textbf{2.} Calcule la expresión del resto genérico para un Polinomio de Taylor de Grado 2 en dos variables. \\
+Como nos piden el Polinomio de Taylor de Grado 2, la expresión del resto necesitamos calcular una derivada más. \\
+Por lo tanto, la expresión del resto sería algo así (todas las combinaciones de las derivadas): $R_{2} = \frac{f_{xxx}(x_{0}, y_{0})}{3!}(x-x_{0})^{3} + \frac{f_{yyy}(x_{0}, y_{0})}{3!} (y-y_{0})^{3} + \frac{f_{xxy}(x_{0},y_{0})}{3!}(x-x_{0})^{2}(y-y_{0}) + \frac{f_{xyx}(x_{0},y_{0})}{3!}(x-x_{0})^{2}(y-y_{0}) + \frac{f_{yxx}(x_{0},y_{0})}{3!}(x-x_{0})^{2}(y-y_{0}) + \frac{f_{yyx}(x_{0},y_{0})}{3!}(x-x_{0})(y-y_{0})^{2} + \frac{f_{yxy}(x_{0},y_{0})}{3!}(x-x_{0})(y-y_{0})^{2} + \frac{f_{xyy}(x_{0},y_{0})}{3!}(x-x_{0})(y-y_{0})^{2}  $ \\
+¿Qué es lo que podemos notar? Que hay varios términos que coinciden, es decir, tienen en común $(x-x_{0})(y-y_{0})^{2}$ y $(x-x_{0})^{2}(y-y_{0})$. Por lo tanto, esto significa que las derivadas van a dar \textbf{exactamente igual}, porque justamente, cuando tenemos que calcular el Polinomio de Taylor y el resto estamos en $C^{n}$ con $n \in \nat$. \\
+Entonces ahora el problema se reduce a simplemente saber que vamos a tener 4 términos nada más. \\
+Cuando tenemos dos apariciones de x podemos elegir cualquier derivada, y lo mismo con las de y porque dan exactamente igual. \\
+Luego, $R_{2}(x,y) = \frac{f_{xxx}(c_{1}, c_{2})}{6}(x-x_{0})^{3} + \frac{f_{yyy}(c_{1}, c_{2})}{6}(y-y_{0})^{3} + 3 \frac{f_{xxy}(c_{1}, c_{2})}{6}(x-x_{0})^{2}(y-y_{0}) + 3 \frac{f_{yyx}(c_{1}, c_{2})}{6}(x-x_{0})(y-y_{0})^{2} \equiv \frac{f_{xxx}(c_{1}, c_{2})}{6}(x-x_{0})^{3} + \frac{f_{yyy}(c_{1}, c_{2})}{6}(y-y_{0})^{3} + \frac{f_{xxy}(c_{1}, c_{2})}{2}(x-x_{0})^{2}(y-y_{0}) + \frac{f_{yyx}(c_{1}, c_{2})}{2}(x-x_{0})(y-y_{0})^{2} $ \\
+\textbf{Conclusión}: No siempre es necesario colocar todas las derivadas, sino que las que coincidan en misma cantidad de variables dan exactamente igual. 
 \subsection*{Cálculo de Puntos Crítico $\&$ determinar si son Extremos Locales}
 \label{subsec:calculo_puntos_criticos}
 1. $f(x,y) = x^{2} + y^{2}$ \\
