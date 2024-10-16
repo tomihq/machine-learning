@@ -1760,7 +1760,34 @@ Por lo tanto, la expresión del resto sería algo así (todas las combinaciones 
 Entonces ahora el problema se reduce a simplemente saber que vamos a tener 4 términos nada más. \\
 Cuando tenemos dos apariciones de x podemos elegir cualquier derivada, y lo mismo con las de y porque dan exactamente igual. \\
 Luego, $R_{2}(x,y) = \frac{f_{xxx}(c_{1}, c_{2})}{6}(x-x_{0})^{3} + \frac{f_{yyy}(c_{1}, c_{2})}{6}(y-y_{0})^{3} + 3 \frac{f_{xxy}(c_{1}, c_{2})}{6}(x-x_{0})^{2}(y-y_{0}) + 3 \frac{f_{yyx}(c_{1}, c_{2})}{6}(x-x_{0})(y-y_{0})^{2} \equiv \frac{f_{xxx}(c_{1}, c_{2})}{6}(x-x_{0})^{3} + \frac{f_{yyy}(c_{1}, c_{2})}{6}(y-y_{0})^{3} + \frac{f_{xxy}(c_{1}, c_{2})}{2}(x-x_{0})^{2}(y-y_{0}) + \frac{f_{yyx}(c_{1}, c_{2})}{2}(x-x_{0})(y-y_{0})^{2} $ \\
-\textbf{Conclusión}: No siempre es necesario colocar todas las derivadas, sino que las que coincidan en misma cantidad de variables dan exactamente igual. 
+\textbf{Conclusión}: No siempre es necesario colocar todas las derivadas, sino que las que coincidan en misma cantidad de variables dan exactamente igual. \\
+\textbf{3.}: Sea $f(x,y) = xe^{y}$
+\begin{itemize}
+    \item Calcular $T_{1}$ centrado en $(1,0)$
+    \item Aproximar $F(0.98; 0,02)$ con $T_{1} (x,y)$
+    \item Estimar/Acotar el error cometido. 
+\end{itemize}
+Calculemos las derivadas y lo que valen ahí.
+\begin{itemize}
+    \item $F(1,0) = 1 * e^{0} = 1$
+    \item $F_{x}$ = $e^{y} + x * e^{y} * 0 = e^{y} = F_{x}(1,0) = e^{0} = 1 $
+    \item $F_{y}$ = $xe^{y} = F_{y}(1,0) = 1 * e^{0} = 1$
+    \item $F_{xx} = 0$
+    \item $F_{yy} = xe^{y}$
+    \item $F_{xy} = e^{y}$
+\end{itemize}
+Entonces, $T_{1}(x,y) = 1 + x-1 + y = x + y$ \\
+$F(0,98; 0,02) = 0.93858$ y $T_{1}(0,98; 0,02) = 1$ \\
+La expresión del resto en este caso depende de las derivadas $f_{xx}, f_{yy}, f_{xy}$ pero ojo, sabemos que tambien indirectamente tenemos $f_{yx}$ pero como solamente es lo mismo que xy con las letras permutadas entonces vamos a tener un 2 delante del término que se terminará cancelando con el factorial de 2. \\
+$R_{1}(x, y) = \frac{f_{xx}(c_{1}, c_{2})}{2!}(x-x_{0})^{2} + \frac{f_{yy}(c_{1}, c_{2})}{2!}(y-y_{0})^{2} + 2\frac{f_{xy}(c_{1}, c_{2})}{2!}(x-x_{0})(y-y_{0}) = \frac{f_{xx}(c_{1}, c_{2})}{2!}(x-x_{0})^{2} + \frac{f_{yy}(c_{1}, c_{2})}{2!}(y-y_{0})^{2} + f_{xy}(c_{1}, c_{2})(x-x_{0})(y-y_{0}) $ \\
+Reemplazando por lo que tenemos: $R_{2}(x, y) = \frac{f_{xx}(c_{1}, c_{2})}{2!}(x-1)^{2} + \frac{f_{yy}(c_{1}, c_{2})}{2!}y^{2} + f_{xy}(c_{1}, c_{2})(x-1)y = \frac{c_{1}e^{c_{2}}}{2}y^{2} + e^{c_{2}}(x-1)y $ \\
+Definamos entonces ahora lo que queremos acotar. Sabemos que $0,98 < c_{1} < 1$ y $0 < c_{2} < 0,02$ \\
+Definimos $e_{1}(x,y) = \longitud{R_{2}(x,y)}$, y evaluamos en el punto que nos piden: $e_{2}(0,98; 0,02) = \left| \frac{c_{1}}{\textcolor{red}{2}}*0,000\textcolor{red}{4} * e^{c_{2}} - 0,0004 * e^{c_{2}} \right| \stackrel{DT}{\le} \longitud{c_{1}*0,0002 * e^{c_{2}}} + \longitud{0,0004 * e^{c_{2}}} =  \longitud{c_{1}} * \longitud{0,0002} * \longitud{e^{c_{2}}} + \longitud{0,0004} * \longitud{e^{c_{2}}}$   \\
+El único rompecabezas acá sería rearmar en base a $0 < c_{2} < 0,02$ el $e^{c_{2}}$, nos queda $e^{0} < c_{2} < e^{0,02}$ en este caso el caso más copado para acotar es encontrar el peor caso entre 0 y 0,02 que sea entero. Por lo tanto acotamos con $<e^{1} = e < 3$. \\
+Finalizando, $<0,0006 + 0,0012 = 0,0018$ \\
+Luego, $e_{1}(0,98; 0,02) < 0,0018$
+
+
 \subsection*{Cálculo de Puntos Crítico $\&$ determinar si son Extremos Locales}
 \label{subsec:calculo_puntos_criticos}
 1. $f(x,y) = x^{2} + y^{2}$ \\
