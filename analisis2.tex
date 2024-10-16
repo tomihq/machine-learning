@@ -931,6 +931,19 @@ Veamos un ejemplo: Dada $r(t) = (1+t^{3}, te^{-t}, sen(2t))$ encuentre el vector
 \[\begin{minipage}[b]{0.7\textwidth}
     \includegraphics[width=\linewidth]{assets/tabla_derivadas.png}
 \end{minipage}\]
+\subsection*{Tips para derivar raíces}
+\begin{itemize}
+    \item Reescribir la raíz como potencia.
+    \item Aplicar la regla de la potencia e ir restando uno al exponente.
+\end{itemize}
+Ej.: Calcule la derivada de orden 3 $\sqrt{1+x}$
+\begin{itemize}
+    \item Reescribo: $(1+x)^{\frac{1}{2}}$
+    \item Derivamos: $\frac{1}{2}(1+x)^{-\frac{1}{2}}$
+    \item Derivamos: $\frac{1}{2} \cdot \left(-\frac{1}{2}\right)(1+x)^{-\frac{3}{2}}$
+    \item Derivamos: $-\frac{1}{4} \cdot \left(-\frac{3}{2}\right)(1+x)^{-\frac{5}{2}}$
+    \item Luego, la derivada de orden 3 es: $\frac{3}{8}(1+x)^{-\frac{5}{2}}$
+\end{itemize}
 \section*{Reglas de Derivación}
 Sean u(t) y v(t) dos curvas entonces 
 \begin{itemize}
