@@ -1221,13 +1221,8 @@ Para que el Polinomio de Grado 2 aproxime mejor que el Polinomio de Grado 1 debe
 \subsection*{Hallando el error para un Polinomio de Taylor (Forma de Lagrange del Resto)}
 El error para un Polinomio de grado n lo podemos calcular como 
 \[E_{n}(x) = R_{n}(x) = f(x) - P_{n}(x) = \frac{f^{n+1}(c)(x-x_{0})^{n+1}}{(n+1)!}\]
-\[\begin{minipage}[b]{0.8\textwidth}
-    \includegraphics[width=\linewidth]{assets/error_polinomio_taylor.png}
-\end{minipage}\]
-\[\begin{minipage}[b]{0.8\textwidth}
-    \includegraphics[width=\linewidth]{assets/error_polinomio_taylor_2.png}
-\end{minipage}\]
-Como c está entre dos valores, debe aplicarse módulo tal que $\longitud{E_{n}(x)} = \longitud{\frac{f^{n}(c)(x-p)}{n}}$ y por lo general acotamos y llegamos a algo del estilo $\longitud{E_{n}(x)} < algo$
+\textbf{Importante}: $x \le c \le x_{0}$ \\
+Tranquilos, no es para nada trivial. Veremos ejemplos luego en 2 variables. 
 \subsection*{Polinomio de Taylor de Grado 2}
 Se define el Polinomio de Taylor de grado 2 de f centrado en a como: $P_{2}(x) = f(a) + f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^{2}$, para que todo esto suceda, la función debe ser de clase $C^{2}$. \\
 Recordemos que para que la función sea de clase $C^{2}$ debe suceder que la función sea continua, sea derivable con derivada continua y tiene derivada segunda con derivada continua. \\
@@ -1271,7 +1266,14 @@ Orden 2: $P_{2}(x,y) = 1 + x + y + \frac{1}{2}x^{2} + xy + \frac{1}{2}y^{2}$
     \end{itemize}
     OJO: Solo en el punto.
 \end{itemize}
-
+\subsection*{Error del Polinomio de Taylor (Forma de Lagrange del Resto en $\float^{2}$)}
+La fórmula es exactamente igual a la de 1 variable pero lo que cambia es que ya no tenemos un $x_{0}$ sino que ahora tenemos un $c_{1}$ y un $c_{2}$ donde: 
+\begin{itemize}
+    \item $c_{1}$ está entre $x$ y $x_{0}$
+    \item $c_{2}$ está entre $y$ y $y_{0}$
+\end{itemize}
+Entonces, definimos: 
+\[E_{n}(x, y) = R_{n}(x,y) = f(x,y) - P_{n}(x,y) = \frac{f^{n+1}(c_{1}, c_{2})(x-x_{0})^{n+1}(y-y_{0})^{n+1}}{(n+1)!}\]
 \section*{Extremos Locales (1 variable)}
 Decimos que f tiene un extremo local en un punto del intervalo (a,b) si alcanza un máximo o mínimo local en ese punto. 
 \[\begin{minipage}[b]{0.8\textwidth}
