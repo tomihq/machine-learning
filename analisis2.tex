@@ -1313,7 +1313,11 @@ Sea $f:(a,b) \rightarrow \float$ decimos que $p_{0} \in (a,b)$ es
 \end{itemize}
 Decimos que un punto de (a,b) es extremo global o absoluto si es máximo o mínimo local.
 \subsection*{Teorema de Fermat}
-Dada $f(a,b) \rightarrow \float$. Si $x_{0}$ es extremo local y f es derivable en $x_{0}$ entonces $f'(x_{0}) = 0$
+Dada $f(a,b) \rightarrow \float$. Si $x_{0}$ es extremo local y f es derivable en $x_{0}$ entonces $f'(x_{0}) = 0$ \\
+\textbf{En Criollo}: Si $x_{0}$ es extremo local, entonces si evalúo ese punto en la derivada me da la pendiente de la recta tangente que es 0.
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/maximo_minimo_local.png}
+\end{minipage}\]
 \section*{Extremos Locales (en $\float^{n}$)}
 Como estamos en $\float^{n}$ no nos acercamos por un número particular sino que tomamos como referencia un disco de cierto radio. \\
 Sea $f:D \subseteq \float^{n} \rightarrow \float$ decimos que $p_{0} = (x_{0},y_{0}) \in D$
@@ -1371,7 +1375,35 @@ Entonces si llamamos $d = det \ H_{f}(p_{0})$
     \item Si $d<0 \implies p_{0}$ es punto silla de f.
     \item Si $d=0 \implies$ no podemos determinar qué es $p_{0}$. Ej.: $f(x,y) = x^{4} + y^{4}, f(x,y) = x^{3}-y^{3}$
 \end{itemize}
-
+\section*{Extremos Absolutos}
+Son aquellos máximos o mínimos que están en un intervalo cerrado. \\
+\textbf{Importante}: Puede haber más de un máximo absoluto pero el valor debe ser el mismo. Lo mismo con los mínimos absolutos. \\
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/maximo_absoluto_minimo.png}
+\end{minipage}\]
+En este caso son Máximo Absoluto y Mínimo Absoluto porque es continua en el intervalo que están y se alcanza un valor máximo y un mínimo. 
+\subsection*{Teorema de Weierstrass (Teorema del Valor Extremo)}
+Sea $f:[a, b] \rightarrow \float$ continua, entonces un alcanza al menos un máximo y mínimo absoluto en el intervalo $[a, b]$ \\
+El teorema no nos indica donde se encuentra el máximo y el minimo sino que solo afirma que existen. 
+\section*{Extremos Absolutos vs Extremos Locales en Gráficos}
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/maximos_minimos.png}
+\end{minipage}\]
+\begin{itemize}
+    \item 1. No hay máximo absoluto porque crece infinitamente.
+    \item 2. 
+    \begin{itemize}
+        \item El máximo local viene de que es el mayor punto de los cercanos a él. 
+        \item El mínimo local viene de que es el menor punto de los cercanos a él.
+        \item El mínimo absoluto viene porque no existe otro punto en la gráfica que esté por debajo de él.
+        \item No tiene máximo absoluto porque la función crece infinitamente.
+    \end{itemize}
+    \item 3. Tiene un máximo absoluto pero no tiene mínimo absoluto porque decrece infinitamente.
+\end{itemize}
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/maximo_minimo_restringido_absoluto.png}
+\end{minipage}\]
+Nótese que si hablamos de un intervalo dado, entonces cosas continuas infinitas como la parábola tendría máximo absoluto. Esto viene por el \textbf{Teorema del Valor Extremo} pues la función $x^{2}$ es continua.
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
