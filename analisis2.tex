@@ -1384,7 +1384,99 @@ Son aquellos máximos o mínimos que están en un intervalo cerrado. \\
 En este caso son Máximo Absoluto y Mínimo Absoluto porque es continua en el intervalo que están y se alcanza un valor máximo y un mínimo. 
 \subsection*{Teorema de Weierstrass (Teorema del Valor Extremo)}
 Sea $f:[a, b] \rightarrow \float$ continua, entonces un alcanza al menos un máximo y mínimo absoluto en el intervalo $[a, b]$ \\
-El teorema no nos indica donde se encuentra el máximo y el minimo sino que solo afirma que existen. 
+El teorema no nos indica donde se encuentra el máximo y el minimo sino que solo afirma que existen. \\
+Antes de extender esta definición a $\float^{3}$ necesitamos definir qué es un Conjunto D Cerrado y un Conjunto D acotado.
+\section*{Conjunto D Cerrado}
+Un conjunto $D \subseteq \float^{2}$ se dice cerrado si todos los puntos de la frontera de $D$ son parte del conjunto D.
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/conjunto_d.png}
+\end{minipage}\]
+Los puntos de la frontera de D son aquellos puntos $p \in \float^{2}$ para los cuales, cualquier disco alrededor de p tiene puntos de D y puntos que no están en D. \\
+La frontera de un conjunto D se nota $\partial D$ \\
+
+Para $D = \{(x,y): x^{2} + y^{2} \le 1 \}$ la frontera de D es $\partial D = \{(x,y): x^{2} + y^{2} = 1\}$ porque cuando da exactamente en uno, estoy en el borde y puedo hacer un disco de cualquier radio y tengo puntos que están dentro y fuera. \\
+¿Es D cerrado? Sí, porque $\partial D \subseteq D$ tal como dice la definición. \\
+
+\textbf{En criollo}: La frontera de un conjunto es el borde que separa los puntos que están dentro de los que están afuera. Si dibujás un disco alrededor de un punto de la frontera, va a haber puntos tanto adentro como afuera del conjunto. Y esos puntos en el borde tienen que estar incluidos en el conjunto original.
+\subsection*{Ejemplos de Conjuntos D Cerrados}
+El gráfico de una función continua o la imagen de una curva continua son cerrados. Esto es porque en cualquier punto puedo encontrar un disco tal que hay puntos que están por fuera y por dentro.
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/ejemplo_conjunto_cerrado_1.png}
+\end{minipage}\]
+Un rectángulo es un conjunto cerrado
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/ejemplo_conjunto_cerrado_2.png}
+\end{minipage}\]
+\subsection*{Conjunto D acotado}
+Un Conjunto D se dice acotado si se puede meter en un disco de cualquier radio, es decir, el Conjunto D no se extiende infinitamente.
+\[\begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\linewidth]{assets/conjunto_d_acotado.png}
+\end{minipage}\]
+\section*{Generalización del Teorema de Weierstrass (Teorema del Valor Extremo)}
+Dada $f:D \subseteq \float^{2} \rightarrow \float$ continua con D cerrado y acotado, entonces f alcanza máximo y mínimo absoluto en D. \\
+Técnica: Buscamos candidatos a extremos de f en D 
+\begin{itemize}
+    \item 1) Buscamos candidatos a extremos adentro de D.
+    \item 2) Buscamos candidatos a extremos en $\partial D$.
+    \item 3) Para cada punto candidato de 1) y 2) hacemos la evaluación de f. Los puntos donde f tome el valor máximo serán máximos absolutos y los puntos donde tome el valor mínimo serán los mínimos absolutos.
+\end{itemize}
+Vamos a resolver este tipo de ejercicios con estas ideas 
+\begin{itemize}
+    \item Si $p \in D$ es máximo (o mínimo) absoluto de f en D y $p \in A \subseteq D$ entonces p es máximo (o mínimo) absoluto de f en A.
+    \item Si p es máximo (o mínimo) absoluto de f en D, entonces p es máximo (o mínimo local) de f en D. Si p está adentro de D, es decir,  no está en la frontera, entonces p es un punto crítico.
+\end{itemize}
+\subsection*{Ejemplos del Teorema de Weierstrass en $\float^{2}$}
+1. Determinar (si hay) máximos y mínimos absolutos de $f(x,y) = x^{2} + y^{2} + x + y$ en $D = \{(x,y): x^{2} + y^{2} = 1\}$ \\
+Lo primero que hacemos es ver si la función $f(x,y)$ es continua. Como f es continua y además tengo un D que es cerrado y puedo meterlo en un disco porque es acotada por el teorema de Weierstrass f alcanza máximo y mínimo absoluto en D.
+\begin{itemize}
+    \item 1) Miramos candidatos adentro de D: Como no hay puntos adentro de D (o en el interior D) no hay candidatos.
+    \item 2) Sea $\partial D = D = \{(x,y):x^{2} + y^{2}\}$, lo que podemos hacer es buscar una parametrización, en este caso es $r(t) = (cos \ t, sen \ t) \ t \in [0, 2\pi]$. Ahora, como quiero ver los puntos de f restringido a la frontera, entonces lo que hago es ver los: $g(t) = f(r(t)), t \in [0, 2\pi]$
+    \begin{itemize}
+        \item Ahora la idea es llevar todo esto a una variable para poder hacer cosas que ya conocemos. Buscamos entonces los extremos de $\textbf{g(t)} = f(cos \ t, sen \ t) = cos^{2}t + sen^{2} \ t + cos \ t + sen \ t = \textbf{1 + cos \ t + sen \ t}$ con $t \in [0, 2\pi]$.
+        \item Ahora miremos g en $(0, 2\pi)$ y buscamos puntos críticos. Es decir, por Fermat sabemos que si es punto crítico entonces la pendiente de la recta tangente es 0, osea $g'(t) = -sen \ t + cos \ t = 0$. La idea sería buscar los t correspondientes, en este caso son $\frac{\pi}{4}$ y $\frac{5\pi}{4}$.
+        \item Candidatos de g en $[0, 2\pi] = \{\frac{\pi}{4}, \frac{5\pi}{4}, 0, 2 \pi \}$. Nótese que incluímos 0 y $2\pi$ porque son extremos del intervalo, mientras que $\frac{\pi}{4}$ y $\frac{5\pi}{4}$ son puntos críticos, es decir, estos valores hacen que la derivada sea 0, por lo tanto tengo que ver si son máximos absolutos o mínimos en g. 
+    \end{itemize}
+    \item 3) Evalúo en $g$ (la composición con f) a cada punto, y el que me de más grande de todos es el máximo absoluto y el que me de menor a todos es el mínimo absoluto.
+    \begin{itemize}
+        \item $g(\frac{\pi}{4}) = 1 + 2\frac{\sqrt{2}}{2}$
+        \item $g(\frac{5\pi}{4}) = 1 - 2\frac{\sqrt{2}}{2}$
+        \item $g(0) = 2$
+        \item $g(2\pi) = 2$ \\
+        Entonces, $\frac{\pi}{4}$ es máximo absoluto y $\frac{5\pi}{4}$ alcanza el mínimo absoluto.
+        \item Por último, como nuestro problema era en dos variables, evalúo nuestra parametrización con esos t que hallamos para conseguir el punto de la forma (x,y)
+        \begin{itemize}
+        \item $ t = \frac{\pi}{4} \implies r(\frac{\pi}{4}) = (\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2})$
+        \item $ t = \frac{5\pi}{4} \implies r(\frac{5\pi}{4}) = (\frac{\sqrt{-2}}{2}, \frac{\sqrt{-2}}{2})$
+    \end{itemize}
+    
+    \end{itemize}
+\end{itemize}
+2. Determinar (si existen) máximos y mínimos absolutos de $f(x,y) = x^{2} + y^{2} + x + y$ en $D = \{(x,y): x^{2} + y^{2} \le 1 \}$ \\
+Como antes, como f es continua, D está acotada y cerrada. Por el Teorema de Weierstrass sabemos que f alcanza al menos un máximo absoluto y un mínimo absoluto en D.
+\begin{itemize}
+    \item 1. Busquemos los candidatos a extremos adentro de D. 
+    \begin{itemize}
+        \item Es decir, sería $int(D) = \{(x,y): x^{2} + y^{2} < 1\}$.
+        \item Como existen $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$ en $int(D)$, buscamos puntos donde el gradiente valga (0, 0)
+        \item Ahora calculemos el gradiente de f y veamos cuales son los posibles puntos críticos y satisfacen la ecuación de D.
+        \item $\triangledown f = (2x + 1, 2y + 1)$ y esto se hace 0 cuando $x = -\frac{1}{2}, y = -\frac{1}{2}$, por lo tanto el único punto crítico es $(-\frac{1}{2}, -\frac{1}{2})$.
+        \item Entonces ahora, verifiquemos que efectivamente ese punto verifica la ecuación de D, es decir, está dentro de la región: $(-\frac{1}{2})^{2} + (-\frac{1}{2})^{2} = \frac{1}{2} < 1 \rightarrow (-\frac{1}{2}, -\frac{1}{2}) \in int(D)$
+    
+    \end{itemize}
+    \item 2. Buscamos en la frontera $\partial D = \{(x,y) \in \float^{2}: x^{2} + y^{2} = 1\}$ (ejemplo anterior)
+    \begin{itemize}
+        \item $(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2})$ era el max absoluto en $\partial D$
+        \item $(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2})$ era el min absoluto en $\partial D$
+    \end{itemize}
+    \item 3. Evalúo f en cada uno de los candidatos 
+    \begin{itemize}
+        \item $f(-\frac{1}{2}, -\frac{1}{2}) = -\frac{1}{2}$ 
+        \item $f(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}) = 1 + \sqrt{2}$ 
+        \item $f(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}) = 1 + \sqrt{2} = 1 - \sqrt{2}$ 
+    \end{itemize}
+    Luego, el máximo absoluto es $1 + \sqrt{2}$ y el mínimo absoluto es $-\frac{1}{2}$.
+\end{itemize}
+
 \section*{Extremos Absolutos vs Extremos Locales en Gráficos}
 \[\begin{minipage}[b]{1\textwidth}
     \includegraphics[width=\linewidth]{assets/maximos_minimos.png}
@@ -1400,10 +1492,11 @@ El teorema no nos indica donde se encuentra el máximo y el minimo sino que solo
     \end{itemize}
     \item 3. Tiene un máximo absoluto pero no tiene mínimo absoluto porque decrece infinitamente.
 \end{itemize}
-\[\begin{minipage}[b]{0.8\textwidth}
+\[\begin{minipage}[b]{0.6\textwidth}
     \includegraphics[width=\linewidth]{assets/maximo_minimo_restringido_absoluto.png}
 \end{minipage}\]
 Nótese que si hablamos de un intervalo dado, entonces cosas continuas infinitas como la parábola tendría máximo absoluto. Esto viene por el \textbf{Teorema del Valor Extremo} pues la función $x^{2}$ es continua.
+
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
