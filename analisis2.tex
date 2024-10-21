@@ -1425,7 +1425,7 @@ Vamos a resolver este tipo de ejercicios con estas ideas
     \item Si $p \in D$ es máximo (o mínimo) absoluto de f en D y $p \in A \subseteq D$ entonces p es máximo (o mínimo) absoluto de f en A.
     \item Si p es máximo (o mínimo) absoluto de f en D, entonces p es máximo (o mínimo local) de f en D. Si p está adentro de D, es decir,  no está en la frontera, entonces p es un punto crítico.
 \end{itemize}
-\subsection*{Ejemplos del Teorema de Weierstrass en $\float^{2}$}
+\subsubsection*{Ejemplos del Teorema de Weierstrass en $\float^{2}$}
 1. Determinar (si hay) máximos y mínimos absolutos de $f(x,y) = x^{2} + y^{2} + x + y$ en $D = \{(x,y): x^{2} + y^{2} = 1\}$ \\
 Lo primero que hacemos es ver si la función $f(x,y)$ es continua. Como f es continua y además tengo un D que es cerrado y puedo meterlo en un disco porque es acotada por el teorema de Weierstrass f alcanza máximo y mínimo absoluto en D.
 \begin{itemize}
@@ -1476,7 +1476,6 @@ Como antes, como f es continua, D está acotada y cerrada. Por el Teorema de Wei
     \end{itemize}
     Luego, el máximo absoluto es $1 + \sqrt{2}$ y el mínimo absoluto es $-\frac{1}{2}$.
 \end{itemize}
-
 \section*{Extremos Absolutos vs Extremos Locales en Gráficos}
 \[\begin{minipage}[b]{1\textwidth}
     \includegraphics[width=\linewidth]{assets/maximos_minimos.png}
@@ -1496,7 +1495,66 @@ Como antes, como f es continua, D está acotada y cerrada. Por el Teorema de Wei
     \includegraphics[width=\linewidth]{assets/maximo_minimo_restringido_absoluto.png}
 \end{minipage}\]
 Nótese que si hablamos de un intervalo dado, entonces cosas continuas infinitas como la parábola tendría máximo absoluto. Esto viene por el \textbf{Teorema del Valor Extremo} pues la función $x^{2}$ es continua.
-
+\section*{Multiplicadores de Lagrange (idea)}
+Sea $f(x,y)$ o $f(x,y,z)$ y buscamos encontrar los extremos de f cuando $(x,y)$ o $(x,y,z)$ está restringido a un subconjunto de $\float^{2}$ o $\float^{3}$. \\
+Por restringido nos referimos a conjuntos de la forma $g(x,y) = k$, (x,y) están restringidos a vivir en un conjunto de nivel de otra función g (restricción). \\
+\textbf{La idea entonces es buscar los máximos y mínimos pero cuando mis variables están restringidas a una curva de nivel o una superficie de una función g.}
+\subsection*{Multiplicadores de Lagrange}
+Sea f definida en $\float^{2}$ o $\float^{3}$ diferenciable. \\
+Si P es un extremo de f restringido al conjunto $\{g = k\}$ \textbf{existe} un $\lambda \in \float \rightarrow multiplicador$ tal que $\triangledown f(P) = \lambda \triangledown g(P)$ si $\triangledown g(P) \neq 0$ \\
+Los que verifiquen esa igualdad, son mis candidatos a puntos críticos.   
+\subsubsection*{Ejemplo de Multiplicadores de Lagrange}
+1. Sea $f(x,y) = 1-xy$ y $g(x,y) = x^{2} + 2y^{2} = 4$ \\
+Si $(x,y)$ es un extremo de f con la restricción $g = 4 \implies \triangledown f(x,y) = \lambda \triangledown g(x,y)$. 
+\begin{itemize}
+    \item 1. Calculemos los gradientes
+    \begin{itemize}
+        \item  $\triangledown f = (-y, -x)$
+        \item $\triangledown g = (2x, 4y)$
+    \end{itemize}
+    \item 2. Ahora planteamos las igualdades en un sistema de ecuaciones, pero no hay que olvidarse que también estas ecuaciones deben cumplir la restricción de g, por lo tanto, agregamos una tercera ecuación adicional para que el punto crítico que encontremos esté en g: 
+        $\begin{cases} 
+            -y = \lambda 2x \\
+            -x = \lambda 4 y \\
+            x^{2} + 2y^{2} = 4
+        \end{cases}$ \\
+    A este sistema de ecuaciones se le llama \textbf{Sistema de Ecuaciones de Lagrange} \\
+    $y = -2 \lambda x$ \\
+    A medida que vamos realizando este sistema llegamos a una ecuación del tipo $-x = -8 \lambda^{2} x$. Es importante que NO cancelemos las x, sino que en este contexto lo mejor es juntar las x y sacar factor común porque sino perdemos soluciones. Entonces nos queda $0 = x(1-8\lambda^{2})$ ent de acá sacamos que $x = 0$ o $1-8\lambda^{2} = 0$ \\
+    Caso $x = 0$
+        \begin{itemize}
+            \item Nos queda 0 = 4 ¡ABS! entonces, $x \neq 0$ sí o sí.
+        \end{itemize}
+    Caso $x = 1-8\lambda^{2}$
+        \begin{itemize}
+            \item Tenemos dos casos acá: 2)a) $ \lambda = \frac{1}{\sqrt{8}}$ o 2)b) $\lambda = -\frac{1}{\sqrt{8}}$
+            \item Entonces estos valores de lambda lo colocamos en cualquier otra ecuación
+            \begin{itemize}
+                \item Caso 2) a) $\lambda = \frac{1}{\sqrt{8}} = x^{2} + 8\lambda^{2}x^{2} = 4 \equiv x = \pm \sqrt{2}$
+                \begin{itemize}
+                    \item Ahora reemplazamos en la ecuación del comienzo: $ y = -2(\frac{1}{\sqrt{8}}) * \sqrt{2} = -1 $ o $y = -2(\frac{1}{\sqrt{8}}) * -\sqrt{2} = 1$
+                    \item Entonces encontramos: $P_{1} = (\sqrt{2}, -1)$ y $P_{2} = (-\sqrt{2}, 1)$
+                \end{itemize}
+                \item Caso 2) b): Nos queda lo mismo en cuanto a x porque como la ecuación tiene $\lambda^{2}$ siempre es positivo. Entonces $x = \pm \sqrt{2}$ 
+                \begin{itemize}
+                    \item Ahora reemplazamos y nos queda $y = -2(-\frac{1}{8}) * \sqrt{2} = 1$ y $y = -2(-\frac{1}{8}) * -\sqrt{2} = -1 $
+                    \item Entonces encontramos: $P_{3} = (\sqrt{2}, 1)$ y $P_{4} = (-\sqrt{2}, -1)$
+                \end{itemize}
+            \end{itemize}
+            \item Lo siguiente que tendríamos que ver con estos puntos $P_{1}, P_{2}, P_{3} $ y $P_{4}$ es que no anulen el gradiente de g.
+        \end{itemize}
+        \item 3. Ahora vienen los pasos finales
+        \begin{itemize}
+            \item Desarrollemos la curva de nivel de g, es decir $x^{2} + 2y^{2} = 4$ que esto es una elipse que tiene la forma $(\frac{x^{2}}{4})^{2} + (\frac{y}{\sqrt{2}})^{2} = 1$. Este conjunto es cerrado y acotado por lo tanto por el teorema de Weierstrass, si a f la restrinjo a esta curva entonces tiene un máximo y un mínimo. Entonces, estos puntos máximos y mínimos debe ser uno de los P que encontramos.
+            \item Evaluando a f con cada punto nos queda que: 
+            \begin{itemize}
+                \item $f(P_{1}) = 1 + \sqrt{2}$ máximo absoluto
+                \item $f(P_{2}) = 1 + \sqrt{2}$ máximo absoluto 
+                \item $f(P_{3}) = 1 - \sqrt{2}$ mínimo absoluto
+                \item $f(P_{4}) = 1 - \sqrt{2}$ mínimo absoluto
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
