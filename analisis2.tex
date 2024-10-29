@@ -1220,9 +1220,10 @@ Me parece que debería ser $F(x, y, z) = \frac{(x-1)^{2}}{4} + \frac{(y+2)^{2}}{
 \section*{Polinomio de Taylor}
 El Polinomio de Taylor nos ayuda a encontrar funciones sofisticadas que aproximen a una función. \\
 El mejor ejemplo básico para una aproximación a una curva es la recta tangente pero hay un problema: al ser una recta, no persigue a la curva en todo punto. Es decir, tiene mucho error aproximando la función en todo punto. \\
-Definimos al error como $R_{1}(x) = f(x) - L(x) \implies \lim_{x \to a} \left(\frac{R(x)}{x-a}  \right) = 0 $ y lo denotamos con un 1 pues es el error de aproximar f por la recta tangente. \\
+Definimos al error como $R_{1}(x) = f(x) - L(x) \implies \lim_{x \to a} \left(\frac{R(x)}{x-a}  \right) = 0 $. En la definición el 1 viene de que es el error de aproximar f por la recta tangente. \\
 La idea es justamente, encontrar algo que la aproxime lo mejor posible en todo punto habido y por haber. \\
-Entonces, la idea inicial es buscar siempre una aproximación lineal (recta tangente) y después sumarle una corrección cuadrática.
+Entonces, la idea inicial es buscar siempre una aproximación lineal (recta tangente) y después sumarle una corrección cuadrática. \\
+\textbf{Importante}: El Polinomio de Taylor es el mejor polinomio que nos permite aproximarnos a una función.
 \subsection*{Polinomio de Maclaurin}
 Son Polinomios de Taylor centrados en 0.
 \subsection*{Corrección Cuadrática}
@@ -1238,7 +1239,7 @@ Si reemplazamos en el límite por lo que vale $R_{2}(x)$ nos queda un $\frac{0}{
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/polinomio_taylor_grado_2.png}
 \end{minipage}\]
-Para que el Polinomio de Grado 2 aproxime mejor que el Polinomio de Grado 1 debe suceder que $\alpha = \frac{f''(a)}{2}$ por lo tanto, definamos 
+Para que el Polinomio de Grado 2 aproxime mejor que el Polinomio de Grado 1 debe suceder que $\alpha = \frac{f''(a)}{2}$
 \subsection*{Hallando el error para un Polinomio de Taylor (Forma de Lagrange del Resto)}
 El error para un Polinomio de grado n lo podemos calcular como 
 \[E_{n}(x) = R_{n}(x) = f(x) - P_{n}(x) = \frac{f^{n+1}(c)(x-x_{0})^{n+1}}{(n+1)!}\]
