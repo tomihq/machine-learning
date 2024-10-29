@@ -1385,35 +1385,37 @@ En este caso son Máximo Absoluto y Mínimo Absoluto porque es continua en el in
 \subsection*{Teorema de Weierstrass (Teorema del Valor Extremo)}
 Sea $f:[a, b] \rightarrow \float$ continua, entonces un alcanza al menos un máximo y mínimo absoluto en el intervalo $[a, b]$ \\
 El teorema no nos indica donde se encuentra el máximo y el minimo sino que solo afirma que existen. \\
-Antes de extender esta definición a $\float^{3}$ necesitamos definir qué es un Conjunto D Cerrado y un Conjunto D acotado.
+Antes de extender esta definición a $\float^{3}$ necesitamos definir qué es un Conjunto D Cerrado y un Conjunto D acotado. \\
+Candidatos = $\{a, b\} \cup \{ptos \ criticos\}$
+\section*{Frontera o Borde de un Conjunto D}
+Llamamos frontera o borde de un conjunto D a $\partial D = \{x \in \float^{n}, \forall r > 0, Br(x) \cap D \neq \emptyset, Br(x) \cap D^{c} \neq \emptyset\}$ \\
+\textbf{En criollo}: La frontera de un conjunto es el borde que separa los puntos que están dentro de los que están afuera. Si dibujás un disco alrededor de un punto de la frontera, va a haber puntos tanto adentro como afuera del conjunto. Y esos puntos en el borde tienen que estar incluidos en el conjunto original.
 \section*{Conjunto D Cerrado}
 Un conjunto $D \subseteq \float^{2}$ se dice cerrado si todos los puntos de la frontera de $D$ son parte del conjunto D.
 \[\begin{minipage}[b]{0.6\textwidth}
     \includegraphics[width=\linewidth]{assets/conjunto_d.png}
 \end{minipage}\]
-Los puntos de la frontera de D son aquellos puntos $p \in \float^{2}$ para los cuales, cualquier disco alrededor de p tiene puntos de D y puntos que no están en D. \\
-La frontera de un conjunto D se nota $\partial D$ \\
 
 Para $D = \{(x,y): x^{2} + y^{2} \le 1 \}$ la frontera de D es $\partial D = \{(x,y): x^{2} + y^{2} = 1\}$ porque cuando da exactamente en uno, estoy en el borde y puedo hacer un disco de cualquier radio y tengo puntos que están dentro y fuera. \\
-¿Es D cerrado? Sí, porque $\partial D \subseteq D$ tal como dice la definición. \\
-
-\textbf{En criollo}: La frontera de un conjunto es el borde que separa los puntos que están dentro de los que están afuera. Si dibujás un disco alrededor de un punto de la frontera, va a haber puntos tanto adentro como afuera del conjunto. Y esos puntos en el borde tienen que estar incluidos en el conjunto original.
+¿Es D cerrado? Sí, porque $\partial D \subseteq D$ tal como dice la definición. 
 \subsection*{Ejemplos de Conjuntos D Cerrados}
 El gráfico de una función continua o la imagen de una curva continua son cerrados. Esto es porque en cualquier punto puedo encontrar un disco tal que hay puntos que están por fuera y por dentro.
 \[\begin{minipage}[b]{0.5\textwidth}
     \includegraphics[width=\linewidth]{assets/ejemplo_conjunto_cerrado_1.png}
 \end{minipage}\]
-Un rectángulo es un conjunto cerrado
 \[\begin{minipage}[b]{0.8\textwidth}
-    \includegraphics[width=\linewidth]{assets/ejemplo_conjunto_cerrado_2.png}
+    \includegraphics[width=\linewidth]{assets/borde.jpg}
 \end{minipage}\]
 \subsection*{Conjunto D acotado}
-Un Conjunto D se dice acotado si se puede meter en un disco de cualquier radio, es decir, el Conjunto D no se extiende infinitamente.
+Sea $D \subseteq \float^{n}$ se dice acotado si $\exists$ alguna Bola $B \subseteq \float^{n} / D \subseteq B$
 \[\begin{minipage}[b]{0.7\textwidth}
     \includegraphics[width=\linewidth]{assets/conjunto_d_acotado.png}
 \end{minipage}\]
+\subsection*{Conjunto Compacto}
+Sea $D \subseteq \float^{n}$ se dice compacto si es cerrado y acotado. \\
+\textbf{Importante}: Usamos $D^{0}$ para hablar del conjunto D para los puntos internos mientras que $\partial D$ es el borde.
 \section*{Generalización del Teorema de Weierstrass (Teorema del Valor Extremo)}
-Dada $f:D \subseteq \float^{2} \rightarrow \float$ continua con D cerrado y acotado, entonces f alcanza máximo y mínimo absoluto en D. \\
+Dada $f:D \subseteq \float^{2} \rightarrow \float$ continua con D compacto, entonces f alcanza máximo y mínimo absoluto en D. \\
 Técnica: Buscamos candidatos a extremos de f en D 
 \begin{itemize}
     \item 1) Buscamos candidatos a extremos adentro de D.
@@ -1425,57 +1427,7 @@ Vamos a resolver este tipo de ejercicios con estas ideas
     \item Si $p \in D$ es máximo (o mínimo) absoluto de f en D y $p \in A \subseteq D$ entonces p es máximo (o mínimo) absoluto de f en A.
     \item Si p es máximo (o mínimo) absoluto de f en D, entonces p es máximo (o mínimo local) de f en D. Si p está adentro de D, es decir,  no está en la frontera, entonces p es un punto crítico.
 \end{itemize}
-\subsubsection*{Ejemplos del Teorema de Weierstrass en $\float^{2}$}
-1. Determinar (si hay) máximos y mínimos absolutos de $f(x,y) = x^{2} + y^{2} + x + y$ en $D = \{(x,y): x^{2} + y^{2} = 1\}$ \\
-Lo primero que hacemos es ver si la función $f(x,y)$ es continua. Como f es continua y además tengo un D que es cerrado y puedo meterlo en un disco porque es acotada por el teorema de Weierstrass f alcanza máximo y mínimo absoluto en D.
-\begin{itemize}
-    \item 1) Miramos candidatos adentro de D: Como no hay puntos adentro de D (o en el interior D) no hay candidatos.
-    \item 2) Sea $\partial D = D = \{(x,y):x^{2} + y^{2}\}$, lo que podemos hacer es buscar una parametrización, en este caso es $r(t) = (cos \ t, sen \ t) \ t \in [0, 2\pi]$. Ahora, como quiero ver los puntos de f restringido a la frontera, entonces lo que hago es ver los: $g(t) = f(r(t)), t \in [0, 2\pi]$
-    \begin{itemize}
-        \item Ahora la idea es llevar todo esto a una variable para poder hacer cosas que ya conocemos. Buscamos entonces los extremos de $\textbf{g(t)} = f(cos \ t, sen \ t) = cos^{2}t + sen^{2} \ t + cos \ t + sen \ t = \textbf{1 + cos \ t + sen \ t}$ con $t \in [0, 2\pi]$.
-        \item Ahora miremos g en $(0, 2\pi)$ y buscamos puntos críticos. Es decir, por Fermat sabemos que si es punto crítico entonces la pendiente de la recta tangente es 0, osea $g'(t) = -sen \ t + cos \ t = 0$. La idea sería buscar los t correspondientes, en este caso son $\frac{\pi}{4}$ y $\frac{5\pi}{4}$.
-        \item Candidatos de g en $[0, 2\pi] = \{\frac{\pi}{4}, \frac{5\pi}{4}, 0, 2 \pi \}$. Nótese que incluímos 0 y $2\pi$ porque son extremos del intervalo, mientras que $\frac{\pi}{4}$ y $\frac{5\pi}{4}$ son puntos críticos, es decir, estos valores hacen que la derivada sea 0, por lo tanto tengo que ver si son máximos absolutos o mínimos en g. 
-    \end{itemize}
-    \item 3) Evalúo en $g$ (la composición con f) a cada punto, y el que me de más grande de todos es el máximo absoluto y el que me de menor a todos es el mínimo absoluto.
-    \begin{itemize}
-        \item $g(\frac{\pi}{4}) = 1 + 2\frac{\sqrt{2}}{2}$
-        \item $g(\frac{5\pi}{4}) = 1 - 2\frac{\sqrt{2}}{2}$
-        \item $g(0) = 2$
-        \item $g(2\pi) = 2$ \\
-        Entonces, $\frac{\pi}{4}$ es máximo absoluto y $\frac{5\pi}{4}$ alcanza el mínimo absoluto.
-        \item Por último, como nuestro problema era en dos variables, evalúo nuestra parametrización con esos t que hallamos para conseguir el punto de la forma (x,y)
-        \begin{itemize}
-        \item $ t = \frac{\pi}{4} \implies r(\frac{\pi}{4}) = (\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2})$
-        \item $ t = \frac{5\pi}{4} \implies r(\frac{5\pi}{4}) = (\frac{\sqrt{-2}}{2}, \frac{\sqrt{-2}}{2})$
-    \end{itemize}
-    
-    \end{itemize}
-\end{itemize}
-2. Determinar (si existen) máximos y mínimos absolutos de $f(x,y) = x^{2} + y^{2} + x + y$ en $D = \{(x,y): x^{2} + y^{2} \le 1 \}$ \\
-Como antes, como f es continua, D está acotada y cerrada. Por el Teorema de Weierstrass sabemos que f alcanza al menos un máximo absoluto y un mínimo absoluto en D.
-\begin{itemize}
-    \item 1. Busquemos los candidatos a extremos adentro de D. 
-    \begin{itemize}
-        \item Es decir, sería $int(D) = \{(x,y): x^{2} + y^{2} < 1\}$.
-        \item Como existen $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$ en $int(D)$, buscamos puntos donde el gradiente valga (0, 0)
-        \item Ahora calculemos el gradiente de f y veamos cuales son los posibles puntos críticos y satisfacen la ecuación de D.
-        \item $\triangledown f = (2x + 1, 2y + 1)$ y esto se hace 0 cuando $x = -\frac{1}{2}, y = -\frac{1}{2}$, por lo tanto el único punto crítico es $(-\frac{1}{2}, -\frac{1}{2})$.
-        \item Entonces ahora, verifiquemos que efectivamente ese punto verifica la ecuación de D, es decir, está dentro de la región: $(-\frac{1}{2})^{2} + (-\frac{1}{2})^{2} = \frac{1}{2} < 1 \rightarrow (-\frac{1}{2}, -\frac{1}{2}) \in int(D)$
-    
-    \end{itemize}
-    \item 2. Buscamos en la frontera $\partial D = \{(x,y) \in \float^{2}: x^{2} + y^{2} = 1\}$ (ejemplo anterior)
-    \begin{itemize}
-        \item $(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2})$ era el max absoluto en $\partial D$
-        \item $(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2})$ era el min absoluto en $\partial D$
-    \end{itemize}
-    \item 3. Evalúo f en cada uno de los candidatos 
-    \begin{itemize}
-        \item $f(-\frac{1}{2}, -\frac{1}{2}) = -\frac{1}{2}$ 
-        \item $f(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}) = 1 + \sqrt{2}$ 
-        \item $f(-\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2}) = 1 + \sqrt{2} = 1 - \sqrt{2}$ 
-    \end{itemize}
-    Luego, el máximo absoluto es $1 + \sqrt{2}$ y el mínimo absoluto es $-\frac{1}{2}$.
-\end{itemize}
+Véase \hyperref[subsec:teorema_weirstrass]{\textbf{\underline{anexo}}} para ver ejemplos. 
 \section*{Extremos Absolutos vs Extremos Locales en Gráficos}
 \[\begin{minipage}[b]{1\textwidth}
     \includegraphics[width=\linewidth]{assets/maximos_minimos.png}
@@ -1502,7 +1454,14 @@ Por restringido nos referimos a conjuntos de la forma $g(x,y) = k$, (x,y) están
 \subsection*{Multiplicadores de Lagrange}
 Sea f definida en $\float^{2}$ o $\float^{3}$ diferenciable. \\
 Si P es un extremo de f restringido al conjunto $\{g = k\}$ \textbf{existe} un $\lambda \in \float \rightarrow multiplicador$ tal que $\triangledown f(P) = \lambda \triangledown g(P)$ si $\triangledown g(P) \neq 0$ \\
-Los que verifiquen esa igualdad, son mis candidatos a puntos críticos.   
+Los que verifiquen esa igualdad, son mis candidatos a puntos críticos.   \\
+\textbf{Importante}: Los Multiplicadores de Lagrange solo nos ayuda a estudiar los bordes. Hay casos donde nos conviene parametrizar para ver los bordes, y otros no. \\
+\textbf{Importante 2}: En Lagrange \textbf{siempre} tenemos dos candidatos. 
+\begin{itemize}
+    \item Si tuviesemos un solo candidato, la funcion es constante. 
+    \item Si tenemos solamente dos candidatos, obligatoriamente uno es mínimo absoluto y el otro máximo absoluto.
+    \item Si existen más de dos candidatos, hay que probar uno por uno para ver cuales son máximos y cuales mínimos.
+\end{itemize}
 \subsubsection*{Ejemplo de Multiplicadores de Lagrange}
 1. Sea $f(x,y) = 1-xy$ y $g(x,y) = x^{2} + 2y^{2} = 4$ \\
 Si $(x,y)$ es un extremo de f con la restricción $g = 4 \implies \triangledown f(x,y) = \lambda \triangledown g(x,y)$. 
@@ -1555,6 +1514,7 @@ Si $(x,y)$ es un extremo de f con la restricción $g = 4 \implies \triangledown 
             \end{itemize}
         \end{itemize}
     \end{itemize}
+Véase \hyperref[subsec:multiplicadores_lagrange]{\textbf{\underline{anexo}}} para ejemplos de la práctica.
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -2097,4 +2057,136 @@ $H_{f}(2,2)$ = \(\begin{pmatrix}
 \end{pmatrix}
 \) \\
 Sea $d = det(H_{f}(0,0)) = (12 * 4) - (-4 * -4) = 32$ entonces como $d>0$ y $f_{xx}>0$ entonces el $(-2, -2)$ es un mínimo local de f. \\
+\subsection*{Teorema de Weierstrass}
+\label{subsec:teorema_weirstrass}
+Cuando nos piden calcular extremos absolutos, bajo ninguna circunstancia vamos a usar el hessiano porque el hessiano nos sirve para calcular extremos relativos/locales. \\
+Antes de usar este teorema, siempre hay que acordarse de justificar que f está definida, es continua y existe un $A \subseteq \float^{n}$ donde f alcanza máximo y mínimo. \\
+\textbf{$A^{0}$}: Denota el Conjunto Acotado sin considerar el borde. \\
+Hay un algoritmo bastante particular para hacer estos ejercicios y es el siguiente: 
+\begin{itemize}
+    \item Busco en $A^{0}$ cuando $\triangledown f(x,y) = (0,0)$ y donde no exista el gradiente. 
+    \item Busco en $\partial A$
+    \begin{itemize}
+        \item Opción 1: Parametrizamos todas las partes de cada uno de los bordes y analizamos $f(\alpha(t)) $ donde $\alpha$ es la parametrización.
+        \item Opción 2: Multiplicadores de Lagrange
+    \end{itemize}
+\end{itemize}
+Ejercicio 1.: Hallar extremos absolutos de $f(x,y)=(x+1)^{2} + y^{2}$ restringida a $A = \{(x,y) \in \float^{2}:x^{2}+y^{2} \le 4\}$ \\
+Lo primero que tenemos que hacer es ver qué figuras son f y A. \\
+En este caso f es un paraboloide mientras que A es una circunferencia de radio 2. La idea sería dibujarlos de forma aproximada, aunque lo obligatorio de dibujar es A. \\
+Como nos piden extremos absolutos, sabemos que como estamos en una región A tenemos que ver si esta es compacta, es decir, si es cerrada y acotada. \\
+Recordemos que un conjunto A es acotado si existe una bola tal que mi conjunto A está encerrado en ella, y es cerrada si todos los puntos de la frontera de A son parte del conjunto A. \\
+Por lo tanto, como A es acotado, entonces por el teorema de Weierstrass sabemos que siendo f existe,es continua y A compacto entonces existe máximo y mínimo absoluto restringido a A. 
+\\
+Ahora sí, veamos el \textbf{interior del conjunto A}, es decir $A^{0} = \{(x,y) \in \float^{2}: x^{2} + y^{2} < 4\}$. En este caso tenemos que ver buscar puntos críticos, es decir los $\triangledown f(x,y) = (0,0)$. Tenemos que usar el gradiente cuando estamos en interiores por definición de la derivada.  \\
+Llegamos a que el gradiente se anula sí y solo sí $x=-1 \ y=0$. \\
+Ahora lo que tenemos que ver es si este punto verifica la ecuación de la región restringida, porque justamente estamos buscando los extremos ahí adentro: $(-1)^{2} + 0^{2} < 4$ y por lo que podemos ver satisface la ecuación. Por lo tanto, encontramos $P_{1} = (-1, 0)$ \\
+Ahora sí, veamos el \textbf{borde del conjunto A}, es decir, $\partial A = \{(x,y) \in \float^{2}: x^{2} + y^{2} = 4\}$ \\
+\textbf{Nota}: Próximamente veremos como resolver este tipo de problemas del borde usando Multiplicadores de Lagrange, pero por ahora lo veremos de esta manera porque hay casos donde no podemos usar Lagrange y sí o sí hay que entender esta forma. \\
+Lo primero que hacemos cuando tenemos $\partial A$ es parametrizar, entonces: $\alpha(t) = (2 cos(t), 2sen(t)) \ con \ [0, 2\pi]$. Nótese que acá estamos usando $[0, 2\pi]$ aunque 0 y $2\pi$ sean el mismo punto en una circunferencia, pero esto lo hacemos porque Weierstrass nos pide un intervalo cerrado. \\
+Como ahora tenemos parametrizada la región del borde, la idea es acoplarla a la función original que tenemos, por lo tanto, esa es la idea de la composición: $(f \circ \alpha)(t) = g(t)$ en $[0, 2\pi]$. Y ahora es exactamente como si estuviesemos calculando puntos críticos. \\
+Entonces, los puntos críticos que nos vamos a encontrar salen de 
+$\begin{cases}
+    g'(t) = 0 \iff (2cos(t) + 1)^{2} + 4sen^{2}(t) \\
+    0$ y $2\pi
+\end{cases}$ \\
+\textbf{Nota}: Nótese que los extremos también son candidatos. \\
+Es muy, muy importante acá la trigonometría ¿por qué? porque a la hora de desarrollar antes de derivar nos va a quedar $4cos^{2} + 4cos(t) + 1 +4sen^{2}(t)$ y como tenemos $4cos^{2}(t) + 4sen^{2}(t)$ esto es $4 * 1$ pues $cos^{2}(t) + sen^{2}(t) = 1$. Siguiendo el calculo, nos queda que $g(t) = 4cos(t) + 5$. \\
+Por lo tanto, calculamos la derivada para ver sus puntos críticos y nos queda $g'(t) = -4sen(t)$. Esto es 0 sí y solo sí $t=0, \pi, 2\pi$. Ahora, ojo, estos t no son puntos críticos porque nosotros estamos trabajando en $\float^{2}$ entonces lo que tenemos que hacer es enchufar estos t en un lugar donde nos devuelva dos variables ¿donde? en $\alpha(t)$. \\
+Luego, los puntos críticos que nos quedan son: $ \alpha(0) = (2,0) = P_{2}, \ \alpha(\pi) = (-2,0) = P_{3}, \ \alpha(2\pi) = (2,0) \equiv P_{2}$ \\
+Finalizando, comparamos entre todos los candidatos y nos queda que:
+\begin{itemize}
+    \item f(-1, 0) = 0
+    \item f(2, 0) = 9
+    \item f(-2, 0) = 1
+\end{itemize}
+Concluyendo, el mínimo absoluto se alcanzará en $P_{1} = (-1, 0)$ y el máximo absoluto se alcanzará en $P_{2} = (2,0), P_{4} = (2,0)$. \\
+Ejercicio 2. Sea $f(x,y) = (x^{2} + y^{2})e^{x^{2} + y^{2}}$ 
+\begin{itemize}
+    \item a. Hallar extremos locales en $\{x^{2} + y^{2} < 4\}$
+    \item b. Hallar extremos absolutos en $A = \{x^{2} + y^{2} \le 4, x \le y\}$
+\end{itemize}
+b. Lo primero que notamos es que tenemos una intersección de condiciones. Por lo tanto, vamos a tener varios casos para parametrizar, uno la intersección de ambos casos, y el caso del borde o interior. El dibujo nos queda algo así
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/extremos_absolutos.png}
+\end{minipage}\]
+Como siempre, empecemos calculando $A^{0}$ es decir, los puntos del interior de A. \\
+$\triangledown f(x,y) = (0, 0) \iff (0, 0)$ pero (0,0) $\notin A^{0}$ \\
+Ahora calculemos el borde de A: $\partial A$ que en el dibujo está denotado con C. Los t que va a tomar a la hora de parametrizar van a ser desde $\frac{\pi}{4}$ hasta $\frac{5\pi}{4}$ \\
+Parametricemos C: $\alpha_{1}(t) = 2cos(t), 2sen(t)$ con $ t \in [\frac{\pi}{4}, \frac{5\pi}{4}]$ \\
+Como hicimos en el ejercicio anterior, ahora calculemos los puntos críticos, entonces para hacer eso tenemos que saber que nos estamos moviendo en f, por lo tanto: $g_{1}(t) = f \circ \alpha_{1}(t) = 4e^{4}$. En este caso, como la derivada es 0, entonces todos los puntos posibles en el dominio son \textbf{puntos críticos}. \\
+Entonces, $g_{1}'(t) = 0$ todo t es punto crítico en $t \in [\frac{\pi}{4}, \frac{5}{4}\pi]$ son puntos críticos. \\
+Volviendo a $\alpha(t)$, $\alpha(t) = (2 cos(t), 2 sen(t))$ con $t \in [\frac{\pi}{4}, \frac{5}{4}\pi]$ son P.C \\
+Ahora nos queda ver la intersección de ambas condiciones (I): Para saber donde se mueve t hago la intersección de 0 y $/$. \\
+$x^{2} + y^{2} = 4; y = x$ \\
+$x = \pm \sqrt{2}$ \\
+Entonces, nos queda: $\alpha_{2}(t) \ t \in [\sqrt{2}, -\sqrt{2}]$ \\
+Ahora sí, calculemos los puntos críticos haciendo la composición con f: $g_{2}(t) = f \circ \alpha_{2} = 2t^{2}e^{2t^{2}}$ \\
+Derivando nos queda $4te^{2t^{2}}(1+2t^{2})$ y podemos ver que la unica forma que esto se haga 0 es si $t=0$. \\
+Volviendo a $\alpha$, nos queda $(0,0) = P_{1}$ ¿esto está bien, es en alpha que tengo que meter el valor? \\
+Entonces todos los puntos críticos son: 
+\begin{itemize}
+    \item f(2 cos(t), 2sen(t)) = $4e^{4} \ t \in [\frac{\pi}{4}, \frac{5}{4}\pi]$
+    \item f(0,0) = 0
+\end{itemize}
+Por lo tanto, todos los puntos en C son máximos absolutos mientras que (0,0) es un mínimo absoluto.
+\subsection*{Multiplicadores de Lagrange}
+\label{subsec:multiplicadores_lagrange}
+Recordemos que los Multiplicadores de Lagrange solo nos sirve para estudiar los bordes. Es un teorema más fuerte que el teorema de fermat que nos decía que si la derivada se anula entonces es un punto crítico. \\
+La idea de Lagrange es usarlo cuando nos dan una curva de nivel la cual estamos restringidos. \\
+Voy a mostrar dos formas de hacerlo, una es la manera de la teórica y otra con la manera de la práctica. \\
+\textbf{Teórica}: Ejercicio 1. Sea f(x,y) = $1-xy$ g(x,y) = $x^{2} + 2y^{2}$ \\
+Se pide hallar los extremos absolutos de f restringidos a $g^{-1}(4) = \{(x,y) \in \float^{2}: x^{2}+2y^{2} = 4\}$ \\
+Primero graficamos qué es la curva de nivel, en la práctica le llaman la región $A$. \\
+La curva de nivel o región A es una elipse centrada en el $(0,0)$. 
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/mult_lagrange_1.png}
+\end{minipage}\]
+Como me piden extremos absolutos solamente me fijo el borde. \\
+¿Es $g^{-1}(4)$ compacto? Sí. Recordemos que una región es compacta si es cerrada y acotada. \\
+Es cerrada porque los puntos de la frontera son parte del conjunto $g^{-1}(4)$. Es acotada porque existe una bola donde podemos encerrar esta región. \\
+Por lo tanto por el teorema de Weierstrass f tiene un mínimo y un máximo absoluto en la región $g^{-1}(4)$. \\
+Ahora sí, usemos Lagrange: $\triangledown f(x,y) = (-y, -y)$, $\triangledown g(x,y) = (2x, 4y) \neq (0, 0)$ \\
+\textbf{Importante}: Recordemos que el gradiente de g NO puede anularse, y se cumple solamente que no se anule si $(x,y) \neq (0,0)$. \\
+Planteemos el sistema de ecuaciones: 
+$
+\begin{cases}
+    1.\ -y = \lambda 2x \\
+    2.\ -x = \lambda 4y \\
+    3.\ x^{2} + 2y^{2} = 4 
+\end{cases}
+$
+Recordemos que la 3ra ecuación se agrega pues es la restricción que debe cumplirse. \\
+Recordemos también que acá los pares $(x,y)$ que encontremos deben vivir en la región que nos dan. Por lo tanto, siempre hay que verificar que funcionen \textbf{todas las ecuaciones}. \\
+Acá hay varias formas de resolver este tipo de ecuaciones, la recomendación del de la teórica es ver a ojo qué pasa con los valores de x y. \\
+En este caso, $\lambda \neq 0$ xq si fuese 0, (x,y) no vive en $x^{2} + 2y^{2} = 4$. Tambien vemos que $x \neq 0, y \neq 0$ xq si fuesen 0, no viven tampoco en $x^{2} + 2y^{2} = 4$ \\
+Teniendo los datos de que $ x \neq 0, y \neq 0$ sé que podemos pasar dividiendo a estas. \\
+Nos queda entonces $x^{2} = 2y^{2}$, reemplazando en 2) nos queda $x = \pm \sqrt{2}$, reemplazando ahora en $x^{2} = 2y^{2}$ nos queda $y \pm 1$ \\
+Por lo tanto, los candidatos son: $\{(-\sqrt{2}, 1), (\sqrt{2}, 1), (-\sqrt{2}, 1), (\sqrt{2}, -1)\}$ \\
+Evalúando todos los candidatos en f nos da que: 
+\begin{itemize}
+    \item El máximo de f restringido a $g^{-1}(4)$ es $(1+\sqrt{2})$ y se alcanza en $(-\sqrt{2}, 1)$ y $(\sqrt{2}, -1)$
+    \item El mínimo de f restringido a $g^{-1}(4)$ es $(1-\sqrt{2}) $ y se alcanza en $(\sqrt{2}, 1)$ y $(-\sqrt{2}, -1)$
+\end{itemize}
+Ejercicio 2. Sea $f(x,y,z) = x+y-2z$. Hallar los extremos de f restringido a $\{(x,y,z) \in \float^{3}: x^{2} + \frac{y^{2}}{4} + z^{2} = 1\}$ \\
+Como acá no nos dan la curva de nivel explícitamente, la tenemos que armar, pero la idea es que $g(x,y,z) = x^{2} + \frac{y^{2}}{4}+z^{2}$ \\
+Ahora calculamos los gradientes: $\triangledown f(x,y,z) = (1, 1, -2)$ y $\triangledown g(x,y,z) = (2x, \frac{y}{2}, 2z) \neq (0,0,0)$ \\
+Acá tenemos que justificar con que $g^{-1}(1)$ es compacto porque es cerrada y acotada, y por lo tanto entonces f por weirstrass tiene un máximo absoluto y mínimo absoluto en g. \\
+$
+\begin{cases}
+    1.\ 1 = \lambda 2x \\
+    2.\ 1 = \lambda \frac{y}{2} \\
+    3.\ -2 = \lambda 2z \\
+    4.\ x^{2} + \frac{y^{2}}{4} + z^{2} = 1
+\end{cases}
+$ \\
+Observaciones:
+\begin{itemize}
+    \item $\lambda \neq 0$ porque si $\lambda = 0$ no tiene sentido, nos queda un absurdo en las ecuaciones. 
+\end{itemize}
+Dividiendo por $\lambda$ nos queda $x = \frac{1}{2 \lambda}, y = \frac{2}{\lambda}, z = -\frac{1}{\lambda}$ \\
+Reemplazando en la ecuación 4, nos queda $\lambda = \pm \frac{3}{2}$. Luego, hay que buscar los x,y,z con $\lambda = \pm \frac{3}{2}$. \\
+Finalmente, ver de esos puntos (que van a ser dos) ver cual es el máximo y cual el mínimo.
 \end{document} 
+
+
