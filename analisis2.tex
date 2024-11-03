@@ -2187,7 +2187,53 @@ Observaciones:
 \end{itemize}
 Dividiendo por $\lambda$ nos queda $x = \frac{1}{2 \lambda}, y = \frac{2}{\lambda}, z = -\frac{1}{\lambda}$ \\
 Reemplazando en la ecuación 4, nos queda $\lambda = \pm \frac{3}{2}$. Luego, hay que buscar los x,y,z con $\lambda = \pm \frac{3}{2}$. \\
-Finalmente, ver de esos puntos (que van a ser dos) ver cual es el máximo y cual el mínimo.
+Finalmente, ver de esos puntos (que van a ser dos) ver cual es el máximo y cual el mínimo. \\
+\textbf{Ejercicio 3.}: Este ejercicio es súmamente importante. Se dió varias veces en una práctica cambiando algún que otro dato, pero todos coinciden en lo que hay que hacer. \\
+Sea $f(x,y) = (x^{2} + y^{2}) e^{-x+1}$. Halle los extremos absolutos de f restringido a: $A = \{(x,y) \in \float^{2}: x^{2} + y^{2} \le 4, x \le 1\}$ \\
+Lo primero que notamos es que la región está restringida y tiene una intersección de condiciones, dibujemosla. 
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/region.png}
+\end{minipage}\]
+Cosas importantes a notar: ¿qué es lo que hacemos en este tipo de ejercicios? bueno, vemos el interior, los bordes con Lagrange pero ¿qué pasa en este caso? Con Lagrange no es suficiente porque tranquilamente podría haber un mínimo o máximo en la intersección resaltada en verde, esto es porque Lagrange nos restringe por la tercera ecuación a que sea la circunferencia entera. \\
+Propongo la siguiente idea 
+\begin{itemize}
+    \item a. Analizar el interior de A, es decir, $A^{0}$ calculando el gradiente de f y viendo cuando se hace (0,0).
+    \item b. Intersecar $x^{2} + y^{2}$ con $x \le 1$, parametrizar ese trozo y calcular los posibles puntos críticos. 
+    \item c. Calcular por Lagrange los bordes de A, y ver cuales cumplen la restricción (ojo, aca en Lagrange nos van a dar puntos demás. Tenemos que ver cuales cumplen $x \le 1 $)
+\end{itemize}
+a. $\triangledown f (2xe^{-x+1}+(x^{2} + y^{2})e^{-x+1}*(-1), 2ye^{-x+1})$ \\
+La condición más sencilla de empezar a resolver es la segunda, vemos que lo único que puede ser 0 es la y, entonces, $y = 0$. \\
+Reemplazamos en la primera ecuación y podemos sacar \textbf{factor común} para no perder soluciones: $e^{-x+1}(2x-x^{2}) = 0$. Acá lo único que se puede hacer cero es la condición interna. \\
+Por lo tanto, esto solo sucede cuando $x=0$ o $x=2$ entonces los posibles puntos críticos son $(0,0)$ y $(2,0)$ pero $(2,0) \notin A$. \\
+Luego, $P_{1} = (0,0)$ \\
+b. $\alpha(t) = (1,t)$ con $ t \in [0, 2\pi]$ \\
+Para ver donde se mueve t veamos la intersección: $1+y^{2} = 4$ acá tenemos dos soluciones: $ y \pm \sqrt{3}$. Esto lo que nos dice es por donde se mueve t. Ahora tenemos que hacer la composición. \\
+Analicemos los puntos críticos de f con A en la intersección: $g(t) = (f \circ \alpha)(t) = (1+t^{2})e^{-1+1} = 1 + t^{2}$ con $t \in [-\sqrt{3}, \sqrt{3}]$. \\
+Recordemos que luego de hacer la composición, tenemos que considerar los vértices como posibles candidatos. \\
+Como esta función es continua en el intervalo cerrado, entonces los puntos críticos podemos buscarlos en la derivada por el teorema de Fermat. \\
+$g'(t) = 2t$ y esto es 0 sí y solo sí t = 0. \\
+Ahora volvemos a $\alpha(t)$ y evaluamos en $t=0$, $t \pm \sqrt{3}$ ¡importante! vemos que la derivada no nos dió ninguna información sobre el $\pm \sqrt{3}$ pero nosotros lo calculamos antes porque literalmente son los vértices. \\
+Luego de evaluar en $\alpha(t)$ nos queda $P_{2} = (1,0)$, $P_{3} = (1, -\sqrt{3})$, $P_{4} = (1, \sqrt{3})$ \\
+c. Finalmente, ahora queda hacer Lagrange y ver qué puntos cumplen la condición mas importante $x \le 1$. \\
+Calculamos $\triangledown g(x,y) = (2x, 2y)$. \\
+$
+\begin{cases}
+    1. e^{-x+1}(2x-(x^{2}+ y^{2})) = \lambda 2x 
+    2. 2ye^{-x+1} = \lambda 2y 
+    3. x^{2} + y^{2} = 4  
+\end{cases}
+$ \\
+Lo primero que hay que recordar es que NO hay que cancelar de los dos lados porque se pierden soluciones, si hay algo en común juntarlos del mismo lugar y sacar factor común. \\
+Usando $2$: $2y(e^{-x+1}-\lambda) = 0$ esto pasa sí y solo sí $y = 0$ o $\lambda = e^{-x+1}$. \\
+\textbf{Caso $y = 0$}
+Reemplazamos en 1 y nos queda $e^{-x+1}(2x-x^{2}) = \lambda 2x$, como $x \neq 0$ pues $(0,0)$ no cumple la tercera ecuación puedo despejar $\lambda$ y siempre $\exists \lambda$ que cumple. \\
+Reemplazando en la tercera nos queda $x^{2} = 4$ que esto es $x \pm 2$. \\
+Por lo tanto el único punto que nos sirve a nosotros, va a ser el $P_{5} = (-2, 0)$ \\
+\textbf{Caso $\lambda = e^{-x+1}$} \\
+Reemplazando en $1$ llegamos a un absurdo. \\
+Luego, viendo todos nuestros candidatos posibles el \textbf{mínimo absoluto de f en A} es el 0 con el punto (0,0) y el \textbf{máximo absoluto de f en A} es el $4e^{3}$ con el punto (-2, 0)
+
+
 \end{document} 
 
 
