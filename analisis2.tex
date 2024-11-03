@@ -1517,6 +1517,45 @@ Si $(x,y)$ es un extremo de f con la restricción $g = 4 \implies \triangledown 
         \end{itemize}
     \end{itemize}
 Véase \hyperref[subsec:multiplicadores_lagrange]{\textbf{\underline{anexo}}} para ejemplos de la práctica.
+\section*{Integrales}
+Es lo contrario a derivar. \\
+Las Integrales nos sirven en una variable para poder calcular el área mientras que en más de una variable nos sirve para calcular el volumen. 
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/integrales_1.png}
+\end{minipage}\]
+Esos cortecitos que vemos el el gráfico, la suma nos permite calcular el área. Esto se da gracias a la Suma de Riemann en base a particiones. \\
+\subsection*{1 Variable}
+\subsubsection*{Propiedades}
+Sean $f,g:[a,b] \rightarrow \float$ integrables. 
+\begin{itemize}
+    \item $\int^{a}_{a}$ f(x) dx = 0
+    \item $a < x < b$: $\int^{b}_{a}f(t) dt = \int^{x}_{a}f(t) dt + \int^{b}_{x}f(t) dt$. Básicamente si tenemos que ir de $a \rightarrow b$ es lo mismo que ir de $a \rightarrow x$ y $x \rightarrow b$.
+    \item $f(t) \le g(t) \implies \int^{b}_{a}f(t) \le \int^{b}_{a}g(t) dt, \forall t \in [a,b]$. Básicamente que si una función es menor que otra para todo punto en la integral sucede lo mismo.
+    \item $\longitud{\int^{b}_{a}f(t) dt} \le \int^{b}_{a}\longitud{f(t)} dt$
+    \item Linealidad: $\int^{b}_{a}(\alpha f + \beta g)(t) dt = \alpha \int^{b}_{a}(f(t)) dt + \beta \int^{b}_{a}(g(t)) dt$
+\end{itemize}
+\subsubsection*{Integrales Indefinidas}
+Conjunto de Funciones Primitivas de $f:[a,b] \rightarrow \float$ decimos que $F:[a,b] \rightarrow \float$ es primitiva de f si $F'(x) = f(x)$ \\
+$\int f = \{F: \ F \ primitiva \ de \ f\}$ 
+\subsubsection*{Conjunto de Primitivas de f}
+Definimos al Conjunto de Primitivas de f como $\{F(x) + k: k \in \float\}$ donde F es primitiva de f.
+\subsubsection*{Teorema Fundamental del Cálculo}
+Sea $f:[a,b] \rightarrow \float$ continua e integrable $\implies \int^{x}_{a}f(t) dt = F(x)$ es primitiva de f y sucede que $F'(x) = f(x)$
+\textbf{Nota}: Si vivimos en un intervalo [a,d] y es integrable, también es integrable en cualquier subintervalo. Ej.: [a, b], [b,c], [c, d]. \\
+\textbf{Nota}: La integral de una constante es la longitud * cte. 
+\subsubsection*{Regla de Barrow}
+Sea $f:[a, b] \rightarrow \float$ continua y G es primitiva de f en $[a,b] \implies \int^{b}_{a} f(x) dt = G(b) - G(a)$
+\subsection*{2 Variables}
+En dos variables no buscamos calcular el área sino el volumen. Valen exactamente todas las mismas propiedades que en una variable y la integral se define exactamente igual con la Suma de Riemann en base a particiones. 
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/integrales_2.png}
+\end{minipage}\]
+\subsubsection*{Integrales Iteradas}
+Las Integrales Iteradas nos sirven para calcular integrales múltiples como si estuviesemos derivando parcialmente en una dirección dada. \\
+\textbf{Importante}: Sea el orden en que integremos, dan exactamente igual. Es decir, da igual integrar primero x y luego y, que primero y y después x. Quizá la expresión no queda exactamente igual pero el \textbf{resultado} debe ser exactamente lo mismo.
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/integrales_iteradas.png}
+\end{minipage}\]
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
