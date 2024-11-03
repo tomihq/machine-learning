@@ -1525,6 +1525,8 @@ Las Integrales nos sirven en una variable para poder calcular el área mientras 
 \end{minipage}\]
 Esos cortecitos que vemos el el gráfico, la suma nos permite calcular el área. Esto se da gracias a la Suma de Riemann en base a particiones. \\
 \subsection*{1 Variable}
+\subsubsection*{Existencia de la Integral}
+Si f es una función continua en $[a,b]$ entonces existe $\int^{b}_{a} f(x) \ dx$
 \subsubsection*{Propiedades}
 Sean $f,g:[a,b] \rightarrow \float$ integrables. 
 \begin{itemize}
@@ -1535,12 +1537,14 @@ Sean $f,g:[a,b] \rightarrow \float$ integrables.
     \item Linealidad: $\int^{b}_{a}(\alpha f + \beta g)(t) dt = \alpha \int^{b}_{a}(f(t)) dt + \beta \int^{b}_{a}(g(t)) dt$
 \end{itemize}
 \subsubsection*{Integrales Indefinidas}
+No tienen restricción, es decir, no tienen límite superior ni inferior. \\
 Conjunto de Funciones Primitivas de $f:[a,b] \rightarrow \float$ decimos que $F:[a,b] \rightarrow \float$ es primitiva de f si $F'(x) = f(x)$ \\
-$\int f = \{F: \ F \ primitiva \ de \ f\}$ 
+$\int f = \{F: \ F \ primitiva \ de \ f\}$  \\
+Ej.: $\int 2x \ dx$ es una Integral Indefinida mientras que $\int^{2}_{0} 2x \ dx$ es una Integral Definida.
 \subsubsection*{Conjunto de Primitivas de f}
 Definimos al Conjunto de Primitivas de f como $\{F(x) + k: k \in \float\}$ donde F es primitiva de f.
 \subsubsection*{Teorema Fundamental del Cálculo}
-Sea $f:[a,b] \rightarrow \float$ continua e integrable $\implies \int^{x}_{a}f(t) dt = F(x)$ es primitiva de f y sucede que $F'(x) = f(x)$
+Sea $f:[a,b] \rightarrow \float$ continua e integrable $\implies \int^{x}_{a}f(t) dt = F(x)$ es primitiva de f y sucede que $F'(x) = f(x)$ \\
 \textbf{Nota}: Si vivimos en un intervalo [a,d] y es integrable, también es integrable en cualquier subintervalo. Ej.: [a, b], [b,c], [c, d]. \\
 \textbf{Nota}: La integral de una constante es la longitud * cte. 
 \subsubsection*{Regla de Barrow}
