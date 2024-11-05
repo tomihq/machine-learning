@@ -1560,6 +1560,81 @@ Las Integrales Iteradas nos sirven para calcular integrales múltiples como si e
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/integrales_iteradas.png}
 \end{minipage}\]
+Véase \hyperref[subsec:integrales_iteradas]{\textbf{\underline{anexo}}} para ver ejemplos de este tema.
+\subsection*{Métodos de Integración}
+\begin{itemize}
+    \item Integración Inmediata: Usamos la tabla de Integrales Indefinidas.
+    \[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/integrales_inmediatas.png}
+\end{minipage}\]
+    \item Sustitución: Utilizamos un cambio de variable que permita convertir el integrando en algo más sencillo.
+    \item Partes: Lo utilizamos cuando el integrando está formado por un producto o división. Surge de la regla de la derivación del producto. 
+    \begin{itemize}
+        \item Alguno de los factores debe tener primitiva y otro derivada.
+        \item La regla mnemotécnica para saber quien toma el rol de f y cual la de g es Lo PITE (logaritmo) (polinomio) (irracional) (trigonometrica) (exponencial). Mediante esta palabra, la que primero aparezca será f y la segunda g.
+        \item $\int f(g) * g'(x) dx = f(x) * g(x) - \int f'(x) * g(x) dx$
+    \end{itemize}
+    \item Fracciones de Raíces Simples: Se utiliza para el tipo $\frac{f(x)}{g(x)}$ con f, g polinomios y donde el grado de f es menor que el de g. 
+    \[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/fracciones_simples.png}
+\end{minipage}\]
+\end{itemize}
+\subsection*{Integrales Impropias}
+Las integrales impropias son una extensión de las integrales definidas y se utilizan para calcular el área bajo una curva o la acumulación de una cantidad en casos en los que los límites de integración no son finitos o la función presenta singularidades (la función no es continua) en el intervalo de integración. \\
+Las integrales impropias pueden converger o diverger.
+\subsubsection*{Integrales Impropias en Intervalos Reales}
+1. Sea $f:(a,b] \rightarrow \float$ integrable en $[a + \epsilon, b] \ \forall \epsilon > 0$ y además $\exists \lim_{\epsilon \to 0} \int^{b}_{a+\epsilon}f(t) \ dt$ entonces decimos que f es Integrable de Forma Impropia en $[a,b]$. \\
+Sucede lo mismo pero ahora a está incluido y b no. \\
+2. Sea $f:[a, b) \rightarrow \float$ integrable en $[a, b-\epsilon] \ \forall \epsilon > 0$ y además $\exists \lim_{\epsilon \to 0} \int^{b-\epsilon}_{a}f(t) \ dt$ entonces decimos que f es Integrable de Forma Impropia en $[a,b]$. 
+\subsubsection*{Integrales Impropias en Intervalos con Infinitos}
+1. Sea $f:[a, \infty) \rightarrow \float$ integrable en $[a,b] \ \forall b > 0$ y además $\exists \lim_{b \to 0} \int^{b}_{a}f(t) \ dt = \int^{\infty}_{a}f(t) \ dt$ decimos que f es Integrable de Forma Impropia en $[a, \infty)$ \\
+Sucede lo mismo pero ahora el infinito está de la izquierda. \\
+2. Sea $f:(-\infty, b] \rightarrow \float$ integrable en $[a,b] \ \forall a < b$ y además $\exists \lim_{a \to \infty} \int^{b}_{a}f(t) \ dt = \int^{b}_{-\infty}f(t) \ dt$ decimos que f es Integrable de Forma Impropia en $(-\infty, b]$ \\
+\subsection*{Valor Principal}
+Sea $a < c < b$ y $f:[a, b] - \{c\} \rightarrow \float$ integrable en $[a, c - \epsilon] \cup [c+\epsilon, b] \ \forall \epsilon > 0$ si $\lim_{\epsilon \to 0} \int^{c-\epsilon}_{a}f(x) \ dx + \int^{b}_{c+\epsilon}f(x) \ dx$ existe entonces $Vp(\int^{b}_{a}f(x) dx) = \lim_{\epsilon \to 0} \int^{c-\epsilon}_{a}f(x) \ dx + \int^{b}_{c+\epsilon}f(x) dx$ \\
+\textbf{Nota}: Es posible que exista $Vp(\int^{b}_{a} f(x) dx)$ pero que f no sea integrable de forma impropia en $[a, c]$ o $[c,b]$ \\
+Sea $f:\float \rightarrow \float$ integrable en $[a, b) \ \forall \ a=b$ \textbf{¿ent?} $\exists \lim_{a \to -\infty} \int^{a}_{-a}f(x) \ dx = Vp(\int^{\infty}_{\infty} f(x) dx) $
+\subsection*{Integrales Convergentes y Divergentes}
+Se refieren a la propiedad de ciertas integrales indefinidas de converger a un valor finito o diverger a infinito. \\
+\subsubsection*{Convergencia de una Integral}
+Una Integral converge cuando su valor se acerca o se dirige hacia un valor finito a medida que los límites de integración se amplían o se mueven hacia infinito. \\
+Si evaluamos un límite tendiendo a un valor y nos da un resultado no infinito, entonces converge. 
+\subsubsection*{Divergencia de una Integral}
+Una Integral Diverge cuando su valor: se acerca/dirige hacia infinito o no tiene un valor finito a medida que los límites de integración se amplían o se mueven hacia infinito. \\
+Si evaluamos un límite tendiendo a un valor y nos da $\infty$ entonces diverge.  
+\subsubsection*{Critierios para Determinar si una Integral Converge o no}
+\label{subsubsection:series_convergencia}
+\textbf{Criterios de Comparación} \begin{itemize}
+    \item Directo: Sean $f, g: [a,b] \rightarrow \float, f, g, \ge 0$ integrables y $f(x) \le g(x) \ \forall x \in [a, b)$ entonces 
+    \begin{itemize}
+        \item Si $\int^{b}_{a} g(x) \ dx$ converge $ \implies \int^{b}_{a}f(x) \ dx$ converge.
+        \item  Si $\int^{b}_{a} g(x) \ dx$ diverge  $\implies \int^{b}_{a}f(x) \ dx$ diverge.
+    \end{itemize}
+    \item Con paso al límite: Sean $f, g: [a,b] \rightarrow \float$ integrables, $f,g \ge 0$, $\lim_{t \to b} \frac{f(t)}{g(t)} = l$
+    \begin{itemize}
+        \item Si $l \neq 0, l \neq \infty \implies \int^{b}_{a}f(t) \ dt$ diverge o converge $\iff \int^{b}_{a}g(t) \ dt$ diverge o converge.
+        \item Si $l = 0 \implies \int^{b}_{a}g(t) \ dt$ converge $\iff \int^{b}_{a} f(t) \ dt$ converge.
+        \item Si $l = \infty \implies \int^{b}_{a}g(t) \ dt$ diverge $\iff \int^{b}_{a} f(t) \ dt$ diverge.
+    \end{itemize}
+\end{itemize}
+2. Estas derivan de Series: 
+\begin{itemize}
+    \item $\int^{+\infty}_{1} = \frac{1}{x^{p}} dx = \begin{cases}
+        converge \ si \ p > 1 \\
+        diverge \ si \ 0 <p \le 1
+    \end{cases}$
+    \item $\int^{1}_{0} = \frac{1}{x^{p}} dx = \begin{cases}
+        converge \ si \ 0 < p < 1 \\
+        diverge \ si \ p \ge 1
+    \end{cases}$
+\end{itemize} 
+3. Criterios de D$'$alambert 
+\begin{itemize}
+    \item Decimos que $\int^{b}_{a}f(x) dx$ \textbf{converge absolutamente} si $\int^{b}_{a}\longitud{f(x)}dx$ converge.
+    \item Decimos que $\int^{b}_{a}f(x) dx$ \textbf{converge condicionalmente} si $\int^{b}_{a}f(x) \ dx$ converge y $\int^{b}_{a}\longitud{f(x)} \ dx$ diverge.
+\end{itemize}
+\textbf{Nota}: Si $ \int^{b}_{a}f(x) \ dx$ \textbf{converge absolutamente} $ \implies \int^{b}_{a}f(x) \ dx$ converge \\
+\textbf{Nota 2}: Hubo una práctica entera de todo esto. Así que véase \hyperref[subsec:integrales_impropias_convergencia]{\textbf{\underline{anexo}}} para ver los ejercicios que se dieron. 
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -2275,8 +2350,77 @@ Reemplazando en la tercera nos queda $x^{2} = 4$ que esto es $x \pm 2$. \\
 Por lo tanto el único punto que nos sirve a nosotros, va a ser el $P_{5} = (-2, 0)$ \\
 \textbf{Caso $\lambda = e^{-x+1}$} \\
 Reemplazando en $1$ llegamos a un absurdo. \\
-Luego, viendo todos nuestros candidatos posibles el \textbf{mínimo absoluto de f en A} es el 0 con el punto (0,0) y el \textbf{máximo absoluto de f en A} es el $4e^{3}$ con el punto (-2, 0)
-
+Luego, viendo todos nuestros candidatos posibles el \textbf{mínimo absoluto de f en A} es el 0 con el punto (0,0) y el \textbf{máximo absoluto de f en A} es el $4e^{3}$ con el punto (-2, 0) 
+\subsection*{Integrales Impropias, Convergencia y Divergencia}
+\label{subsec:integrales_impropias_convergencia}
+Determinar si las Integrales Impropias convergen o no. \\
+\textbf{1}. $\int^{2}_{1} \frac{1}{x-2} dx$ \\
+Lo primero que podemos notar es que es una integral impropia en un intervalo donde son reales. La idea acá es acercarnos al punto conflictivo desde el límite inferior de la integral. \\
+En este caso, como el punto conflictivo es el 2, entonces la ídea es ir desde el 1 hacia el 2 (nos acercamos por izquierda). \\
+\[\begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\linewidth]{assets/integral_acercarse.png}
+\end{minipage}\]
+Entonces $\lim_{t \to 2^{-}} \int^{t}_{1}\frac{1}{x-2} \ dx = \lim_{t \to 2^{-}} \int^{t}_{1} ln \longitud{x-2} \ \Big|^{t}_{1}  \stackrel{barrow}{=} \lim_{t \to 2^{-}} ln \longitud{t-2} - ln \longitud{1-2} =  \lim_{t \to 2^{-}} ln \longitud{t-2} = -\infty $ \\
+\textbf{Nota}: Como me estoy \textbf{acercando a 2}, entonces $ln \longitud{1.9999-2}$ es aproximadamente $-0.000 \dots$ pero como tengo módulo me queda el argumento del logaritmo tendiendo a $0^{+}$. \\
+Luego, $\int^{2}_{1} \frac{1}{x-2} \ dx$ \textbf{ diverge}. \\
+La idea de estos ejercicios primero es darse cuenta qué tipo de integral me dan (si con intervalos reales o infinitos), luego separar los puntos conflictos, dibujar una rectita y darse cuenta por donde hay que acercarse. La cantidad de lados por la que me puedo acercar me dice la cantidad de integrales que tengo que plantear. \\
+\textbf{2}. $\int^{4}_{1} \frac{1}{x-2} \ dx$: Este es similar al anterior, pero acá me acerco al 2 por izquierda y por derecha.
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/integral_acercarse_2.png}
+\end{minipage}\]
+Por propiedades de Integrales, podemos separar la integral en como se muestra en la imagen: $\int^{4}_{1} = \frac{1}{x-2} \ dx = \int^{2}_{1} = \frac{1}{x-2} \ dx + \int^{4}_{2} \frac{1}{x-2} \ dx$ \\
+Curiosamente la primera integral es exactamente la misma que el ejercicio anterior así que ya sabemos que esa \textbf{diverge}. Calculemos qué pasa con el límite de $\int^{4}_{2} \frac{1}{x-2} \ dx$.\\
+$\lim_{t \to 2^{+}} \int^{4}_{t} = \frac{1}{x-2} \ dx = \lim_{t \to 2^{+}} ln \longitud{x-2} \ \Big|^{4}_{t} \stackrel{barrow}{=} \lim_{t \to 2^{+}} ln(2) - ln \longitud{t-2} = + \infty $ \\
+\textbf{Nota}: Al igual que antes, como ahora nos acercamos por la derecha del 2, entonces el argumento del logaritmo nos queda cercano a 0. \\
+Luego, $\int^{4}_{1} \frac{1}{x-2} \ dx$ \textbf{diverge}. \\
+\textbf{3.} $f(x) = \int^{4}_{1} \frac{1}{(x-2)(x-4)}$. Como acá tenemos dos puntos conflictivos vamos a tener que acercarnos a varios valores.
+\[\begin{minipage}[b]{0.65\textwidth}
+    \includegraphics[width=\linewidth]{assets/integral_acercarse_3.png}
+\end{minipage}\]
+Entonces vamos a tener dos límites: el del 4 tiene una sola integral mientras que el del 2 tiene dos integrales. \\
+La idea de este ejercicio viene porque hay que usar fracciones simples para integrar. \\
+La idea es reescribir f(x) de la siguiente manera: $\frac{1}{(x-2)(x-4)} = \frac{A}{x-2} + \frac{B}{x-4} = \frac{A(x-4)+B(x-2)}{(x-2)(x-4)} = \frac{1}{(x-2)(x-4)} = A(x-4)+B(x-2) = 1$ \\
+Luego, si $x = 4, B = \frac{1}{2}$ y si $x = 2, A = -\frac{1}{2}$ \\
+Por lo tanto: $\int^{4}_{1} (-\frac{\frac{1}{2}}{x-2} + \frac{\frac{1}{2}}{x-4}) \ dx \stackrel{prop int}{=} \int^{4}_{1} -\frac{\frac{1}{2}}{x-2} \ dx + \int^{4}_{1} \frac{\frac{1}{2}}{x-4} \ dx$
+\begin{itemize}
+    \item 1. $\int^{4}_{1} -\frac{\frac{1}{2}}{x-2} \ dx$
+    \item 2. $\int^{4}_{1} \frac{\frac{1}{2}}{x-4} \ dx$
+\end{itemize}
+Resolvemos cada una por cada lado, la 1 ya la tenemos resuelta del ejercicio anterior, nos dió que diverge mientras que la otra nos queda también que diverge. \\
+La 2 es el límite de t tendiendo a 4 por izquierda, nos termina quedando también que diverge. \\
+Luego, $\int \frac{1}{(x-2)(x-4)}$ \textbf{diverge}. \\
+\subsection*{Analizar Convergencia utilizando el Criterio de Comparación Directa / Comparación con Paso al Límite}
+\[\begin{minipage}[b]{0.65\textwidth}
+    \includegraphics[width=\linewidth]{assets/comparacion_directa.png}
+\end{minipage}\]
+1. $\int^{1}_{0} \frac{cos^{2}(e^{x})}{\sqrt{x}} sen(\frac{3}{x}) \ dx$ \\
+Como es una Integral complicadísima y nos piden solamente ver si converge o no, podemos usar propiedades para hacer la estructura más bella. \\
+Vemos que x = 0 es un punto conflictivo pues se indefine, ya que el domino no está definido allí. \\
+La idea acá es buscar una función g mucho más chica que f que converja, y de esta forma, si g converge entonces f también lo hará. \\
+Para encontrar g usualmente lo que hacemos es ver el límite con x tendiendo a infinito y dejar las expresiones que tengan x. \\
+\textbf{Nota}: Tengo que preguntar por qué antes estudia si la integral converge absolutamente. \\
+En este caso, es bastante sencillo porque el coseno y el seno están acotados, por lo tanto usando el criterio de comparación nos queda $\frac{cos^{2}(e^{x})\longitud{sen(\frac{3}{x})}}{\sqrt{x}} \le \frac{1}{\sqrt{x}}$. Nótese que $\frac{1}{\sqrt{x}} \equiv \frac{1}{x^{\frac{1}{2}}}$ y justamente hay una propiedad para este caso de serie donde en este caso $p = \frac{1}{2}$. \\
+Entonces analizamos ahora qué es lo que sucede con $\int^{1}_{0} g(x) \ dx = \int^{1}_{0} \frac{1}{\sqrt{x}} \ dx$ para ver si podemos concluir lo que nos dice el criterio de comparación directa. \\
+Nos queda $\int^{1}_{0} \frac{1}{x^{\frac{1}{2}}}$ y $p = \frac{1}{2}$ por propiedad de \hyperref[subsubsection:series_convergencia]{\textbf{\underline{series}}}, esto converge.  \\
+2. $\int^{+ \infty}_{0} \frac{x}{\sqrt{x^{4}+3}} \ dx $. \\
+Lo primero que hay que hacer es justamente aplicar propiedades, conocemos una propiedad fundamental de series y es que la integral por un lado vaya de $\int^{1}_{0}$ y esto vale por propiedad si separamos en dos integrales. \\
+$\int^{1}_{0} \frac{x}{\sqrt{x^{4}+3}} \ dx + \int^{+\infty}_{1} = \frac{x}{\sqrt{x^{4}+3}}$. \\
+Izquierda: De alguna manera, sí o sí tenemos que llevar el denominador a la forma $\frac{1}{x^{p}}$ para aplicar una propiedad directa. \\
+Derecha: Como tiende a infinito, y es una división tenemos que usar el Criterio de Comparación con Paso al Límite. \\
+\subsection*{Integrales Iteradas}
+\label{subsec:integrales_iteradas}
+Es exactamente la misma idea que cuando derivabamos pero ahora integramos y aplicamos Barrow. Recordar siempre que si empezamos por x o y da igual. Por teorema vamos a llegar al mismo resultado. \\
+1. Calcular $\int^{1}_{0} \int^{1}_{-1}(x^{2} + y^{2}) \ dx \ dy$ \\
+Primero arrancamos poniendo los corchetes (importante y obligatorio): $\int^{1}_{0}[\int^{1}_{-1}(x^{2}+y^{2} dx)] dy = \int^{1}_{0}(\frac{x^{3}}{3}y+y^{2}x) \Big |^{1}_{-1} dy \stackrel{barrow}{=} \int^{1}_{0}[(\frac{1}{3}+y^{2}) - (- \frac{1}{3} - y^{2})] \ dy = \int^{1}_{0}(\frac{2}{3}+2y^{2}) \ dy = (\frac{2}{3}y + \frac{2}{3}y^{2}) \Big |^{1}_{0} = ((\frac{2}{3}(1) + \frac{2}{3}(1)) - (\frac{2}{3}(0) - \frac{2}{3}(0))) = \frac{4}{3} $ \\
+2. Calcular el volúmen del sólido encerrado por las superficies $z=3$, $z=-x^{2}-y^{2}+6$, $x=-1$, $x=1$, $y=-1$, $y=1$. \\
+La idea acá es primero, repasar las cúadricas porque nos van a hacer dibujar. La cúadrica en este caso es un paraboloide triste :( \\
+El Rectángulo está dado por $R = [-1, 1] x [-1, 1]$ \\
+El Volúmen lo calculamos como $V(S) =$ Techo - Piso = $\int \int (-x^{2}-y^{2}+6-3) \ da$ \\
+Esto se calcula exactamente igual que con Iteradas y con la misma idea de cuando calculábamos área, es decir, debemos notar cual es el piso y cual es el techo. \\
+En este caso, si dibujamos notaremos que el techo es el paraboloide y el piso el plano. 
+\[\begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\linewidth]{assets/paraboloide_plano.png}
+\end{minipage}\]
 
 \end{document} 
 
