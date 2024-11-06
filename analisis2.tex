@@ -1554,9 +1554,11 @@ En dos variables no buscamos calcular el área sino el volumen. Valen exactament
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/integrales_2.png}
 \end{minipage}\]
+\subsubsection*{Teorema de Fubini}
+Si $f:[a,b] \ x [c, d] \rightarrow \float$ es Integrable, entonces se verifica que $\int \int_{R} f \ dA = \int^{b}_{a}(\int^{d}_{c}f(x,y) \ dy) \ dx =  \int^{d}_{c}(\int^{b}_{a}f(x,y) \ dx) \ dy $
 \subsubsection*{Integrales Iteradas}
 Las Integrales Iteradas nos sirven para calcular integrales múltiples como si estuviesemos derivando parcialmente en una dirección dada. \\
-\textbf{Importante}: Sea el orden en que integremos, dan exactamente igual. Es decir, da igual integrar primero x y luego y, que primero y y después x. Quizá la expresión no queda exactamente igual pero el \textbf{resultado} debe ser exactamente lo mismo.
+\textbf{Importante}: Sea el orden en que integremos, dan exactamente igual (\textbf{Teorema de Fubini}). Es decir, da igual integrar primero x y luego y, que primero y y después x. Quizá la expresión no queda exactamente igual pero el \textbf{resultado} debe ser exactamente lo mismo.
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/integrales_iteradas.png}
 \end{minipage}\]
@@ -1635,6 +1637,13 @@ Si evaluamos un límite tendiendo a un valor y nos da $\infty$ entonces diverge.
 \end{itemize}
 \textbf{Nota}: Si $ \int^{b}_{a}f(x) \ dx$ \textbf{converge absolutamente} $ \implies \int^{b}_{a}f(x) \ dx$ converge \\
 \textbf{Nota 2}: Hubo una práctica entera de todo esto. Así que véase \hyperref[subsec:integrales_impropias_convergencia]{\textbf{\underline{anexo}}} para ver los ejercicios que se dieron. 
+\subsection*{Integrales en Regiones Rectangulares en $\float^{2}$}
+Dado un $R = [a, b] \ x \ [c, d]$ o a veces dado de la siguiente manera: $a \le x \le b$ y $c \le y \le d$. \\
+La idea es calcular la Integral en la región dada. Esto quiere decir que la única restricción que nos da el rectángulo es cual es el límite inferior de la Integral y cual es el límite superior según con respecto a qué variable integremos. \\
+La idea acá es recordar el Teorema de Fiubini. \\
+Ej. básico: $\int \int_{R}(1+4xy) dA$ donde $R = [0,1] \ x \ [0,2]$ es equivalente a hacer $\int^{0}_{1} [\int^{0}_{2}(1+4xy \ dx)] \ dy$ o $\int^{0}_{2} [\int^{0}_{1}(1+4xy \ dy)] \ dx$ \\
+Para poder eliminar completamente una de las variables, tendríamos que integrar e ir aplicando Barrow. \\
+La idea es que empieces integrando lo que sea más fácil.
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
