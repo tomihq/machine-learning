@@ -1560,7 +1560,7 @@ En dos variables no buscamos calcular el área sino el volumen. Valen exactament
     \includegraphics[width=\linewidth]{assets/integrales_2.png}
 \end{minipage}\]
 \subsubsection*{Teorema de Fubini}
-Si $f:[a,b] \ x [c, d] \rightarrow \float$ es Integrable, entonces se verifica que $\int \int_{R} f \ dA = \int^{b}_{a}(\int^{d}_{c}f(x,y) \ dy) \ dx =  \int^{d}_{c}(\int^{b}_{a}f(x,y) \ dx) \ dy $
+Si $f:[a,b] \ x [c, d] \rightarrow \float$ es Integrable (continua), entonces se verifica que $\int \int_{R} f \ dA = \int^{b}_{a}(\int^{d}_{c}f(x,y) \ dy) \ dx =  \int^{d}_{c}(\int^{b}_{a}f(x,y) \ dx) \ dy $
 \subsubsection*{Integrales Iteradas}
 Las Integrales Iteradas nos sirven para calcular integrales múltiples como si estuviesemos derivando parcialmente en una dirección dada. \\
 \textbf{Importante}: Sea el orden en que integremos, dan exactamente igual (\textbf{Teorema de Fubini}). Es decir, da igual integrar primero x y luego y, que primero y y después x. Quizá la expresión no queda exactamente igual pero el \textbf{resultado} debe ser exactamente lo mismo.
@@ -1646,9 +1646,42 @@ Si evaluamos un límite tendiendo a un valor y nos da $\infty$ entonces diverge.
 Dado un $R = [a, b] \ x \ [c, d]$ o a veces dado de la siguiente manera: $a \le x \le b$ y $c \le y \le d$. \\
 La idea es calcular la Integral en la región dada. Esto quiere decir que la única restricción que nos da el rectángulo es cual es el límite inferior de la Integral y cual es el límite superior según con respecto a qué variable integremos. \\
 La idea acá es recordar el Teorema de Fiubini. \\
-Ej. básico: $\int \int_{R}(1+4xy) dA$ donde $R = [0,1] \ x \ [0,2]$ es equivalente a hacer $\int^{0}_{1} [\int^{0}_{2}(1+4xy \ dx)] \ dy$ o $\int^{0}_{2} [\int^{0}_{1}(1+4xy \ dy)] \ dx$ \\
+Ej. básico: $\int \int_{R}(1+4xy) \ dA$ donde $R = [0,1] \ x \ [0,2]$ es equivalente a hacer $\int^{0}_{1} [\int^{0}_{2}(1+4xy \ dx)] \ dy$ o $\int^{0}_{2} [\int^{0}_{1}(1+4xy \ dy)] \ dx$ \\
 Para poder eliminar completamente una de las variables, tendríamos que integrar e ir aplicando Barrow. \\
-La idea es que empieces integrando lo que sea más fácil.
+La idea es que empieces integrando lo que sea más fácil. \\
+\textbf{Importante}: Esto de que puedas cambiar el orden solo vale cuando estamos integrando en regiones rectangulares. \\
+
+\textbf{Encuentre el volumen del sólido S acotado por el paraboloide elíptico $x^{2} + 2y^{2}+z=16$ y los planos $x=2$, $y=2$} \\
+La idea acá, es que sabemos que el plano $x=2 \equiv [0, 2]$, $y=2 \equiv [0,2]$ por lo tanto nos queda un rectángulo de $[0,2] x [0,2]$. \\
+Luego, el volumen que nos piden calcular es: $\int^{2}_{0} [\int^{2}_{0} \ x^{2} + 2y^{2}+z=16 \ dy] dx$
+\subsection*{Integrales en Regiones Elementales}
+Hasta ahora solo podíamos integrar regiones que iban en un intervalo determinado del tipo $[a,b] X [c, d]$ pero ahora queremos ir más allá. \\ 
+Supongamos que la región D es acotada, lo que significa que D puede ser encerrada en una región rectangular R, entonces se define una nueva función F con dominio R 
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/regiones_elementales.png}
+\end{minipage}\]
+Si F es integrable sobre R, definimos la integral doble de f sobre D mediante: $\int\int_{D} f(x, y) \ dA = \int\int_{R} F(x,y) \ dA$
+\subsubsection*{Región de Tipo I}
+Se dice que una región planada D es tipo I si yace entre las gráficas de dos funciones continuas de x
+\[D = \{(x,y) \ | \ a \le x \le b, g_{1}(x) \le y \le g_{2}(x)\}\] 
+donde $g_{1}$ y $g_{2}$ son continuas sobre [a,b] \\
+Entonces, si f es continua sobre una región D tipo I tal que 
+\[D = \{(x,y) \ | \ a \le x \le b, g_{1}(x) \le y \le g_{2}(x)\}\]
+entonces $\int\int_{D}f(x,y) \ dA = \int^{b}_{a}\int^{g_{2}(x)}_{g_{1}(x)} f(x,y) \ dy \ dx $ \\
+\textbf{Dato no menor}: Cuando integres, siempre te va a quedar una variable menos. Si eso no pasa, algo hiciste mal. 
+\subsubsection*{Región de Tipo II}
+Exactamente igual que la Tipo I, solo que acá la variable libre es y mientras que x se mueve entre funciones continuas de y.
+\[D = \{(x,y) \ | \ a \le y \le b, h_{1}(y) \le x \le h_{2}(y)\}\] 
+donde $g_{1}$ y $g_{2}$ son continuas sobre [a,b] \\
+Entonces, si f es continua sobre una región D tipo I tal que 
+\[D = \{(x,y) \ | \ a \le y \le b, h_{1}(y) \le x \le h_{2}(y)\}\]
+entonces $\int\int_{D}f(x,y) \ dA = \int^{b}_{a}\int^{h_{2}(y)}_{h_{1}(y)} f(x,y) \ dx \ dy $ \\
+\subsection*{Notas de Regiones}
+\begin{itemize}
+    \item Muchas veces hay regiones que pueden escribirse de un Tipo y no de otro. Cuando la región puede escribirse de las dos formas, se llama Región de Tipo II. Ah, y otra cosa, que pueda escribirse de las dos formas no significa que al integrar la dificultad sea la misma. 
+    \item Siempre hay que buscar la intersección de lo que nos pidan y dibujar. Normalmente el gráfico es en $\float^{2}$
+\end{itemize}
+Véase \hyperref[subsec:integrales_regiones_elementales]{\textbf{\underline{anexo}}} para ver ejercicios de este tema. 
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -2435,7 +2468,20 @@ En este caso, si dibujamos notaremos que el techo es el paraboloide y el piso el
 \[\begin{minipage}[b]{0.4\textwidth}
     \includegraphics[width=\linewidth]{assets/paraboloide_plano.png}
 \end{minipage}\]
-
+\subsection*{Integrales en Regiones Elementales}
+\label{subsec:integrales_regiones_elementales}
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/region_elemental_tipo_1.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/region_elemental_tipo_1_2.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/region_elemental_tipo_2_1.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/region_elemental_tipo_2_2.png}
+\end{minipage}\]
 \end{document} 
 
 
