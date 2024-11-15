@@ -1682,6 +1682,26 @@ entonces $\int\int_{D}f(x,y) \ dA = \int^{b}_{a}\int^{h_{2}(y)}_{h_{1}(y)} f(x,y
     \item Siempre hay que buscar la intersección de lo que nos pidan y dibujar. Normalmente el gráfico es en $\float^{2}$
 \end{itemize}
 Véase \hyperref[subsec:integrales_regiones_elementales]{\textbf{\underline{anexo}}} para ver ejercicios de este tema. 
+\section*{Teorema de Cambio de Variable}
+La definición que daré a continuación vale para $\float^{n}$ pero hasta este momento, solamente la vimos aplicada en $\float^{2}$. Por lo tanto, lo más probable que haya una sección debajo explícitamente generalizándolo. \\
+La idea es que, hay ciertas regiones que son difíciles de integrar por diversos motivos, ya sea porque tengan alguna que otra raíz, o que la primitiva no sea sencilla de hallar. \\
+Sea $f:D \subseteq \float^{n} \rightarrow \float^{2}$ C'($D^{k}$) inyectiva, $D = T(D^{k})$ y $f:D \subseteq \float^{2} \rightarrow \float$ integrable $\implies$ $\int \int_{D} \ dA = \int\int_{D}f(x,y) \ dA \ (x,y) = \int \int_{D^{*}}f(T(u,v)) \ J_{t}(u,v) \ dA_{(u,v)} $ \\
+Esta definición es ultra teórica, pero desambigúemosla un poco y enumerando cosas importantes 
+\begin{itemize}
+    \item $J_{t}(u,v)$: Es el Jacobiano, es un numero que vamos a tener que usar dentro de la integral luego de hacer el cambio de variable. 
+    \begin{itemize}
+        \item Si el cambio de variable es pasar a usar polares, entonces el jacobiano es \textbf{siempre r (radio)}.
+        \item Si el cambio de variable NO es pasar a polares, entonces, hay que hacer transformaciones lineales (lo veremos luego en el anexo).
+    \end{itemize}
+    \item Cuando hagamos cambio de variable por polares, si la circunferencia, cilindro o lo que sea está desplazado del centro en coordenadas constantes, el jacobiano sigue siendo r, porque las constantes no afectan en nada a las derivadas.
+    \item (Solo cuando no es en polares): Para calcular el Jacobiano hay que conseguir el diferencial de nuestra función T y calcular su determinante. 
+\end{itemize}
+Ahora sí, ¿para qué sirve este teorema? bueno, imaginemos una circunferencia. Sabemos que si describimos D del tipo I o tipo II nos quedará una integral medio fea, que seguramente tendrá un límite superior del estilo $\sqrt{1+x^{2}}$ (puede no ser correcto). \\
+¿Cuál es el problema de esto? que de ninguna forma podemos intercambiar las integrales para que se nos haga más sencillo porque al no estar integrando en constantes, es decir, rectangulos, no podemos usar el teorema de Fubini. \\
+Entonces, la idea es que pasemos a polares y nuestro gráfico va a tener en el eje x el radio, y el eje y será $\theta$ o el ángulo. \\
+Esto de pasar a polares, va a ser básicamente una región $D^{*}$ la cual si la ingresamos dentro de una transformación T, volvemos a conseguir nuestro D original. Es decir, $T(D^{*}) = D$ \\
+Véase \hyperref[subsec:cambio_variable]{\textbf{\underline{anexo}}} para ejemplos usando el Cambio de Variable.
+
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
@@ -2482,6 +2502,68 @@ En este caso, si dibujamos notaremos que el techo es el paraboloide y el piso el
 \[\begin{minipage}[b]{1\textwidth}
     \includegraphics[width=\linewidth]{assets/region_elemental_tipo_2_2.png}
 \end{minipage}\]
+\subsection*{Teorema de Cambio de Variable}
+\label{subsec:cambio_variable}
+1. Sea $D = \{(x,y) \in \float^{2}:x^{2} + y^{2} \le 1, y \ge 0\}$ calcule su área. \\
+Lo primero que intentaríamos hacer es describirla como tipo I o tipo II, pero haciendola de tipo II nos quedaría $D = \{(x,y) \in \float^{2}: -1 \le x \le 1, 0 \le y \le \sqrt{1-x^{2}}\}$. Si intentás hacer la integral, te vas a dar cuenta que es dificil. \\
+El teorema viene a salvarnos la vida, por qué? porque como estamos hablando de una circunferencia y una restricción de ella $y \ge 0$ podemos hacer un gráfico aproximado y ver a ojo, cual es su radio y cual es su ángulo (recorrido). \\
+Sabemos por fórmula, que es una circunferencia de radio 1 y centro (0,0) pero ¿cómo cambia su ángulo?. Si $y \ge 0$ entonces la parte de la circunferencia que sobrevive es el primer y segundo cuadrante, y estos corresponden a $0 \le \theta \le \pi $ \\
+\textbf{Importante}: Graficar. Por obvios motivos y porque este ejemplo es sencillo decidí omitirlo. \\
+Una vez que conocemos esa información, listo. Ya podemos aplicar el teorema de cambio de variable porque sabemos que el Jacobiano cuando vamos a usar polares es siempre \textbf{r} por lo tanto no necesitamos decir nada más. Entonces, veamos como como cambió y ahora sí veamos qué representa nuestro cambio de variable. \\
+$D = \{(x,y) \in \float^{2}: -1 \le x \le 1, 0 \le y \le \sqrt{1-x^{2}}\}$ pasamos a $D^{*} = \{(r, \theta) \in \float^{2}: 0 \le r \le 1, 0 \le \theta \le \pi \}$ \\
+Grafiquemos $D^{*}$
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/tcv.jpg}
+\end{minipage}\]
+Como podemos notar, ahora nuestra región en coordenadas polares es un rectángulo y podemos integrar en cualquier orden (se recomienda primero las constantes), por lo tanto lo único que resta hacer es: $\int \int_{D} 1 \ dx \ dy \stackrel{T(D^{*}) = D}{=} \int \int_{D^{*}} 1 \ r dr d \theta = \int^{\pi}_{0} (\int^{1}_{0} \ r \ dr \ d\theta)$ que termina dando $\frac{\pi}{2}$. \\
+2. Sea $D = \{(x,y) \in \float^{2}: y > 0, 1 \le x^{2} + y^{2} \le 4\}$, calcular $\int \int_{D} = \sqrt{4-x^{2}-y^{2}}$ \\
+Mismo caso que el anterior. Como nuestro D es una circunferencia de radio 2 (que empieza a partir del 1 hacia arriba) el dibujo es ligeramente diferente. \\
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/tcv2.jpg}
+\end{minipage}\]
+Bueno, misma idea que antes. Como estamos usando polares, sabemos que el Jacobiano va a ser \textbf{r}. \\
+Por lo tanto, nuestro $D^{*} = \{(r, \theta) \in \float^{2}: 1 \le r \le 2, 0 \le \theta \le \pi \}$, y sabemos que satisface que $T(D^{*}) = D$ por el teorema de cambio de variable. \\
+Luego, $\int \int_{D} \sqrt{4 - x^{2} - y^{2}} dx \ dy \stackrel{TCV}{=} \int \int_{D^{*}} \sqrt{4-r^{2} * r} \ dr \ d\theta$. Queda resolver la integral y listo. \\
+3. Hallar el área de $D = \{(x,y) \in \float^{2} / 1 \le x^{2} + y^{2} \le 9, 0 \le x \le y\}$ \\
+Primera idea: Nótese que el círculo que vamos a dibujar empieza desde radio 1 hacia arriba, particularmente hasta radio 3. Luego, vemos que x es \textbf{a lo sumo y}. Por lo tanto, si queremos ver cual es el máximo valor que toma x podemos hacer $ x = y$, y reemplazar en la ecuación de la circunferencia. \\
+Esto nos dará $ x^{2} + x^{2} = 9 \iff x = \pm 2.1$ aprox, entonces sabemos que el área que hay que pintar no tiene que ser mayor a 2.1 en x. \\
+Luego, por también $x\le y$ sabemos que si vemos la igualdad $x = y$ esto es una recta que pasa por el origen. \\
+Juntando todos estos datos, nos quedaría algo así:
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/tcv3.jpg}
+\end{minipage}\]
+Nótese que si el dibujo está totalmente bien, a ojo podemos notar que la parte coloreada es básicamente la región $\frac{\pi}{2} \ a \ \frac{\pi}{4}$. Lo único que nos queda ver es el radio, pero sabemos que es $1 \le r \le 3$ y como son polares, el Jacobiano lo conocemos y es r. \\
+La integral entonces nos quedaría $\int \int_{D} = 1 dA \stackrel{TCV}{=} \int^{\frac{\pi}{4}}_{\frac{\pi}{2}} \int^{3} \int^{1} 1 \ r \ dr \ d \theta$ = $\pi$ \\
+\textbf{Importante}: Si se diese el caso que por ejemplo, nuestro gráfico incluye el 1er y 3er cuadrante, se representaría con un ángulo negado. Ese ángulo negado, en realidad es $\frac{3}{2}pi$ pero acá ese rango lo vamos a tomar como $-\frac{\pi}{2}$ a $\frac{\pi}{2}$ \\
+\textbf{Importante 2}: Recordar también, que si se da el caso de que nos dan una circunferencia para completar cuadrados o ya lista, y el centro NO es el (0,0) podemos justificar con que vale igual pasarlo a polares de la misma forma como si estuviese centrada en el (0,0) porque al ser una constante (lo que nos mueve del origen), al momento de calcular las derivadas para el Jacobiano no nos aportan en nada. \\
+\textbf{Importante 3}: Si no se nos ocurre qué angulo que tiene una recta, por ejemplo y = x. Podemos hallar la pendiente de esa recta, y calcular $m=1, \ tg(\theta) = 1 \rightarrow \theta = \frac{\pi}{4}$
+4. Ahora sí, veamos un ejemplo que tengamos que calcular el Jacobiano a mano. \\
+Calcular $\int \int_{R} cos(\frac{y-x}{y+x}) dA$ donde R es la región trapezoidal con vértices (1,0), (2,0), (0,2) y (0, 1). \\
+Bueno, acá no podemos usar polares porque la región R que nos dan no es una circunferencia. \\
+Si hacemos el gráfico, veremos que nos queda una figura bastante complicada de hacer de tipo I o tipo II. 
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/tcv4.jpg}
+\end{minipage}\]
+Entonces ahora sí, tenemos que encontrar a mano todo. \\
+Como no tenemos muchos datos, lo que hacemos es tomar los argumentos del coseno (que es lo que vamos a tener que integrar, y es dificil), y lo convertimos en u y al otro en v. \\
+Entonces recordando la definición tiene que suceder que $T(D^{*}) = D$. \\
+Armamos $u(x,y) = -x+y$, $v(x,y) = x+y$ y ahora conseguimos armar una transformación, que nos da $\hat{T} (x,y) = (-x+y, x+y)$ y evaluando los puntos de nuestro figura nos quedan los siguientes puntos 
+\begin{itemize}
+    \item $\hat{T}(0, 1) = (1, 1)$
+    \item $\hat{T}(1,0) = (-1, 1)$
+    \item $\hat{T}(2, 0) = (-2, 2)$
+    \item $\hat{T}(0, 2) = (2, 2)$
+\end{itemize}
+Entonces ahora, ya conseguimos nuestro gráfico. Veamos qué se forma y de qué manera lo podemos expresar. 
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/tcv5.jpg}
+\end{minipage}\]
+Esta nos conviene hacerla de tipo II porque el piso y el techo van a ser dos simples rectas. \\
+Entonces nos queda $-v \le u \le v$ y $ 1 \le v \le 2$. Esto que conseguimos nos sirve para los límites de la integral. \\
+Ahora para hallar T(u, v), necesitamos el jacobiano. \\
+Teniendo $u = -x + y, \ v = x + y $, y despejando el sistema de ecuaciones lineales nos queda $T(u,v) = (- \frac{u}{2} + \frac{v}{2}, \frac{u}{2} + \frac{v}{2})$, armamos la matriz derivando coordenada a coordenada con respecto a u, y luego a v y nos queda que $\longitud{det(DT)} = \frac{1}{2}$. \\
+Finalmente, luego de todo este proceso nos queda resolver la integral: $\int^{2}_{1} \int^{v}_{-v} cos(\frac{u}{v}) \frac{1}{2} \ du \ dv $
+
 \end{document} 
 
 
