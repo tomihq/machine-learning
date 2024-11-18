@@ -2563,7 +2563,17 @@ Entonces nos queda $-v \le u \le v$ y $ 1 \le v \le 2$. Esto que conseguimos nos
 Ahora para hallar T(u, v), necesitamos el jacobiano. \\
 Teniendo $u = -x + y, \ v = x + y $, y despejando el sistema de ecuaciones lineales nos queda $T(u,v) = (- \frac{u}{2} + \frac{v}{2}, \frac{u}{2} + \frac{v}{2})$, armamos la matriz derivando coordenada a coordenada con respecto a u, y luego a v y nos queda que $\longitud{det(DT)} = \frac{1}{2}$. \\
 Finalmente, luego de todo este proceso nos queda resolver la integral: $\int^{2}_{1} \int^{v}_{-v} cos(\frac{u}{v}) \frac{1}{2} \ du \ dv $
-
+\subsection*{Funciones Trigonométricas}
+\begin{itemize}
+    \item sen, cos: acotadas entre [-1, 1]
+    \item arctan, arcsen: acotada entre $[-\frac{\pi}{2}, \frac{\pi}{2}]$
+    \item arccos: acotada entre $[0, \pi]$
+\end{itemize}
+\subsection*{Más Integrales}
+\begin{itemize}
+    \item $\int e^{-y} = -e^{-y}$ Sale por sustitución con u = -y, du = -1 dx. 
+    \item $\int e^{-ln(x)} = \frac{1}{x}$
+\end{itemize}
 \end{document} 
 
 
