@@ -1749,7 +1749,92 @@ Ahora sí, ¿para qué sirve este teorema? bueno, imaginemos una circunferencia.
 Entonces, la idea es que pasemos a polares y nuestro gráfico va a tener en el eje x el radio, y el eje y será $\theta$ o el ángulo. \\
 Esto de pasar a polares, va a ser básicamente una región $D^{*}$ la cual si la ingresamos dentro de una transformación T, volvemos a conseguir nuestro D original. Es decir, $T(D^{*}) = D$ \\
 Véase \hyperref[subsec:cambio_variable]{\textbf{\underline{anexo}}} para ejemplos usando el Cambio de Variable.
+\section*{Coordenadas Cilíndricas y Esféricas (Teorema de cambio de variable en $\float^{3}$)}
+En $\float^{2}$ con el cambio de variable conseguiamos un rectángulo. En $\float^{3}$ vamos a obtener un paralelogramo. 
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/teo_cambio_variable_r3.png}
+\end{minipage}\]
+El teorema se enuncia como en $\float^{2}$, es decir 
+\begin{itemize}
+    \item $\phi:\float^{3} \rightarrow \float^{3}$
+    \item $\phi(u,v,w) = (x(u, v, w), y(u, v, w), z(u, v, w))$
+    \item $\phi(S^{k}) = S$
+    \item $Jac \ \phi(u, v, w) = \longitud{det \ D \phi (u, v, w)}$
+\end{itemize}
+\textbf{Nota}: Acá el jacobiano es de 3x3 pues tenemos 3 coordenadas. \\
+Recordemos que evaluar el cambio de variable en f por el jacobiano, y luego hacer la integral, es lo mismo como si no hiciéramos un cambio de variable en f.
+\subsection*{Coordenadas Cilíndricas}
+Veo el plano $(x,y)$ en polares y z lo dejo igual. Es decir, $(x,y,z) \rightarrow (r, \theta, z)$ 
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/def_coordenadas_cilindricas.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/cambio_variable_r3.png}
+\end{minipage}\]
+Entonces \\
+$\phi$: 
+$\begin{cases}
+    x = r \ cos (\theta) \\
+    y = r \ sen (\theta) \ con \ \theta \in [0, 2 \pi)\\
+    z = z   \ con \ z \in [0, 3] \\
 
+\end{cases}$ \\
+$ \phi(S^{*}) = S$ \\
+$S^{*} = [0,2] \ x \ [0, 2\pi] \ x \ [0, 3]$
+\subsubsection*{Jacobiano}
+Viene dado por $\phi(x,y,z) = (x(r, \theta, z), y(r, \theta, z), z(r, \theta, z))$ \\
+En nuestro caso, como es una circunferencia, el jacobiano es r.
+\subsubsection*{Estrategias para este tipo de ejercicios}
+Cuando hay desigualdades, primero graficar las igualdades. \\
+Luego, entender con las desigualdades, cual es el área que hay que integrar. \\
+Por último, ver en donde están las intersecciones para poder hablar de (x,y). \\
+\textbf{Ej.}: Calcular el centro de masa del sólido $S = \{(x,y,z) \in \float^{3}: \sqrt{x^{2}+y^{2} \le z \le 2-x^{2}-y^{2}}\}$ donde la densidad de S es $\partial(x,y,z) = \sqrt{x^{2} + y^{2}}$ 
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_cilindricas.png}
+\end{minipage}\]
+Una vez que entendimos que es lo que pasa con $(x,y)$, z lo dejamos igual. \\¡
+$\phi$: 
+$\begin{cases}
+    x = r \ cos (\theta) \ con \ r \in [0, 1] \\
+    y = r \ sen (\theta) \ con \ \theta \in [0, 2 \pi)\\
+    z = z   \ con \ r \le z \le 2-r^{2} \\
+
+\end{cases}$ \\
+\textbf{Nota}: Véase que siempre hay que juguetear y terminar reemplazando los $x^{2} + y^{2}$ por $r^{2}$ donde corresponda.
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_cilindricas_2.png}
+\end{minipage}\]
+Luego, queda literalmente plantear la integral con el z que nos dieron, que casualmente es r, y el jacobiano en polares también es r.
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_cilindricas_3.png}
+\end{minipage}\]
+\subsection*{Coordenadas Esféricas}
+Vamos a poder representar un (x,y,z) solo sabiendo lo que vale un $\rho$, un $\theta$ y $\phi$.
+\begin{itemize}
+    \item $\phi$: Es el ángulo que sube el vector.
+    \item $\rho$: Magnitud.
+    \item $\theta$: Ángulo de giro en plano (x,y).
+\end{itemize}
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_esfericas_1.png}
+\end{minipage}\]
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_esfericas_2.png}
+\end{minipage}\]
+\subsubsection*{Jacobiano}
+El Jacobiano en coordenadas esféricas es $\longitud{\phi^{2} sen(\partial)}$, luego $\phi^{2} sen(\partial)$ pues como $\phi$ se mueve entre $[0, \pi]$ el sen en ese intervalo es positivo.
+\subsubsection*{Ejemplos}
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_esfericas_3.png}
+\end{minipage}\]
+La idea es determinar, al comienzo de todo en base a lo que nos dan como queda $\phi$ y $\theta$. \\
+$\theta$: $\theta \in [0, \frac{\pi}{2}]$ porque en $\frac{\pi}{2}$ es el último lugar donde $x \ge 0, y \ge 0$. \\
+$\phi$: lo calculamos fácilmente igualando la ecuación de la superficie más grande a $\rho^{2}$ \\
+Por último, nos queda encontrar $\rho$ que es necesario para la coordenada z. Tenemos que tomar todas las restricciones que haya sobre z. En este caso, tenemos una sola, $z \ge 1$, por lo tanto, nuestra coordenada z nos queda $p \ge \frac{1}{cos \phi}$. Si vemos detenidamente el dibujo, del área amarilla, hay que considerar como podemos expresarla, considerando el $z \ge 1$ \\
+Como el $\rho$ depende de como se mueve el $\phi$, nos falta entender qué región nos quedó atrapada en $z = 1$ y S. 
+\[\begin{minipage}[b]{1\textwidth}
+    \includegraphics[width=\linewidth]{assets/coordenadas_esfericas_4.png}
+\end{minipage}\]
 \section*{Anexo}
 \subsection*{Esferas}
 \label{subsec:completar_cuadrados_esfera}
