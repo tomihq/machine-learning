@@ -1682,6 +1682,54 @@ entonces $\int\int_{D}f(x,y) \ dA = \int^{b}_{a}\int^{h_{2}(y)}_{h_{1}(y)} f(x,y
     \item Siempre hay que buscar la intersección de lo que nos pidan y dibujar. Normalmente el gráfico es en $\float^{2}$
 \end{itemize}
 Véase \hyperref[subsec:integrales_regiones_elementales]{\textbf{\underline{anexo}}} para ver ejercicios de este tema. 
+\subsection*{Integrales en Regiones Elementales $\float^{3}$}
+\subsubsection*{Tipo I}
+La idea del tipo I es ver la figura desde arriba. Las variables libres son $(x,y)$. Luego, z se mueve entre dos funciones que dependen de x e y. 
+\[\begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=\linewidth]{assets/regiones_tipo_1.png}
+\end{minipage}\]
+Lo definimos como $D = \{(x,y,z) \in \float^{3} : (x,y) \in D', \phi_{1} (x,y) \le z \le \phi_{2}(x,y) \}$ para todo $(x,y) \in D'$ \\
+El $D'$ es básicamente ver qué comportamiento tienen $(x,y)$ y luego, hablamos de z.\\
+Ej.: Calcular el volumen de la pirámide de vértices $(1,0,0)$, $(0,2,0)$ y $(0,0,3)$ \\
+Lo primero que hacemos es dibujar, y la idea de acá en el tipo 1 es ver la figura desde arriba. Entonces, tratamos de ver como se comportan \textbf{y}, \textbf{x}. 
+\[\begin{minipage}[b]{0.3\textwidth}
+    \includegraphics[width=\linewidth]{assets/tipo_1_piramide.png}
+\end{minipage}\]
+Buscamos qué ecuaciones representan al triangulo que solo dependen de x e y: 
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/region_tipo_1_dib.png}
+\end{minipage}\]
+Por último, ya con x, y definidos, ahora para calcular el volúmen ponemos el techo (el plano).
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/integral_tipo_1_r3.png}
+\end{minipage}\]
+\subsubsection*{Tipo II}
+Parecido a una región de tipo I, pero acá la región al estar como de costado, tenemos que ver a la región $D'$ desde arriba (pero la vemos de costado). Las variables libres son $(x,z)$
+\[\begin{minipage}[b]{0.8\textwidth}
+    \includegraphics[width=\linewidth]{assets/tipo_2.png}
+\end{minipage}\]
+\subsubsection*{Tipo III}
+Parecido a una región tipo I y tipo II. Ahora las variables libres son $(y, z)$
+\[\begin{minipage}[b]{0.6\textwidth}
+    \includegraphics[width=\linewidth]{assets/tipo_3.png}
+\end{minipage}\]
+$Ej.$: Calcular la masa del sólido $D = \{(x,y,z) \in \float^{3}: x+y^{2}+z^{2} \le 1, x \ge 0, y \ge 0, z \ge 0\}$ \\
+Lo primero que hacemos, es graficar qué es lo que pasa con la ecuación más grande cuando alguna de las variables no está, e igualamos al valor en vez de considerar el menor o igual. \\
+Es decir, vemos y graficamos $x+z^{2} = 1,\ x+y^{2} \le 1, \ y^{2} + z^{2} = 1$. \\
+Según queramos, podemos elegir verlo desde cualquier lado. En la imagen que se encuentra debajo, el suelo de cada tipo sería el indicado por las flechas. 
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/bases_tipos.png}
+\end{minipage}\]
+Normalmente, el tipo lo expresamos en la variable que tiene un menor grado o esté más facil de despejar. En este caso despejando nos queda $x \le 1-y^{2}-z^{2}$, y agregando la restricción de como es x nos queda $ 0 \le x \le 1-y^{2}-z^{2}$ y esta es justo tipo III. \\
+Una vez que elegimos el tipo, nos queda ver la superficie, considerando el piso de la imagen anterior, es decir, la dibujamos en $\float^{2}$ y vemos como se comportan $(y,z)$ \\
+Entonces como depende de $(y,z)$ es el plano yz, y esto significa que para graficar, tenemos que hacer $x = 0$. Por lo tanto nos queda dibujar en $\float^{2}$ a $y^{2} + z^{2} = 1$
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/tipo_3_y_z.png}
+\end{minipage}\]
+Por último, planteamos la integral
+\[\begin{minipage}[b]{0.9\textwidth}
+    \includegraphics[width=\linewidth]{assets/tipo_3_y_z_int.png}
+\end{minipage}\]
 \section*{Teorema de Cambio de Variable}
 La definición que daré a continuación vale para $\float^{n}$ pero hasta este momento, solamente la vimos aplicada en $\float^{2}$. Por lo tanto, lo más probable que haya una sección debajo explícitamente generalizándolo. \\
 La idea es que, hay ciertas regiones que son difíciles de integrar por diversos motivos, ya sea porque tengan alguna que otra raíz, o que la primitiva no sea sencilla de hallar. \\
