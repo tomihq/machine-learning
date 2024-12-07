@@ -2502,6 +2502,7 @@ Luego, f alcanza máximo absoluto en $P_{2}$ y $P_{3}$ y mínimo absoluto en $P_
 Recordemos que los Multiplicadores de Lagrange solo nos sirve para estudiar los bordes. Es un teorema más fuerte que el teorema de fermat que nos decía que si la derivada se anula entonces es un punto crítico. \\
 La idea de Lagrange es usarlo cuando nos dan una curva de nivel la cual estamos restringidos. \\
 Voy a mostrar dos formas de hacerlo, una es la manera de la teórica y otra con la manera de la práctica. \\
+
 \textbf{Ejercicio 1}. Sea $f(x,y) = x^{2}y$ y $A = \{(x,y) \in \float^{2} : x^{2}+y^{2} \le 9\}$ \\
 Como A es compacto, es decir, cerrado y acotado por Weierstrass f alcanza máximo y mínimo absoluto en A. \\
 $A^{0}$: Veamos cuando se anula el gradiente de f y veamos si esos puntos están en A. \\
@@ -2550,13 +2551,57 @@ Despejando $\lambda$ de la 3ra ecuación nos queda $\lambda = \frac{9}{2y} - \fr
 Ingresando este dato nuevamente de la tercera ecuación nos queda que los puntos posibles son $(\pm \sqrt{6}, \pm \sqrt{3})$. El problema con esta foram de hacerlo sería que habría que buscar un lambda y empezar a ver si verifican todas las ecuaciones. Sin embargo, en este caso las soluciones valen todas :).\\
 ¿Cómo sería una mejor forma de encarar esto? bueno, desde la primera ecuación pasar restando y hacer factor común para que nos quede $x(\lambda - y) = 0$ y se nos abren dos casos $x = 0, \lambda = y$. Acá el caso $x=0$ lo vimos antes, pero es exactamente igual como llegamos antes. Si $\lambda = y$ por la segunda ecuación nos queda $x^{2} = 2y^{2}$ que a su vez, en la tercera ecuación nos queda que $y = \pm \sqrt{3}$ y reemplazando en la segunda caso a caso nos queda $\pm \sqrt{6}$. \\
 En esta forma de hacerlo, llegamos a los mismos resultados pero sigamos que tuvimos los lambda concretos para verificar todas las cuentas. \\
-Luego, haciendo todas las evaluaciones llegamos a que f alcanza máximos absolutos en $(\sqrt{6}, \sqrt{3}), (-\sqrt{6}, \sqrt{3})$ y mínimos absolutos en $(\sqrt{6}, -\sqrt{3}), (-\sqrt{6}, -\sqrt{3})$
-Ejercicio 2. Sea $f(x,y,z) = x+y-2z$. Hallar los extremos de f restringido a $\{(x,y,z) \in \float^{3}: x^{2} + \frac{y^{2}}{4} + z^{2} = 1\}$ \\
+Luego, haciendo todas las evaluaciones llegamos a que f alcanza máximos absolutos en $(\sqrt{6}, \sqrt{3}), (-\sqrt{6}, \sqrt{3})$ y mínimos absolutos en $(\sqrt{6}, -\sqrt{3}), (-\sqrt{6}, -\sqrt{3})$ \\
+\textbf{Ejercicio 2}. \\
+Sea $f(x,y) = -x^{2} - y^{2} + 6xy$ calcule los extremos de f restringido a $A = \{(x,y) \in \float^{2} / x^{2} + y^{2} \le 4, x \ge 0 \}$ \\
+Como A es cerrado y acotado por Weierstrass f alcanza máximo absoluto y mínimo absoluto en A. \\
+Analicemos primero el interior $A^{0}$ donde las ecuaciones de A serían $\{x^{2} + y^{2} < 4, x > 0\}$ \\
+Calculemos el $\triangledown f(x,y) = (-2x + 6y, -2y + 6x) = (0,0)$. \\
+$\begin{cases}
+   -2x+6y = 0 \\
+    -2y+6x = 0
+\end{cases}$ \\
+Dividiendo todo por 2 nos queda 
+$\begin{cases}
+   -x+3y = 0 \\
+    -y+3x = 0
+\end{cases}$ \\
+Luego 
+$\begin{cases}
+   x = 3y \\
+    -y+3x = 0
+\end{cases}$ \\
+Reemplazando en la segunda ecuación tenemos que $-y + 3(3y) = 0 \iff 8y = 0 \iff y = 0$. \\
+Luego, reemplazando en la primera nos queda que $x = 0$. \\
+Por lo tanto, el único punto crítico que sale de acá es el (0,0) pero no vale pues no satisface $x > 0$ \\
+Analicemos ahora el borde $\partial A$ usando Lagrange y parametrizaciones. \\
+Se puede ver claramente que la circunferencica no está entera, sino que solamente nos quedamos con la parte positiva. Es decir, la circunferencia está centrada pero empezamos a \textbf{considerar} a partir del $x \ge 0$ entonces, la circunferencia si hubiese que parametrizarla iría desde $-\frac{\pi}{2}$ a $\frac{\pi}{2}$ y para parametrizar la recta es básicamente $(0, t)$ con t los valores donde tiene intersección la circunferencia y la recta. \\
+Por lo tanto, busquemos la intersección, es decir, los iguales: $y^{2} = 4 \iff y = \pm 2$. Entonces, los vértices a considerar son $P_{1} = (0, 2), P_{2} = (0, -2)$ \\
+Parametrizando la recta nos queda $\sigma_{1}(t) = (0, t)$ con $t \in (-2, 2)$ \\
+Componiendo $h(t) = (f \circ \sigma_{1})(t) = (-t^{2})$ y ahora sabemos que por Fermat, si la derivada se anula entonces es un posible punto crítico. Entonces $h'(t) = -2t = 0 \iff t = 0$. Volviendo a $\sigma_{1}(0)$, el punto resultante es $P_{3} = (0,0)$ y este vale porque satisface $x^{2} + y^{2} \le 4$ y $x \ge 0$ y está en la recta. \\
+Ahora sí, usemos Multiplicadores de Lagrange: \\
+\textbf{Nota}: Acá vamos a tener que chequear también que los $x\ge 0$ se cumpla. \\
+$\begin{cases}
+    -2x+6y = \lambda 2x \\
+    -2y+6x = \lambda 2y \\
+    x^{2} + y^{2} = 4
+\end{cases}$ 
+Veamos como siempre los casos más conflictivos primero. \\
+Caso $x = 0$: Por la primera ecuación queda $6y = 0$ entonces la única forma de que esto valga es que $y = 0$ pero si esto pasa, no se cumple la tercera ecuación. Por lo tanto, no hay forma de que $x = 0$. 
+Caso $y = 0$: Por la segunda ecuación nos queda $6x = 0$, entonces la única forma de que esto pase es que $x = 0$ pero vimos que no cumple la tercera ecuación entonces no hay forma de que pasen simultáneamente. \\
+Entonces sí o sí, podemos asumir que $x \neq 0$, $y \neq 0$ \\
+De la primera ecuación obtenemos $\lambda = \frac{-x+3y}{x}$ \\
+De la segunda ecuación obtenemos $\lambda = \frac{-y+3x}{y}$ \\
+Ahora igualando ambas ecuaciones $\lambda$ nos queda $\frac{-x+3y}{x} = \frac{-y+3x}{y} \iff y(-x+3y) = x(-y+3x) \iff \longitud{y} = \longitud{x}$ es decir, $ y = x, y = -x$. \\
+Caso $y = x$: Por la ecuación 3 tenemos $2x^{2} = 4 \iff x = \pm \sqrt{2}$. \\
+Caso $y = -x$: Por la ecuación 3 tenemos la misma información, pero acá hay soluciones que tirar a la basura y son aquellas que tienen $x < 0 $ \\
+Entonces, los puntos que encontramos de Lagrange son: $P_{4} = (\sqrt{2}, \sqrt{2})$, $P_{5} = (\sqrt{2}, -\sqrt{2})$ \\
+Luego, evaluando todos los puntos notamos que f alcanza máximo absoluto en $P_{4}$ y mínimo absoluto en $P_{5}$
+\textbf{Ejercicio 3}. Sea $f(x,y,z) = x+y-2z$. Hallar los extremos de f restringido a $\{(x,y,z) \in \float^{3}: x^{2} + \frac{y^{2}}{4} + z^{2} = 1\}$ \\
 Como acá no nos dan la curva de nivel explícitamente, la tenemos que armar, pero la idea es que $g(x,y,z) = x^{2} + \frac{y^{2}}{4}+z^{2}$ \\
 Ahora calculamos los gradientes: $\triangledown f(x,y,z) = (1, 1, -2)$ y $\triangledown g(x,y,z) = (2x, \frac{y}{2}, 2z) \neq (0,0,0)$ \\
-Acá tenemos que justificar con que $g^{-1}(1)$ es compacto porque es cerrada y acotada, y por lo tanto entonces f por weirstrass tiene un máximo absoluto y mínimo absoluto en g. \\
-$
-\begin{cases}
+Acá tenemos que justificar con que $g^{-1}(1)$ es compacto porque es cerrada y acotada, y por lo tanto entonces f por weirstrass tiene un máximo absoluto y mínimo absoluto en g. 
+$\begin{cases}
     1.\ 1 = \lambda 2x \\
     2.\ 1 = \lambda \frac{y}{2} \\
     3.\ -2 = \lambda 2z \\
@@ -2570,7 +2615,7 @@ Observaciones:
 Dividiendo por $\lambda$ nos queda $x = \frac{1}{2 \lambda}, y = \frac{2}{\lambda}, z = -\frac{1}{\lambda}$ \\
 Reemplazando en la ecuación 4, nos queda $\lambda = \pm \frac{3}{2}$. Luego, hay que buscar los x,y,z con $\lambda = \pm \frac{3}{2}$. \\
 Finalmente, ver de esos puntos (que van a ser dos) ver cual es el máximo y cual el mínimo. \\
-\textbf{Ejercicio 3.}: Este ejercicio es súmamente importante. Se dió varias veces en una práctica cambiando algún que otro dato, pero todos coinciden en lo que hay que hacer. \\
+\textbf{Ejercicio 4.}: Este ejercicio es súmamente importante. Se dió varias veces en una práctica cambiando algún que otro dato, pero todos coinciden en lo que hay que hacer. \\
 Sea $f(x,y) = (x^{2} + y^{2}) e^{-x+1}$. Halle los extremos absolutos de f restringido a: $A = \{(x,y) \in \float^{2}: x^{2} + y^{2} \le 4, x \le 1\}$ \\
 Lo primero que notamos es que la región está restringida y tiene una intersección de condiciones, dibujemosla. 
 \[\begin{minipage}[b]{0.6\textwidth}
