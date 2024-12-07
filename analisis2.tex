@@ -1678,7 +1678,7 @@ Entonces, si f es continua sobre una región D tipo I tal que
 entonces $\int\int_{D}f(x,y) \ dA = \int^{b}_{a}\int^{h_{2}(y)}_{h_{1}(y)} f(x,y) \ dx \ dy $ \\
 \subsection*{Notas de Regiones}
 \begin{itemize}
-    \item Muchas veces hay regiones que pueden escribirse de un Tipo y no de otro. Cuando la región puede escribirse de las dos formas, se llama Región de Tipo II. Ah, y otra cosa, que pueda escribirse de las dos formas no significa que al integrar la dificultad sea la misma. 
+    \item Muchas veces hay regiones que pueden escribirse de un Tipo y no de otro. Cuando la región puede escribirse de las dos formas, se llama Región de Tipo III. Ah, y otra cosa, que pueda escribirse de las dos formas no significa que al integrar la dificultad sea la misma. 
     \item Siempre hay que buscar la intersección de lo que nos pidan y dibujar. Normalmente el gráfico es en $\float^{2}$
 \end{itemize}
 Véase \hyperref[subsec:integrales_regiones_elementales]{\textbf{\underline{anexo}}} para ver ejercicios de este tema. 
@@ -1788,7 +1788,7 @@ En nuestro caso, como es una circunferencia, el jacobiano es r.
 Cuando hay desigualdades, primero graficar las igualdades. \\
 Luego, entender con las desigualdades, cual es el área que hay que integrar. \\
 Por último, ver en donde están las intersecciones para poder hablar de (x,y). \\
-\textbf{Ej.}: Calcular el centro de masa del sólido $S = \{(x,y,z) \in \float^{3}: \sqrt{x^{2}+y^{2} \le z \le 2-x^{2}-y^{2}}\}$ donde la densidad de S es $\partial(x,y,z) = \sqrt{x^{2} + y^{2}}$ 
+\textbf{Ej.}: Calcular el centro de masa del sólido $S = \{(x,y,z) \in \float^{3}: \sqrt{x^{2}+y^{2}} \le z \le 2-x^{2}-y^{2}\}$ donde la densidad de S es $\partial(x,y,z) = \sqrt{x^{2} + y^{2}}$ 
 \[\begin{minipage}[b]{0.6\textwidth}
     \includegraphics[width=\linewidth]{assets/coordenadas_cilindricas.png}
 \end{minipage}\]
@@ -1808,6 +1808,7 @@ Luego, queda literalmente plantear la integral con el z que nos dieron, que casu
 \[\begin{minipage}[b]{0.8\textwidth}
     \includegraphics[width=\linewidth]{assets/coordenadas_cilindricas_3.png}
 \end{minipage}\]
+Véase \hyperref[subsec:coordenadas_cilindricas]{\textbf{anexo}} para ejercicios de Coordenadas Cilíndricas
 \subsection*{Coordenadas Esféricas}
 Vamos a poder representar un (x,y,z) solo sabiendo lo que vale un $\rho$, un $\theta$ y $\phi$.
 \begin{itemize}
@@ -2591,7 +2592,7 @@ Caso $x = 0$: Por la primera ecuación queda $6y = 0$ entonces la única forma d
 Caso $y = 0$: Por la segunda ecuación nos queda $6x = 0$, entonces la única forma de que esto pase es que $x = 0$ pero vimos que no cumple la tercera ecuación entonces no hay forma de que pasen simultáneamente. \\
 Entonces sí o sí, podemos asumir que $x \neq 0$, $y \neq 0$ \\
 De la primera ecuación obtenemos $\lambda = \frac{-x+3y}{x}$ \\
-De la segunda ecuación obtenemos $\lambda = \frac{-y+3x}{y}$ \\
+De la segunda ecuación obtenemos $\lambda = \frac{-y+3x}{y}$ \\ 
 Ahora igualando ambas ecuaciones $\lambda$ nos queda $\frac{-x+3y}{x} = \frac{-y+3x}{y} \iff y(-x+3y) = x(-y+3x) \iff \longitud{y} = \longitud{x}$ es decir, $ y = x, y = -x$. \\
 Caso $y = x$: Por la ecuación 3 tenemos $2x^{2} = 4 \iff x = \pm \sqrt{2}$. \\
 Caso $y = -x$: Por la ecuación 3 tenemos la misma información, pero acá hay soluciones que tirar a la basura y son aquellas que tienen $x < 0 $ \\
@@ -2659,67 +2660,61 @@ Por lo tanto el único punto que nos sirve a nosotros, va a ser el $P_{5} = (-2,
 \textbf{Caso $\lambda = e^{-x+1}$} \\
 Reemplazando en $1$ llegamos a un absurdo. \\
 Luego, viendo todos nuestros candidatos posibles el \textbf{mínimo absoluto de f en A} es el 0 con el punto (0,0) y el \textbf{máximo absoluto de f en A} es el $4e^{3}$ con el punto (-2, 0) 
+\subsection*{Integrales Impropias, Convergencia y Divergencia (idea)}
+\begin{itemize}
+    \item Ver cuales son los puntos conflictivos.
+    \item Ver el denominador 
+    \begin{itemize}
+        \item Si tenemos exponente sospechar que vamos a usar series p.
+        \item Si tenemos una raíces, vamos a tener que usar fracciones simples.
+    \end{itemize}
+    \item Si en el numerador tenemos muchas cosas como cos, sen, vamos a acotar por algo más grande. Es decir, por el máximo valor que pueden tomar. 
+\end{itemize}
+Recordar que el criterio que más vamos a usar es el de comparación directa. Es decir, si empezamos con una integral f(x) y vamos acotando por algo mayor y llegamos a un resultado, esta f(x) está obligada a tender a lo mismo. \\
+Es realmente importante notar que límites tienen las integrales. Si las integrales tienen infinito podemos muchas veces prescindir de información porque \textbf{no aportan nada}. Mientras que si las integrales no tienen infinito, no podemos usar ese truco. \\
+En las Integrales que no tienden a infinito casi siempre tenemos que estar usando límites y analizar por cada lado. 
 \subsection*{Integrales Impropias, Convergencia y Divergencia}
 \label{subsec:integrales_impropias_convergencia}
-Determinar si las Integrales Impropias convergen o no. \\
-\textbf{1}. $\int^{2}_{1} \frac{1}{x-2} dx$ \\
-Lo primero que podemos notar es que es una integral impropia en un intervalo donde son reales. La idea acá es acercarnos al punto conflictivo desde el límite inferior de la integral. \\
-En este caso, como el punto conflictivo es el 2, entonces la ídea es ir desde el 1 hacia el 2 (nos acercamos por izquierda). \\
-\[\begin{minipage}[b]{0.4\textwidth}
-    \includegraphics[width=\linewidth]{assets/integral_acercarse.png}
-\end{minipage}\]
-Entonces $\lim_{t \to 2^{-}} \int^{t}_{1}\frac{1}{x-2} \ dx = \lim_{t \to 2^{-}} \int^{t}_{1} ln \longitud{x-2} \ \Big|^{t}_{1}  \stackrel{barrow}{=} \lim_{t \to 2^{-}} ln \longitud{t-2} - ln \longitud{1-2} =  \lim_{t \to 2^{-}} ln \longitud{t-2} = -\infty $ \\
-\textbf{Nota}: Como me estoy \textbf{acercando a 2}, entonces $ln \longitud{1.9999-2}$ es aproximadamente $-0.000 \dots$ pero como tengo módulo me queda el argumento del logaritmo tendiendo a $0^{+}$. \\
-Luego, $\int^{2}_{1} \frac{1}{x-2} \ dx$ \textbf{ diverge}. \\
-La idea de estos ejercicios primero es darse cuenta qué tipo de integral me dan (si con intervalos reales o infinitos), luego separar los puntos conflictos, dibujar una rectita y darse cuenta por donde hay que acercarse. La cantidad de lados por la que me puedo acercar me dice la cantidad de integrales que tengo que plantear. \\
-\textbf{2}. $\int^{4}_{1} \frac{1}{x-2} \ dx$: Este es similar al anterior, pero acá me acerco al 2 por izquierda y por derecha.
-\[\begin{minipage}[b]{0.5\textwidth}
-    \includegraphics[width=\linewidth]{assets/integral_acercarse_2.png}
-\end{minipage}\]
-Por propiedades de Integrales, podemos separar la integral en como se muestra en la imagen: $\int^{4}_{1} = \frac{1}{x-2} \ dx = \int^{2}_{1} = \frac{1}{x-2} \ dx + \int^{4}_{2} \frac{1}{x-2} \ dx$ \\
-Curiosamente la primera integral es exactamente la misma que el ejercicio anterior así que ya sabemos que esa \textbf{diverge}. Calculemos qué pasa con el límite de $\int^{4}_{2} \frac{1}{x-2} \ dx$.\\
-$\lim_{t \to 2^{+}} \int^{4}_{t} = \frac{1}{x-2} \ dx = \lim_{t \to 2^{+}} ln \longitud{x-2} \ \Big|^{4}_{t} \stackrel{barrow}{=} \lim_{t \to 2^{+}} ln(2) - ln \longitud{t-2} = + \infty $ \\
-\textbf{Nota}: Al igual que antes, como ahora nos acercamos por la derecha del 2, entonces el argumento del logaritmo nos queda cercano a 0. \\
-Luego, $\int^{4}_{1} \frac{1}{x-2} \ dx$ \textbf{diverge}. \\
-\textbf{3.} $f(x) = \int^{4}_{1} \frac{1}{(x-2)(x-4)}$. Como acá tenemos dos puntos conflictivos vamos a tener que acercarnos a varios valores.
-\[\begin{minipage}[b]{0.65\textwidth}
-    \includegraphics[width=\linewidth]{assets/integral_acercarse_3.png}
-\end{minipage}\]
-Entonces vamos a tener dos límites: el del 4 tiene una sola integral mientras que el del 2 tiene dos integrales. \\
-La idea de este ejercicio viene porque hay que usar fracciones simples para integrar. \\
-La idea es reescribir f(x) de la siguiente manera: $\frac{1}{(x-2)(x-4)} = \frac{A}{x-2} + \frac{B}{x-4} = \frac{A(x-4)+B(x-2)}{(x-2)(x-4)} = \frac{1}{(x-2)(x-4)} = A(x-4)+B(x-2) = 1$ \\
-Luego, si $x = 4, B = \frac{1}{2}$ y si $x = 2, A = -\frac{1}{2}$ \\
-Por lo tanto: $\int^{4}_{1} (-\frac{\frac{1}{2}}{x-2} + \frac{\frac{1}{2}}{x-4}) \ dx \stackrel{prop int}{=} \int^{4}_{1} -\frac{\frac{1}{2}}{x-2} \ dx + \int^{4}_{1} \frac{\frac{1}{2}}{x-4} \ dx$
+Determinar si las Integrales Impropias convergen o no. \\ 
+\textbf{Ejercicio 1}: $\int^{2}_{1} \frac{1}{x-2} dx$: Lo primero que hay que notar desde ya es que la integral tiene límites constantes, por lo tanto no podemos usar ninguna propiedad donde acotamos porque indicamos que en el infinito x cosa no aporta. \\
+Lo segundo que podemos notar es que en el denominador tenemos una x, y en el numerador un 1. Esto se parece a series p pero de alguna manera tendríamos que sacarnos de encima el -2. \\
+Como es una Integral bastante simple, probemos viendo qué pasa cuando hacemos el límite. Es decir, vamos a ver qué pasa cuando nos acercamos al 2 por izquierda. \\
+$\lim_{t\to 2^{-}} \int^{t}_{1} \frac{1}{x-2}dx = lim_{t\to 2^{-}} ln\longitud{x-2} \Big |^{t}_{1} = lim_{t\to 2^{-}} ln \longitud{t-2} - ln \longitud{1-2} = lim_{t\to 2^{-}} ln \longitud{1.99-2} = lim_{t\to 2^{-}} ln(0^{+}) = -\infty $ \\
+\textbf{Nota}: $ln(0^{+}) = \infty$ \\
+\textbf{Ejercicio 2}: $\int^{4}_{1} \frac{1}{x-2} dx$: Este no lo voy a hacer pero si está bueno justificar el por qué. Si nos damos cuenta, el problema está también en x = 2, por lo tanto para poder analizar el caso podemos separar en dos integrales $\int^{2}_{1} \frac{1}{x-2} dx + \int^{4}_{2} \frac{1}{x-2} dx$ y observando la integral de la izquierda, es la que hicimos antes acercándonos a 2 por izquierda y divergía. Por lo tanto, la Integral más grande $\int^{4}_{1} \frac{1}{x-2} dx$ también diverge. Con esto quiero decir que si \textbf{una} de las integrales diverge, las demás también.  \\
+\textbf{Ejercicio 2}:$\int^{4}_{1} \frac{1}{(x-2)(x-4)} dx$: Los problemas en esta integral vienen en $x=2$ y en $x=4$. Por lo tanto, lo primero que podemos hacer es hacer fracciones simples. \\
+$\frac{A}{x-2} + \frac{B}{x-4} = \frac{1}{(x-2)(x-4)}$ \\
+$\frac{A(x-4)+ B(x-2)}{(x-2)(x-4)} = \frac{1}{(x-2)(x-4)}$ \\
+$A(x-4) + B(x-2) = \frac{(x-2)(x-4)}{(x-2)(x-4)}$ \\
+$A(x-4) + B(x-2) = 1$ \\
+A partir de ahora como tenemos que encontrar A y B simplemente los posibles valores a x que puede tomar, en este caso: 
 \begin{itemize}
-    \item 1. $\int^{4}_{1} -\frac{\frac{1}{2}}{x-2} \ dx$
-    \item 2. $\int^{4}_{1} \frac{\frac{1}{2}}{x-4} \ dx$
+    \item Si $x = 4, 2B = 1 \implies B = \frac{1}{2}$
+    \item Si $x = 2, -2A = 1 \implies A = -\frac{1}{2}$
 \end{itemize}
-Resolvemos cada una por cada lado, la 1 ya la tenemos resuelta del ejercicio anterior, nos dió que diverge mientras que la otra nos queda también que diverge. \\
-La 2 es el límite de t tendiendo a 4 por izquierda, nos termina quedando también que diverge. \\
-Luego, $\int \frac{1}{(x-2)(x-4)}$ \textbf{diverge}. \\
-\subsection*{Analizar Convergencia utilizando el Criterio de Comparación Directa / Comparación con Paso al Límite}
-\[\begin{minipage}[b]{0.65\textwidth}
-    \includegraphics[width=\linewidth]{assets/comparacion_directa.png}
-\end{minipage}\]
-1. $\int^{1}_{0} \frac{cos^{2}(e^{x})}{\sqrt{x}} sen(\frac{3}{x}) \ dx$ \\
-Como es una Integral complicadísima y nos piden solamente ver si converge o no, podemos usar propiedades para hacer la estructura más bella. \\
-Vemos que x = 0 es un punto conflictivo pues se indefine, ya que el domino no está definido allí. \\
-La idea acá es buscar una función g mucho más chica que f que converja, y de esta forma, si g converge entonces f también lo hará. \\
-Para encontrar g usualmente lo que hacemos es ver el límite con x tendiendo a infinito y dejar las expresiones que tengan x. \\
-\textbf{Nota}: Tengo que preguntar por qué antes estudia si la integral converge absolutamente. \\
-En este caso, es bastante sencillo porque el coseno y el seno están acotados, por lo tanto usando el criterio de comparación nos queda $\frac{cos^{2}(e^{x})\longitud{sen(\frac{3}{x})}}{\sqrt{x}} \le \frac{1}{\sqrt{x}}$. Nótese que $\frac{1}{\sqrt{x}} \equiv \frac{1}{x^{\frac{1}{2}}}$ y justamente hay una propiedad para este caso de serie donde en este caso $p = \frac{1}{2}$. \\
-Entonces analizamos ahora qué es lo que sucede con $\int^{1}_{0} g(x) \ dx = \int^{1}_{0} \frac{1}{\sqrt{x}} \ dx$ para ver si podemos concluir lo que nos dice el criterio de comparación directa. \\
-Nos queda $\int^{1}_{0} \frac{1}{x^{\frac{1}{2}}}$ y $p = \frac{1}{2}$ por propiedad de \hyperref[subsubsection:series_convergencia]{\textbf{\underline{series}}}, esto converge.  \\
-2. $\int^{+ \infty}_{0} \frac{x}{\sqrt{x^{4}+3}} \ dx $. \\
-Lo primero que hay que hacer es justamente aplicar propiedades, conocemos una propiedad fundamental de series y es que la integral por un lado vaya de $\int^{1}_{0}$ y esto vale por propiedad si separamos en dos integrales. \\
-$\int^{1}_{0} \frac{x}{\sqrt{x^{4}+3}} \ dx + \int^{+\infty}_{1} = \frac{x}{\sqrt{x^{4}+3}}$. \\
-Izquierda: De alguna manera, sí o sí tenemos que llevar el denominador a la forma $\frac{1}{x^{p}}$ para aplicar una propiedad directa. \\
-Derecha: Como tiende a infinito, y es una división tenemos que usar el Criterio de Comparación con Paso al Límite. \\
+Ahora reemplazamos en cada fracción en particular, es decir: $\frac{A}{x-2} + \frac{B}{x-4} \equiv \frac{-\frac{1}{2}}{x-2} + \frac{\frac{1}{2}}{x-4}$ \\
+Volvemos a la Integral y nos queda: $\int^{4}_{1} \frac{-\frac{1}{2}}{x-2} + \frac{\frac{1}{2}}{x-4} \equiv \int^{4}_{1} -\frac{1}{2(x-2)} + \frac{1}{2(x-4)} $. Ahora sí podemos separar la integral en dos por propiedades \\
+$\int^{4}_{1} -\frac{1}{2(x-2)} + \int^{4}_{1} \frac{1}{2(x-4)}$ \\
+Ahora analicemos una por una en los puntos conflictivos. Recordar que con que una diverja, todo diverge. Entonces, tomemos la primera y separemos en dos intervalos. \\
+$\int^{2}_{1} -\frac{1}{2(x-2)} + \int^{4}_{2} -\frac{1}{2(x-2)}$ \\
+Analicemos por izquierda la primera integral. \\
+$-\frac{1}{2} \int^{2}_{1} \frac{1}{(x-2)} dx$ \\
+Planteamos el límite: $ \lim_{t\to 2^{-}} -\frac{1}{t} \int^{2}_{1} \frac{1}{(x-2)} dx \stackrel{sustitucion}{=} \lim_{t\to 2^{-}} -\frac{1}{2} ln(\longitud{x-2}) \Big |^{t}_{1} = \lim_{t\to 2^{-}} -\frac{1}{2} (ln(\longitud{t-2}) - ln(\longitud{-1})) = \lim_{t\to 2^{-}} -\frac{1}{2} (ln(0) - 0)$ \\
+Como entonces nos quedó $\lim_{t\to 2^{-}} -\frac{1}{2} (ln(0^{+})) = \lim_{t\to 2^{-}} -\frac{1}{2} \infty = \infty \implies diverge $ \\
+Luego, toda la integral diverge.  \\
+\textbf{Ejercicio 3}: $\int^{1}_{0} \frac{ln(x)}{x}$. Esta Integral tiene un problema en $x=0$ por lo tanto, planteemos el límite y la integral. Sale rápido por sustitución: $\lim_{t\to 0^{+}} \int^{1}_{t} \frac{1}{x} ln(x) dx \stackrel{sust}{=} \lim_{t\to 0^{+}} \frac{ln^{2}(x)}{2} \Big |^{1}_{t} =  \lim_{t\to 0^{+}} 0 - \frac{ln^{2}(t)}{2} = \lim_{t\to 0^{+}} -(-\infty)^{2} = -\infty \implies diverge $ 
+\subsection*{Integrales Impropias: Criterio de Comparación Directa}
+Criterio de Comparación Directa: Si tengo una función f y g ambas integrables en un intervalo cerrado y $f(x) \le g(x)$ entonces si encuentro una función $g(x)$ mayor a $f(x)$ que converja, entonces f converge. \\ Si $g(x)$ diverge y $f(x) \ge g(x)$, entonces f diverge. \\
+\textbf{Ejercicio 1}: $\int^{+\infty}_{1} \frac{x^{2} \longitud{sen(x)}}{(x^{2}+1)x^{5}}$ \\
+Vamos a usar el criterio de comparación directa, entonces acotemos para buscar funciones más grandes. \\
+$\stackrel{sen}{\le} \frac{x^{2}}{(x^{2}+1) x^{5}}  = \frac{x^{2}}{x^{7} + x^{5}} \stackrel{x^{7} > x^{5}}{\le} \frac{x^{2}}{x^{7}} = \frac{1}{x^{5}} = \int^{+\infty}_{1} \frac{1}{x^{5}} $
+Esta función g que encontramos, es decir $\int^{+\infty}_{1}  \frac{1}{x^{5}}$ converge pues $p>1$. Luego, como $f(x) \le g(x)$ entonces por el criterio de comparación directa $f(x)$ también converge. \\
+¿A qué valor converge?: $\int^{\infty}_{1} \frac{1}{x^{5}} dx = \int^{\infty}_{1} x^{-5} dx = \frac{x^{-4}}{-4} = -\frac{x^{-4}}{4} = \frac{1}{\frac{x^{4}}{4}} = \frac{1}{4x^{4}} \Big |^{\infty}_{1} = (0 + \frac{1}{4}) = \frac{1}{4} $
 \subsection*{Integrales Iteradas}
 \label{subsec:integrales_iteradas}
 Es exactamente la misma idea que cuando derivabamos pero ahora integramos y aplicamos Barrow. Recordar siempre que si empezamos por x o y da igual. Por teorema vamos a llegar al mismo resultado. \\
 1. Calcular $\int^{1}_{0} \int^{1}_{-1}(x^{2} + y^{2}) \ dx \ dy$ \\
-Primero arrancamos poniendo los corchetes (importante y obligatorio): $\int^{1}_{0}[\int^{1}_{-1}(x^{2}+y^{2} dx)] dy = \int^{1}_{0}(\frac{x^{3}}{3}y+y^{2}x) \Big |^{1}_{-1} dy \stackrel{barrow}{=} \int^{1}_{0}[(\frac{1}{3}+y^{2}) - (- \frac{1}{3} - y^{2})] \ dy = \int^{1}_{0}(\frac{2}{3}+2y^{2}) \ dy = (\frac{2}{3}y + \frac{2}{3}y^{2}) \Big |^{1}_{0} = ((\frac{2}{3}(1) + \frac{2}{3}(1)) - (\frac{2}{3}(0) - \frac{2}{3}(0))) = \frac{4}{3} $ \\
+Primero arrancamos poniendo los corchetes (importante y obligatorio): $\int^{1}_{0}[\int^{1}_{-1}(x^{2}+y^{2} dx)] dy = \int^{1}_{0}(\frac{x^{3}}{3}y+y^{2}x) \Big |^{1}_{-1} dy \stackrel{barrow}{=} \int^{1}_{0}[(\frac{1}{3}+y^{2}) - (- \frac{1}{3} - y^{2})] \ dy = \int^{1}_{0}(\frac{2}{3}+2y^{2}) \ dy = (\frac{2}{3}y + \frac{2}{3}y^{2}) º = ((\frac{2}{3}(1) + \frac{2}{3}(1)) - (\frac{2}{3}(0) - \frac{2}{3}(0))) = \frac{4}{3} $ \\
 2. Calcular el volúmen del sólido encerrado por las superficies $z=3$, $z=-x^{2}-y^{2}+6$, $x=-1$, $x=1$, $y=-1$, $y=1$. \\
 La idea acá es primero, repasar las cúadricas porque nos van a hacer dibujar. La cúadrica en este caso es un paraboloide triste :( \\
 El Rectángulo está dado por $R = [-1, 1] x [-1, 1]$ \\
@@ -2804,6 +2799,28 @@ Entonces nos queda $-v \le u \le v$ y $ 1 \le v \le 2$. Esto que conseguimos nos
 Ahora para hallar T(u, v), necesitamos el jacobiano. \\
 Teniendo $u = -x + y, \ v = x + y $, y despejando el sistema de ecuaciones lineales nos queda $T(u,v) = (- \frac{u}{2} + \frac{v}{2}, \frac{u}{2} + \frac{v}{2})$, armamos la matriz derivando coordenada a coordenada con respecto a u, y luego a v y nos queda que $\longitud{det(DT)} = \frac{1}{2}$. \\
 Finalmente, luego de todo este proceso nos queda resolver la integral: $\int^{2}_{1} \int^{v}_{-v} cos(\frac{u}{v}) \frac{1}{2} \ du \ dv $
+\subsection*{Coordenadas Cilíndricas}
+\label{subsec:coordenadas_cilindricas}
+\textbf{Ejercicio 1.}: Calcular el volumen de $E = \{(x,y,z) \in \float^{3}: y \ge 0, 1 \le x^{2} + y^{2} \le 9, 0 \le z \le x^{2} + y^{2}\}$ \\
+La buena pregunta antes de comenzar todo ejercicio es: ¿por qué usar cilíndricas? \\
+En este caso la respuesta está en que las dos superficies que nos están dando son de la pinta $x^{2} + y^{2}$ en $\float^{3}$. Es decir, cilindros. \\
+Una vez que ya detectamos que este ejercicio sale por coordenadas cilíndricas, recordemos qué es lo que necesitamos en la transformación a cilíndricas. 
+\begin{itemize}
+    \item r: Será el radio donde se moverá el volumen/área que querramos integrar.
+    \item $\theta$: Será el ángulo determinado por $x, y$ el cual se moverá el volumen en el piso. 
+    \item $z$: z prácticamente igual pero escrito en coordenadas polares.
+\end{itemize}
+Recordemos que por coordenadas polares, sabemos que $r^{2} = x^{2} + y^{2}$ y además que, en este caso el Jacobiano es r. \\
+Una vez que tenemos toda esta información ya podemos comenzar a pensar cómo va a quedar la integral. \\
+Lo primero es lo primero, el radio no puede ser cualquiera, sino que el radio va a ser básicamente entre todas las figuras, el espacio que tengan todas en común. Por lo tanto, lo primero que podemos hacer es analizar cada superficie una por una. \\
+Analicemos $1 \le x^{2} + y^{2} \le 9$: Esto es un cilindro hueco, que empieza a contar desde \textbf{radio 1 hasta radio 3} ($ 1 \le r^{2} \le 9 \equiv 1 \le r \le 3$). Notar que NO aparece z. Por lo tanto no aporta NADA en z. \\
+Analicemos $0 \le z \le x^{2} + y^{2}$: Si nos ponemos a ver curvas de nivel esto es un paraboloide que se compone por dos cosas: en $z = 0$ hay un plano, y a partir de $z=0$ está el paraboloide. \\
+Si juntamos ambas superficies en un gráfico, como el cilindro tiene un ancho determinado y el paraboloide no, entonces de alguna manera sabemos que el paraboloide atravesará al cilindro en una altura dada. \\
+\textbf{Radio}: Pensemos ahora qué podemos decir del radio. Como el paraboloide no aporta información de radios particulares (porque son infinitos), en este caso nos quedamos con el subconjunto más chico que sabemos que está incluído en el paraboloide. En este caso, decimos que el radio es: $1 \le r \le 3$. ¿Por qué? Porque este radio que está en el cilindro (una superficie mucho más chica que un paraboloide en ancho). \\
+\textbf{$\theta$}: La única condición que tenemos acerca del piso, es que $y \ge 0$. Por lo tanto, la única forma de que esto se cumpla, es que valga $0 \le \theta \le \pi$. \\
+\textbf{Techo / Piso}: Como el Cilindro no aporta información sobre techo y piso de la región que tenemos que contemplar porque en z es infinito, sabemos que el piso del volumen que tenemos que contemplar es el plano $z=0$ y el techo es el mismo paraboloide $x^{2} + y^{2}$ que en polares es r. \\
+Por lo tanto, la Integral a resolver queda: $ \int^{3}_{1} \int^{\pi}_{0} \int_{0}^{r^{2}} 1 * r * dz \ d\theta \ dr$
+
 \subsection*{Funciones Trigonométricas}
 \begin{itemize}
     \item sen, cos: acotadas entre [-1, 1]
