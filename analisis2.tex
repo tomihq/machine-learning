@@ -2502,39 +2502,55 @@ Luego, f alcanza máximo absoluto en $P_{2}$ y $P_{3}$ y mínimo absoluto en $P_
 Recordemos que los Multiplicadores de Lagrange solo nos sirve para estudiar los bordes. Es un teorema más fuerte que el teorema de fermat que nos decía que si la derivada se anula entonces es un punto crítico. \\
 La idea de Lagrange es usarlo cuando nos dan una curva de nivel la cual estamos restringidos. \\
 Voy a mostrar dos formas de hacerlo, una es la manera de la teórica y otra con la manera de la práctica. \\
-\textbf{Teórica}: Ejercicio 1. Sea f(x,y) = $1-xy$ g(x,y) = $x^{2} + 2y^{2}$ \\
-Se pide hallar los extremos absolutos de f restringidos a $g^{-1}(4) = \{(x,y) \in \float^{2}: x^{2}+2y^{2} = 4\}$ \\
-Primero graficamos qué es la curva de nivel, en la práctica le llaman la región $A$. \\
-La curva de nivel o región A es una elipse centrada en el $(0,0)$. 
-\[\begin{minipage}[b]{0.6\textwidth}
-    \includegraphics[width=\linewidth]{assets/mult_lagrange_1.png}
-\end{minipage}\]
-Como me piden extremos absolutos solamente me fijo el borde. \\
-¿Es $g^{-1}(4)$ compacto? Sí. Recordemos que una región es compacta si es cerrada y acotada. \\
-Es cerrada porque los puntos de la frontera son parte del conjunto $g^{-1}(4)$. Es acotada porque existe una bola donde podemos encerrar esta región. \\
-Por lo tanto por el teorema de Weierstrass f tiene un mínimo y un máximo absoluto en la región $g^{-1}(4)$. \\
-Ahora sí, usemos Lagrange: $\triangledown f(x,y) = (-y, -y)$, $\triangledown g(x,y) = (2x, 4y) \neq (0, 0)$ \\
-\textbf{Importante}: Recordemos que el gradiente de g NO puede anularse, y se cumple solamente que no se anule si $(x,y) \neq (0,0)$. \\
-Planteemos el sistema de ecuaciones: 
-$
-\begin{cases}
-    1.\ -y = \lambda 2x \\
-    2.\ -x = \lambda 4y \\
-    3.\ x^{2} + 2y^{2} = 4 
-\end{cases}
-$
-Recordemos que la 3ra ecuación se agrega pues es la restricción que debe cumplirse. \\
-Recordemos también que acá los pares $(x,y)$ que encontremos deben vivir en la región que nos dan. Por lo tanto, siempre hay que verificar que funcionen \textbf{todas las ecuaciones}. \\
-Acá hay varias formas de resolver este tipo de ecuaciones, la recomendación del de la teórica es ver a ojo qué pasa con los valores de x y. \\
-En este caso, $\lambda \neq 0$ xq si fuese 0, (x,y) no vive en $x^{2} + 2y^{2} = 4$. Tambien vemos que $x \neq 0, y \neq 0$ xq si fuesen 0, no viven tampoco en $x^{2} + 2y^{2} = 4$ \\
-Teniendo los datos de que $ x \neq 0, y \neq 0$ sé que podemos pasar dividiendo a estas. \\
-Nos queda entonces $x^{2} = 2y^{2}$, reemplazando en 2) nos queda $x = \pm \sqrt{2}$, reemplazando ahora en $x^{2} = 2y^{2}$ nos queda $y \pm 1$ \\
-Por lo tanto, los candidatos son: $\{(-\sqrt{2}, 1), (\sqrt{2}, 1), (-\sqrt{2}, 1), (\sqrt{2}, -1)\}$ \\
-Evalúando todos los candidatos en f nos da que: 
+\textbf{Ejercicio 1}. Sea $f(x,y) = x^{2}y$ y $A = \{(x,y) \in \float^{2} : x^{2}+y^{2} \le 9\}$ \\
+Como A es compacto, es decir, cerrado y acotado por Weierstrass f alcanza máximo y mínimo absoluto en A. \\
+$A^{0}$: Veamos cuando se anula el gradiente de f y veamos si esos puntos están en A. \\
+$\triangledown(f) = (2xy, x^{2}) = (0, 0)$ \\
+Como la segunda coordenada solo depende de x, notamos que $x=0$ hace que la primera ecuación sea $2(0) y = 0$ pero y está totalmente libre, por lo tanto, hay que ver qué valores puede tomar y cuando x es 0. \\
+Por lo tanto, si notamos la región A, tenemos que ver que $0^{2} + y^{2} < 9$ y podemos notar que al estar $y^{2}$ esta ecuación vale $\forall y (-3, 3)$. \\
+Por lo tanto, todos los puntos de la forma $(0, y)$ con y restringido desde (-3, 3) son puntos críticos. \\
+$\partial A$: Utilicemos Lagrange, por lo tanto nos quedaría el siguiente sistema \\
+$\begin{cases}
+   2xy = \lambda 2x \iff xy = \lambda x \\ 
+   x^{2} = \lambda 2y \\
+   x^{2} + y^{2} = 9
+\end{cases}$ 
+Recordemos que la idea es \textbf{no pasar dividiendo} porque perdemos soluciones, pero hagamos un análisis antes de todo. \\
+Los problemas más grandes son cuando $x = 0$ o $y = 0$, por lo tanto analicemos caso a caso. Esto nos sirve para después poder pasar dividiendo y no meter la pata con estos casos borde. \\
+\textbf{Caso x = 0}: El sistema nos queda de esta forma \\ 
+$\begin{cases}
+   0 = 0 \\ 
+   0 = \lambda 2y \\
+   0 + y^{2} = 9
+\end{cases}$ \\
+De acá podemos sacar bastante información. 
 \begin{itemize}
-    \item El máximo de f restringido a $g^{-1}(4)$ es $(1+\sqrt{2})$ y se alcanza en $(-\sqrt{2}, 1)$ y $(\sqrt{2}, -1)$
-    \item El mínimo de f restringido a $g^{-1}(4)$ es $(1-\sqrt{2}) $ y se alcanza en $(\sqrt{2}, 1)$ y $(-\sqrt{2}, -1)$
+    \item De la segunda ecuación podemos notar que puede suceder que: $\lambda = 0$ o $y = 0$
+    \begin{itemize}
+        \item Si $\lambda = 0$ entonces de la tercera ecuación que falta satisfacer podemos encontrar que $y = \pm 3$. Por lo tanto, $(0, \pm 3)$ vale con $\lambda = 0$.
+        \item Si $y = 0$ no nos sirve para nada porque la tercera ecuación no se satisface.
+    \end{itemize}
 \end{itemize}
+Por lo tanto, el único dato que pudimos rescatar es que si $x = 0$ entonces tenemos dos posibles soluciones $(0, \pm 3)$ y $\lambda = 0$
+\textbf{Caso y = 0}: El sistema nos queda de esta forma \\
+$\begin{cases}
+   0 = \lambda 2x \\ 
+   x^{2} = 0 \\
+   x^{2} + 0 = 9
+\end{cases}$ \\
+Por la segunda ecuación estamos prácticamente obligados a que $x=0$ pero ya de por si vemos que no satisface ni siquiera la tercera. \\
+Por lo tanto, conclusiones
+\begin{itemize}
+    \item $x = 0, y = 0$ no vale nunca.
+    \item $x = 0, y = \pm 3$
+    \item $y = 0$ no vale para ningun x en particular.
+\end{itemize}
+Ahora sí podríamos empezar a hacer pasajes sin tener ningún tipo de miedo acerca de que puedan ser potenciales 0's. \\
+Despejando $\lambda$ de la 3ra ecuación nos queda $\lambda = \frac{9}{2y} - \frac{1}{2}y$ y si lo ingresamos dentro de la primera ecuación nos queda $y^{2} = 3 \equiv y = \pm \sqrt{3}$ \\
+Ingresando este dato nuevamente de la tercera ecuación nos queda que los puntos posibles son $(\pm \sqrt{6}, \pm \sqrt{3})$. El problema con esta foram de hacerlo sería que habría que buscar un lambda y empezar a ver si verifican todas las ecuaciones. Sin embargo, en este caso las soluciones valen todas :).\\
+¿Cómo sería una mejor forma de encarar esto? bueno, desde la primera ecuación pasar restando y hacer factor común para que nos quede $x(\lambda - y) = 0$ y se nos abren dos casos $x = 0, \lambda = y$. Acá el caso $x=0$ lo vimos antes, pero es exactamente igual como llegamos antes. Si $\lambda = y$ por la segunda ecuación nos queda $x^{2} = 2y^{2}$ que a su vez, en la tercera ecuación nos queda que $y = \pm \sqrt{3}$ y reemplazando en la segunda caso a caso nos queda $\pm \sqrt{6}$. \\
+En esta forma de hacerlo, llegamos a los mismos resultados pero sigamos que tuvimos los lambda concretos para verificar todas las cuentas. \\
+Luego, haciendo todas las evaluaciones llegamos a que f alcanza máximos absolutos en $(\sqrt{6}, \sqrt{3}), (-\sqrt{6}, \sqrt{3})$ y mínimos absolutos en $(\sqrt{6}, -\sqrt{3}), (-\sqrt{6}, -\sqrt{3})$
 Ejercicio 2. Sea $f(x,y,z) = x+y-2z$. Hallar los extremos de f restringido a $\{(x,y,z) \in \float^{3}: x^{2} + \frac{y^{2}}{4} + z^{2} = 1\}$ \\
 Como acá no nos dan la curva de nivel explícitamente, la tenemos que armar, pero la idea es que $g(x,y,z) = x^{2} + \frac{y^{2}}{4}+z^{2}$ \\
 Ahora calculamos los gradientes: $\triangledown f(x,y,z) = (1, 1, -2)$ y $\triangledown g(x,y,z) = (2x, \frac{y}{2}, 2z) \neq (0,0,0)$ \\
