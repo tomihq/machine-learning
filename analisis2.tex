@@ -2421,35 +2421,81 @@ Finalizando, comparamos entre todos los candidatos y nos queda que:
     \item f(-2, 0) = 1
 \end{itemize}
 Concluyendo, el mínimo absoluto se alcanzará en $P_{1} = (-1, 0)$ y el máximo absoluto se alcanzará en $P_{2} = (2,0), P_{4} = (2,0)$. \\
-Ejercicio 2. Sea $f(x,y) = (x^{2} + y^{2})e^{x^{2} + y^{2}}$ 
+Ejercicio 2 (\textbf{parcial}). Sea $f(x,y) = (x^{2} + y^{2})e^{x^{2} + y^{2}}$ 
 \begin{itemize}
-    \item a. Hallar extremos locales en $\{x^{2} + y^{2} < 4\}$
+    \item a. Hallar extremos locales en $A^{0} = \{x^{2} + y^{2} < 4\}$
     \item b. Hallar extremos absolutos en $A = \{x^{2} + y^{2} \le 4, x \le y\}$
 \end{itemize}
-b. Lo primero que notamos es que tenemos una intersección de condiciones. Por lo tanto, vamos a tener varios casos para parametrizar, uno la intersección de ambos casos, y el caso del borde o interior. El dibujo nos queda algo así
-\[\begin{minipage}[b]{0.6\textwidth}
+Como la región A es compacta, es decir, cerrada y acotada. Por Weierstrass f alcanza mínimo/máximo absoluto en A. \\
+\textbf{Inciso a}: Como nos piden los extremos locales lo que tenemos que calcular es $\triangledown f(x,y) = (0, 0)$. Luego de haber hecho esto, vemos si estos puntos efectivamente pertenecen al interior de la región $A^{0}$, es decir, si están en $x^{2} + y^{2} < 4$. Para finalizar este inciso, tenemos que también utilizar el Hessiano para clasificar a el/los puntos que encontramos. \\
+Por lo tanto, empecemos a derivar. Acá hay bastante regla de la cadena asi que ojo.
+\begin{itemize}
+    \item f(x,y) = $(x^{2} + y^{2})e^{x^{2} + y^{2}}$
+    \item fx(x,y) = $(2x)e^{x^{2} + y^{2}} + (x^{2} + y^{2})e^{x^{2} + y^{2}}(2x) = 2xe^{x^{2} + y^{2}}(1+x^{2} + y^{2})$
+    \item fy(x,y) = $(2y)e^{x^{2} + y^{2}}+(x^{2} + y^{2})e^{x^{2} + y^{2}}(2y) = 2ye^{x^{2} + y^{2}}(1+x^{2} + y^{2})$
+    \item fxx(x,y) = $2e^{x^{2} + y^{2}}(1+x^{2}+y^{2}) + 2xe^{x^{2} + y^{2}}(2x)(1+x^{2}+y^{2}) + 2xe^{x^{2} + y^{2}}(2x) = 2e^{x^{2} + y^{2}}(1+x^{2}+y^{2}) + 4x^{2}e^{x^{2} + y^{2}}(1+x^{2} + y^{2}) + 4x^{2}e^{x^{2} + y^{2}} = 2e^{x^{2}+y^{2}}(1+x^{2}+y^{2} + 2x^{2}(1+x^{2}+y^{2}) + 2x^{2}) $
+    \item fxy(x,y) = $2xe^{x^{2} + y^{2}}(2y)(1+x^{2}+y^{2}) + 2xe^{x^{2} + y^{2}}(2y) = 4xye^{x^{2} + y^{2}}(1+x^{2}+y^{2})+4xye^{x^{2} + y^{2}} = 4xye^{x^{2} + y^{2}}(1+x^{2}+y^{2} + 1)  $
+    \item fyy(x,y) = $2e^{x^{2} + y^{2}}(1+x^{2} + y^{2}) + 2ye^{x^{2} + y^{2}}(2y)(1+x^{2}+y^{2}) + 2ye^{x^{2} + y^{2}}(2y) = 2e^{x^{2} + y^{2}}(1+x^{2}+y^{2})+4y^{2}e^{x^{2} + y^{2}}(1+x^{2}+y^{2}) + 4y^{2}e^{x^{2} + y^{2}} = 2e^{x^{2} + y^{2}}(1+x^{2}+y^{2} + 2y^{2}(1+x^{2}+y^{2}) + 2y^{2})$
+\end{itemize}
+No es necesario buscar $fyx$ porque al ser $C^{\infty}$ vale el teorema de Clairaut. \\
+Por lo tanto, ahora sí, veamos cuando se anula el gradiente. \\
+$
+\begin{cases}
+    2x{e^{x^{2} + y^{2}}(1+x^{2}+y^{2})} = 0 \\
+    2y{e^{x^{2} + y^{2}}(1+x^{2}+y^{2})} = 0
+\end{cases}
+$ \\
+Observando ambas ecuaciones a la vez, como la exponencial no puede ser 0, y el término que está entre paréntesis siempre es positivo, la única forma de hacer esto 0 es que $x, y = 0$ \\
+Por lo tanto, ahora chequeamos si el punto $(0,0) \in A^{0}$ y efectivamente vale pues $0^{2} + 0^{2} < 4$. Entonces, nuestro $P_{1} = (0,0)$ es un punto crítico. \\
+Ahora clasifiqúemoslo
+$H_{f} = 
+\begin{pmatrix}
+    2e^{x^{2}+y^{2}}(1+x^{2}+y^{2} + 2x^{2}(1+x^{2}+y^{2}) + 2x^{2}) & 4xye^{x^{2} + y^{2}}(1+x^{2}+y^{2} + 1) \\
+    4xye^{x^{2} + y^{2}}(1+x^{2}+y^{2} + 1) & 2e^{x^{2} + y^{2}}(1+x^{2}+y^{2} + 2y^{2}(1+x^{2}+y^{2}) + 2y^{2}) 
+\end{pmatrix}$
+ 
+Evaluando en el (0,0) y calculando el determinante nos queda 
+$det(H_{f}(0,0)) = \begin{pmatrix}
+    2 & 0 \\
+    0 & 2 
+\end{pmatrix}$ \\
+Luego, $(2 * 2) - (0 * 0) = 4$ por lo tanto, como el determinante es mayor que 0 entonces el punto (0,0) es mínimo local. \\
+\textbf{Inciso b}: Ahora tenemos que concentrarnos en $\partial A$ es decir, el borde de A. \\
+En este caso, vamos a darle mucha importancia a $x^{2} + y^{2} = 4, x \le y$
+\[\begin{minipage}[b]{0.4\textwidth}
     \includegraphics[width=\linewidth]{assets/extremos_absolutos.png}
 \end{minipage}\]
-Como siempre, empecemos calculando $A^{0}$ es decir, los puntos del interior de A. \\
-$\triangledown f(x,y) = (0, 0) \iff (0, 0)$ pero (0,0) $\notin A^{0}$ \\
-Ahora calculemos el borde de A: $\partial A$ que en el dibujo está denotado con C. Los t que va a tomar a la hora de parametrizar van a ser desde $\frac{\pi}{4}$ hasta $\frac{5\pi}{4}$ \\
-Parametricemos C: $\alpha_{1}(t) = 2cos(t), 2sen(t)$ con $ t \in [\frac{\pi}{4}, \frac{5\pi}{4}]$ \\
-Como hicimos en el ejercicio anterior, ahora calculemos los puntos críticos, entonces para hacer eso tenemos que saber que nos estamos moviendo en f, por lo tanto: $g_{1}(t) = f \circ \alpha_{1}(t) = 4e^{4}$. En este caso, como la derivada es 0, entonces todos los puntos posibles en el dominio son \textbf{puntos críticos}. \\
-Entonces, $g_{1}'(t) = 0$ todo t es punto crítico en $t \in [\frac{\pi}{4}, \frac{5}{4}\pi]$ son puntos críticos. \\
-Volviendo a $\alpha(t)$, $\alpha(t) = (2 cos(t), 2 sen(t))$ con $t \in [\frac{\pi}{4}, \frac{5}{4}\pi]$ son P.C \\
-Ahora nos queda ver la intersección de ambas condiciones (I): Para saber donde se mueve t hago la intersección de 0 y $/$. \\
-$x^{2} + y^{2} = 4; y = x$ \\
-$x = \pm \sqrt{2}$ \\
-Entonces, nos queda: $\alpha_{2}(t) \ t \in [\sqrt{2}, -\sqrt{2}]$ \\
-Ahora sí, calculemos los puntos críticos haciendo la composición con f: $g_{2}(t) = f \circ \alpha_{2} = 2t^{2}e^{2t^{2}}$ \\
-Derivando nos queda $4te^{2t^{2}}(1+2t^{2})$ y podemos ver que la unica forma que esto se haga 0 es si $t=0$. \\
-Volviendo a $\alpha$, nos queda $(0,0) = P_{1}$ ¿esto está bien, es en alpha que tengo que meter el valor? \\
-Entonces todos los puntos críticos son: 
-\begin{itemize}
-    \item f(2 cos(t), 2sen(t)) = $4e^{4} \ t \in [\frac{\pi}{4}, \frac{5}{4}\pi]$
-    \item f(0,0) = 0
-\end{itemize}
-Por lo tanto, todos los puntos en C son máximos absolutos mientras que (0,0) es un mínimo absoluto.
+Como la región que queremos ver está cortada por una recta y la circunferencia no está completamente pintada, acá tenemos que separar el trabajo en dos partes. \\
+El primer trabajo es analizar la recta y el segunda es analizar ese pedazo de circunferencia. \\
+\textbf{Recta}: Para poder saber como se mueve una partícula dada a través de esa recta, debemos saber el desde \textbf{donde} hasta \textbf{donde} se mueve. Para esto, podemos calcular la intersección entre la recta y la circunferencia. \\
+Entonces, calculando la intersección nos queda que $2x^{2} = 4 \iff x^{2} = \sqrt{2} \iff x = \pm \sqrt{2}$. \\
+Como por dato sabemos que $x=y$, entonces, sabemos que los vértices de la recta son $(-\sqrt{2}, -\sqrt{2})$ y $(\sqrt{2}, \sqrt{2})$ y estos puntos valen como candidatos.\\
+Entonces, ahora que ya sabemos los límites de la recta, parametricemos y componemos con f para saber qué puntos de la recta nos interesan. \\
+$\sigma_{1}(t) = (t, y = t) \iff (t, t) \ t \in (-\sqrt{2}, \sqrt{2})$ \\
+$h(t) = (f \circ \sigma_{1})(t) = t^{2} + t^{2} \iff 2t^{2}$ \\
+Ahora derivamos para ver qué puntos críticos tiene esta función: $h'(t) = 4t = 0 \iff t = 0$. \\
+Por lo tanto, ahora volviendo a $\sigma_{1}$ y evaluando con $t=0$ nos queda $\sigma_{1}(0) = (0, 0)$ pero este punto \textbf{no vale} pues no pertenece a $\partial A$. \\
+\textbf{Circunferencia}: Tenemos que saber como se va a mover el ángulo. Como vemos que la recta es por así decirlo la que nos indica desde donde empezamos a contemplar la circunferencia, podemos calcualr el ángulo que tiene esa recta haciendo $arctan(1)$ pues la pendiente de la recta $y=x$ es 1. El resultado de esto es $\frac{\pi}{4}$ y como el ángulo es simétrico va hasta $1 + \frac{1}{4} \equiv \frac{5\pi}{4}$ \\
+Entonces, parametrizamos la circunferencia que recordemos que es de la siguiente manera 
+$\begin{cases}
+    x = r cos(t) + Cx \\
+    y = r sen(t) + Cy 
+\end{cases}$ \\
+\textbf{Ojo}: Recordar que Cx, Cy son el valor original del centro. Es decir, si es $(x+1)^{2} + (y-1)^{2}$ el centro es $(-1, 1)$ por lo tanto $Cx = -1, Cy = 1$ \\
+Entonces nos queda 
+$\sigma_{2}(t) = \begin{cases}
+    x = 2 cos(t) \\
+    y = 2 sen(t) \ con \ t [\frac{\pi}{4}, \frac{5\pi}{4}]
+\end{cases}$ \\
+\textbf{Ojo}: Acá es el intervalo cerrado porque así lo dice Weierstrass \\
+$j(t) = (f \circ \sigma_{2}(t)) = (2cos(t))^{2} + (2sen(t))^{2} = 4cos^{2}(t) + 4sen^{2}(t) = 4 $ \\
+Ahora, derivando... $j'(t) = 0$ entonces esto nos indica que todos los puntos son candidatos. \\
+Finalizando, evalúemos los puntos en f que encontramos, es decir: $P_{1} = (0,0)$ que lo conseguímos del interior, $P_{2} = (-\sqrt{2}, -\sqrt{2}) $ y $P_{3} = (\sqrt{2}, \sqrt{2})$ \\
+$f(P_{1}) = 0$ \\
+$f(P_{2}) = ((\sqrt{2})^{2} + (\sqrt{2})^{2}) e^{(\sqrt{2})^{2} + (\sqrt{2})^{2}} = 4 e^{4}$ \\
+$f(P_{3}) = ((\sqrt{2})^{2} + (\sqrt{2})^{2}) e^{(\sqrt{2})^{2} + (\sqrt{2})^{2}} = 4 e^{4}$ \\ 
+Luego, f alcanza máximo absoluto en $P_{2}$ y $P_{3}$ y mínimo absoluto en $P_{1}$.
+
 \subsection*{Multiplicadores de Lagrange}
 \label{subsec:multiplicadores_lagrange}
 Recordemos que los Multiplicadores de Lagrange solo nos sirve para estudiar los bordes. Es un teorema más fuerte que el teorema de fermat que nos decía que si la derivada se anula entonces es un punto crítico. \\
